@@ -1,0 +1,197 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" type="device">
+  <diagram id="05-actividad-reserva" name="05 | Actividad de reserva por práctica">
+    <mxGraphModel dx="1140" dy="830" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1140" pageHeight="830" background="#ffffff">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="shape-3" value="" style="shape=rectangle;rounded=1;html=0;whiteSpace=wrap;fillColor=#e8f2fa;strokeColor=#087d82;strokeWidth=1.3;" vertex="1" parent="1">
+          <mxGeometry x="380.000" y="100.000" width="400.000" height="65.000" as="geometry" />
+        </mxCell>
+        <mxCell id="shape-7" value="" style="shape=rhombus;html=0;whiteSpace=wrap;fillColor=#fff2d9;strokeColor=#087d82;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="415.000" y="178.000" width="330.000" height="74.000" as="geometry" />
+        </mxCell>
+        <mxCell id="shape-17" value="" style="shape=rhombus;html=0;whiteSpace=wrap;fillColor=#fff2d9;strokeColor=#087d82;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="415.000" y="266.000" width="330.000" height="74.000" as="geometry" />
+        </mxCell>
+        <mxCell id="shape-21" value="" style="shape=rectangle;rounded=1;html=0;whiteSpace=wrap;fillColor=#e8f2fa;strokeColor=#087d82;strokeWidth=1.3;" vertex="1" parent="1">
+          <mxGeometry x="40.000" y="335.000" width="330.000" height="90.000" as="geometry" />
+        </mxCell>
+        <mxCell id="shape-26" value="" style="shape=rectangle;rounded=1;html=0;whiteSpace=wrap;fillColor=#e8f2fa;strokeColor=#087d82;strokeWidth=1.3;" vertex="1" parent="1">
+          <mxGeometry x="40.000" y="445.000" width="330.000" height="95.000" as="geometry" />
+        </mxCell>
+        <mxCell id="shape-34" value="" style="shape=rectangle;rounded=1;html=0;whiteSpace=wrap;fillColor=#e8f2fa;strokeColor=#087d82;strokeWidth=1.3;" vertex="1" parent="1">
+          <mxGeometry x="400.000" y="350.000" width="610.000" height="65.000" as="geometry" />
+        </mxCell>
+        <mxCell id="shape-41" value="" style="shape=rectangle;rounded=1;html=0;whiteSpace=wrap;fillColor=#e8f2fa;strokeColor=#087d82;strokeWidth=1.3;" vertex="1" parent="1">
+          <mxGeometry x="400.000" y="445.000" width="610.000" height="70.000" as="geometry" />
+        </mxCell>
+        <mxCell id="shape-45" value="" style="shape=rectangle;rounded=1;html=0;whiteSpace=wrap;fillColor=#e8f2fa;strokeColor=#087d82;strokeWidth=1.3;" vertex="1" parent="1">
+          <mxGeometry x="400.000" y="550.000" width="610.000" height="70.000" as="geometry" />
+        </mxCell>
+        <mxCell id="shape-49" value="" style="shape=rectangle;rounded=1;html=0;whiteSpace=wrap;fillColor=#e8f2fa;strokeColor=#087d82;strokeWidth=1.3;" vertex="1" parent="1">
+          <mxGeometry x="400.000" y="655.000" width="610.000" height="70.000" as="geometry" />
+        </mxCell>
+        <mxCell id="text-1" value="05 | Actividad de reserva por práctica" style="text;html=0;align=left;verticalAlign=top;whiteSpace=nowrap;overflow=visible;resizable=1;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=25.0;fontStyle=1;fontColor=#143345;" vertex="1" parent="1">
+          <mxGeometry x="28.000" y="5.000" width="447.300" height="33.750" as="geometry" />
+        </mxCell>
+        <mxCell id="text-2" value="Recorrido resumido de CU-13 a CU-16 y CU-36 a CU-37; detalle y excepciones en las fichas." style="text;html=0;align=left;verticalAlign=top;whiteSpace=nowrap;overflow=visible;resizable=1;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=14.0;fontStyle=0;fontColor=#4c6173;" vertex="1" parent="1">
+          <mxGeometry x="28.000" y="46.000" width="584.412" height="18.900" as="geometry" />
+        </mxCell>
+        <mxCell id="text-4" value="Identificar actor, paciente, entidad y permisos" style="text;html=0;align=left;verticalAlign=top;whiteSpace=nowrap;overflow=visible;resizable=1;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=17.0;fontStyle=0;fontColor=#143345;" vertex="1" parent="shape-3">
+          <mxGeometry x="28.967" y="7.000" width="346.040" height="22.950" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-5" style="html=0;rounded=0;startArrow=none;endArrow=block;endFill=1;strokeColor=#8aa1b2;strokeWidth=1.4;exitX=0.50000;exitY=1.00000;exitPerimeter=0;entryX=0.50000;entryY=0.00000;entryPerimeter=0;" edge="1" parent="1" source="shape-3" target="shape-7">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580.000" y="165.000" as="sourcePoint" />
+            <mxPoint x="580.000" y="178.000" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="text-8" value="¿Opera personal autorizado?" style="text;html=0;align=left;verticalAlign=top;whiteSpace=nowrap;overflow=visible;resizable=1;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=16.0;fontStyle=0;fontColor=#143345;" vertex="1" parent="shape-7">
+          <mxGeometry x="60.938" y="26.000" width="212.096" height="21.600" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-9" style="html=0;rounded=0;startArrow=none;endArrow=none;strokeColor=#8aa1b2;strokeWidth=1.4;exitX=1.00000;exitY=0.50000;exitPerimeter=0;" edge="1" parent="1" source="shape-7">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="745.000" y="215.000" as="sourcePoint" />
+            <mxPoint x="1040.000" y="215.000" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="text-10" value="Sí" style="text;html=0;align=left;verticalAlign=top;whiteSpace=nowrap;overflow=visible;resizable=1;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=14.0;fontStyle=0;fontColor=#143345;" vertex="1" parent="1">
+          <mxGeometry x="858.386" y="188.000" width="17.230" height="18.900" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-11" style="html=0;rounded=0;startArrow=none;endArrow=none;strokeColor=#8aa1b2;strokeWidth=1.4;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1040.000" y="215.000" as="sourcePoint" />
+            <mxPoint x="1040.000" y="377.000" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-12" style="html=0;rounded=0;startArrow=none;endArrow=block;endFill=1;strokeColor=#8aa1b2;strokeWidth=1.4;entryX=1.00000;entryY=0.41538;entryPerimeter=0;" edge="1" parent="1" target="shape-34">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1040.000" y="377.000" as="sourcePoint" />
+            <mxPoint x="1010.000" y="377.000" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-14" style="html=0;rounded=0;startArrow=none;endArrow=block;endFill=1;strokeColor=#8aa1b2;strokeWidth=1.4;exitX=0.50000;exitY=1.00000;exitPerimeter=0;entryX=0.50000;entryY=0.00000;entryPerimeter=0;" edge="1" parent="1" source="shape-7" target="shape-17">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580.000" y="252.000" as="sourcePoint" />
+            <mxPoint x="580.000" y="266.000" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="text-16" value="No" style="text;html=0;align=left;verticalAlign=top;whiteSpace=nowrap;overflow=visible;resizable=1;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=13.0;fontStyle=0;fontColor=#143345;" vertex="1" parent="1">
+          <mxGeometry x="610.000" y="250.000" width="20.614" height="17.550" as="geometry" />
+        </mxCell>
+        <mxCell id="text-18" value="¿Consulta base elegible?" style="text;html=0;align=left;verticalAlign=top;whiteSpace=nowrap;overflow=visible;resizable=1;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=16.0;fontStyle=0;fontColor=#143345;" vertex="1" parent="shape-17">
+          <mxGeometry x="74.719" y="26.000" width="184.528" height="21.600" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-19" style="html=0;rounded=0;startArrow=none;endArrow=none;strokeColor=#8aa1b2;strokeWidth=1.4;exitX=0.00000;exitY=0.50000;exitPerimeter=0;" edge="1" parent="1" source="shape-17">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="415.000" y="303.000" as="sourcePoint" />
+            <mxPoint x="205.000" y="303.000" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="text-20" value="No: otra práctica" style="text;html=0;align=left;verticalAlign=top;whiteSpace=nowrap;overflow=visible;resizable=1;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=14.0;fontStyle=0;fontColor=#143345;" vertex="1" parent="1">
+          <mxGeometry x="268.645" y="276.000" width="106.704" height="18.900" as="geometry" />
+        </mxCell>
+        <mxCell id="text-22" value="CU-16: solicitar gestión sin ocupar" style="text;html=0;align=left;verticalAlign=top;whiteSpace=nowrap;overflow=visible;resizable=1;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=17.0;fontStyle=0;fontColor=#143345;" vertex="1" parent="shape-21">
+          <mxGeometry x="35.553" y="7.000" width="262.859" height="22.950" as="geometry" />
+        </mxCell>
+        <mxCell id="text-23" value="capacidad" style="text;html=0;align=left;verticalAlign=top;whiteSpace=nowrap;overflow=visible;resizable=1;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=17.0;fontStyle=0;fontColor=#143345;" vertex="1" parent="shape-21">
+          <mxGeometry x="126.248" y="28.250" width="81.486" height="22.950" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-24" style="html=0;rounded=0;startArrow=none;endArrow=block;endFill=1;strokeColor=#8aa1b2;strokeWidth=1.4;entryX=0.50000;entryY=0.00000;entryPerimeter=0;" edge="1" parent="1" target="shape-21">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="205.000" y="303.000" as="sourcePoint" />
+            <mxPoint x="205.000" y="335.000" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="text-27" value="CU-15: personal con facultad" style="text;html=0;align=left;verticalAlign=top;whiteSpace=nowrap;overflow=visible;resizable=1;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=17.0;fontStyle=0;fontColor=#143345;" vertex="1" parent="shape-26">
+          <mxGeometry x="54.911" y="7.000" width="224.150" height="22.950" as="geometry" />
+        </mxCell>
+        <mxCell id="text-28" value="selecciona oferta y horario" style="text;html=0;align=left;verticalAlign=top;whiteSpace=nowrap;overflow=visible;resizable=1;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=17.0;fontStyle=0;fontColor=#143345;" vertex="1" parent="shape-26">
+          <mxGeometry x="65.308" y="28.250" width="203.359" height="22.950" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-29" style="html=0;rounded=0;startArrow=none;endArrow=block;endFill=1;strokeColor=#8aa1b2;strokeWidth=1.4;exitX=0.50000;exitY=1.00000;exitPerimeter=0;entryX=0.50000;entryY=0.00000;entryPerimeter=0;" edge="1" parent="1" source="shape-21" target="shape-26">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="205.000" y="425.000" as="sourcePoint" />
+            <mxPoint x="205.000" y="445.000" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-31" style="html=0;rounded=0;startArrow=none;endArrow=block;endFill=1;strokeColor=#8aa1b2;strokeWidth=1.4;exitX=0.50000;exitY=1.00000;exitPerimeter=0;entryX=0.29508;entryY=0.00000;entryPerimeter=0;" edge="1" parent="1" source="shape-17" target="shape-34">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580.000" y="340.000" as="sourcePoint" />
+            <mxPoint x="580.000" y="350.000" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="text-33" value="Sí" style="text;html=0;align=left;verticalAlign=top;whiteSpace=nowrap;overflow=visible;resizable=1;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=13.0;fontStyle=0;fontColor=#143345;" vertex="1" parent="1">
+          <mxGeometry x="605.000" y="334.000" width="16.285" height="17.550" as="geometry" />
+        </mxCell>
+        <mxCell id="text-35" value="CU-13: calcular elegibilidad y disponibilidad; aún no ocupa" style="text;html=0;align=left;verticalAlign=top;whiteSpace=nowrap;overflow=visible;resizable=1;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=17.0;fontStyle=0;fontColor=#143345;" vertex="1" parent="shape-34">
+          <mxGeometry x="84.805" y="7.000" width="444.300" height="22.950" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-36" style="html=0;rounded=0;startArrow=none;endArrow=none;strokeColor=#8aa1b2;strokeWidth=1.4;exitX=0.50000;exitY=1.00000;exitPerimeter=0;" edge="1" parent="1" source="shape-26">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="205.000" y="540.000" as="sourcePoint" />
+            <mxPoint x="205.000" y="568.000" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-37" style="html=0;rounded=0;startArrow=none;endArrow=none;strokeColor=#8aa1b2;strokeWidth=1.4;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="205.000" y="568.000" as="sourcePoint" />
+            <mxPoint x="385.000" y="568.000" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-38" style="html=0;rounded=0;startArrow=none;endArrow=none;strokeColor=#8aa1b2;strokeWidth=1.4;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="385.000" y="568.000" as="sourcePoint" />
+            <mxPoint x="385.000" y="385.000" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-39" style="html=0;rounded=0;startArrow=none;endArrow=block;endFill=1;strokeColor=#8aa1b2;strokeWidth=1.4;entryX=0.00000;entryY=0.53846;entryPerimeter=0;" edge="1" parent="1" target="shape-34">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="385.000" y="385.000" as="sourcePoint" />
+            <mxPoint x="400.000" y="385.000" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="text-42" value="CU-36: validar cuota y adquirir pre-reserva; ya ocupa" style="text;html=0;align=left;verticalAlign=top;whiteSpace=nowrap;overflow=visible;resizable=1;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=17.0;fontStyle=0;fontColor=#143345;" vertex="1" parent="shape-41">
+          <mxGeometry x="105.159" y="7.000" width="403.636" height="22.950" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-43" style="html=0;rounded=0;startArrow=none;endArrow=block;endFill=1;strokeColor=#8aa1b2;strokeWidth=1.4;exitX=0.50000;exitY=1.00000;exitPerimeter=0;entryX=0.50000;entryY=0.00000;entryPerimeter=0;" edge="1" parent="1" source="shape-34" target="shape-41">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="705.000" y="415.000" as="sourcePoint" />
+            <mxPoint x="705.000" y="445.000" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="text-46" value="CU-37: revalidar y registrar; conservar ocupación" style="text;html=0;align=left;verticalAlign=top;whiteSpace=nowrap;overflow=visible;resizable=1;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=17.0;fontStyle=0;fontColor=#143345;" vertex="1" parent="shape-45">
+          <mxGeometry x="119.814" y="7.000" width="374.328" height="22.950" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-47" style="html=0;rounded=0;startArrow=none;endArrow=block;endFill=1;strokeColor=#8aa1b2;strokeWidth=1.4;exitX=0.50000;exitY=1.00000;exitPerimeter=0;entryX=0.50000;entryY=0.00000;entryPerimeter=0;" edge="1" parent="1" source="shape-41" target="shape-45">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="705.000" y="515.000" as="sourcePoint" />
+            <mxPoint x="705.000" y="550.000" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="text-50" value="Turno registrado; asistencia pendiente. CU-18 confirma después" style="text;html=0;align=left;verticalAlign=top;whiteSpace=nowrap;overflow=visible;resizable=1;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=17.0;fontStyle=0;fontColor=#143345;" vertex="1" parent="shape-49">
+          <mxGeometry x="61.675" y="7.000" width="490.591" height="22.950" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-51" style="html=0;rounded=0;startArrow=none;endArrow=block;endFill=1;strokeColor=#8aa1b2;strokeWidth=1.4;exitX=0.50000;exitY=1.00000;exitPerimeter=0;entryX=0.50000;entryY=0.00000;entryPerimeter=0;" edge="1" parent="1" source="shape-45" target="shape-49">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="705.000" y="620.000" as="sourcePoint" />
+            <mxPoint x="705.000" y="655.000" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="text-53" value="Conflicto, cuota o vencimiento:" style="text;html=0;align=left;verticalAlign=top;whiteSpace=nowrap;overflow=visible;resizable=1;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=16.0;fontStyle=0;fontColor=#4c6173;" vertex="1" parent="1">
+          <mxGeometry x="45.000" y="649.000" width="221.872" height="21.600" as="geometry" />
+        </mxCell>
+        <mxCell id="text-54" value="sin éxito aparente ni desplazamiento" style="text;html=0;align=left;verticalAlign=top;whiteSpace=nowrap;overflow=visible;resizable=1;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=16.0;fontStyle=0;fontColor=#4c6173;" vertex="1" parent="1">
+          <mxGeometry x="45.000" y="669.000" width="263.680" height="21.600" as="geometry" />
+        </mxCell>
+        <mxCell id="text-55" value="de una ocupación válida posterior." style="text;html=0;align=left;verticalAlign=top;whiteSpace=nowrap;overflow=visible;resizable=1;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=16.0;fontStyle=0;fontColor=#4c6173;" vertex="1" parent="1">
+          <mxGeometry x="45.000" y="689.000" width="247.680" height="21.600" as="geometry" />
+        </mxCell>
+        <mxCell id="text-56" value="El mensaje no reserva. Registrar no confirma. El servidor calcula duración, pausas y condiciones." style="text;html=0;align=left;verticalAlign=top;whiteSpace=nowrap;overflow=visible;resizable=1;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=13.0;fontStyle=0;fontColor=#4c6173;" vertex="1" parent="1">
+          <mxGeometry x="28.000" y="797.000" width="566.094" height="17.550" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

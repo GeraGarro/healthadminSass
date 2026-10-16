@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="1150" height="935" preserveAspectRatio="xMinYMin meet" viewBox="0 0 1150 935" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>02 | Acceso, admisión y delegación</title>
+	<desc>Actores repetidos por fila para evitar cruces. Cada asociación exige su facultad específica.</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="1150" height="935"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-935)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="0" width="1150" height="935" rx="8" ry="8" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 1.3; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="28" y="905.0" style="font-family: Arial, sans-serif; font-weight: 700; font-size: 25px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,1810) scale(1,-1)">02 | Acceso, admisión y delegación</text>
+			<text x="28" y="875.0" style="font-family: Arial, sans-serif; font-size: 14px;fill: rgb(30%,38%,45%); stroke:none;" transform="translate(0,1750) scale(1,-1)">Actores repetidos por fila para evitar cruces. Cada asociación exige su facultad específica.</text>
+			<rect x="265" y="60" width="625" height="785" style="stroke: rgb(54%,63%,70%); stroke-linecap: butt; stroke-width: 1.3; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="280" y="821.0" style="font-family: Arial, sans-serif; font-weight: 700; font-size: 15px;fill: rgb(30%,38%,45%); stroke:none;" transform="translate(0,1642) scale(1,-1)">Sistema de Gestión Administrativa de Salud</text>
+			<circle cx="125" cy="802" r="8" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<path d="M 125,794 L 125,768" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 108,785 L 142,785" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 125,768 L 111,750" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 125,768 L 139,750" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<text x="92.70361328125" y="730.0" style="font-family: Arial, sans-serif; font-size: 14px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,1460) scale(1,-1)">Solicitante</text>
+			<path d="M 148,765 L 350,765" style="stroke: rgb(54%,63%,70%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<ellipse cx="575.0" cy="765.0" rx="225.0" ry="35.0" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(91%,95%,98%); fill-rule: evenodd;"/>
+			<text x="476.897216796875" y="760.0" style="font-family: Arial, sans-serif; font-size: 17px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,1520) scale(1,-1)">CU-01 | Solicitar admisión</text>
+			<circle cx="125" cy="692" r="8" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<path d="M 125,684 L 125,658" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 108,675 L 142,675" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 125,658 L 111,640" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 125,658 L 139,640" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<text x="47.94873046875" y="620.0" style="font-family: Arial, sans-serif; font-size: 14px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,1240) scale(1,-1)">Personal con facultad de</text>
+			<text x="96.986328125" y="602.5" style="font-family: Arial, sans-serif; font-size: 14px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,1205) scale(1,-1)">admisión</text>
+			<path d="M 148,655 L 350,655" style="stroke: rgb(54%,63%,70%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<ellipse cx="575.0" cy="655.0" rx="225.0" ry="35.0" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(91%,95%,98%); fill-rule: evenodd;"/>
+			<text x="397.98583984375" y="650.0" style="font-family: Arial, sans-serif; font-size: 17px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,1300) scale(1,-1)">CU-02 | Resolver admisión o habilitar conocido</text>
+			<circle cx="125" cy="582" r="8" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<path d="M 125,574 L 125,548" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 108,565 L 142,565" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 125,548 L 111,530" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 125,548 L 139,530" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<text x="46.77978515625" y="510.0" style="font-family: Arial, sans-serif; font-size: 14px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,1020) scale(1,-1)">Paciente o representante</text>
+			<path d="M 148,545 L 350,545" style="stroke: rgb(54%,63%,70%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<ellipse cx="575.0" cy="545.0" rx="225.0" ry="35.0" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(91%,95%,98%); fill-rule: evenodd;"/>
+			<text x="422.09130859375" y="540.0" style="font-family: Arial, sans-serif; font-size: 17px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,1080) scale(1,-1)">CU-03 | Activar acceso y vincular cuenta</text>
+			<rect x="942" y="533" width="176" height="60" rx="8" ry="8" style="stroke: rgb(54%,63%,70%); stroke-linecap: butt; stroke-width: 1.3; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="1008.319580078125" y="571.0" style="font-family: Arial, sans-serif; font-size: 13px;fill: rgb(30%,38%,45%); stroke:none;" transform="translate(0,1142) scale(1,-1)">«actor»</text>
+			<text x="961.55078125" y="550.0" style="font-family: Arial, sans-serif; font-weight: 700; font-size: 16px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,1100) scale(1,-1)">Correo / identidad</text>
+			<path d="M 800,545 L 935,545" style="stroke: rgb(54%,63%,70%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<circle cx="125" cy="472" r="8" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<path d="M 125,464 L 125,438" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 108,455 L 142,455" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 125,438 L 111,420" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 125,438 L 139,420" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<text x="34.724609375" y="400.0" style="font-family: Arial, sans-serif; font-size: 14px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,800) scale(1,-1)">Usuario con contexto vigente</text>
+			<path d="M 148,435 L 350,435" style="stroke: rgb(54%,63%,70%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<ellipse cx="575.0" cy="435.0" rx="225.0" ry="35.0" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(91%,95%,98%); fill-rule: evenodd;"/>
+			<text x="425.864013671875" y="430.0" style="font-family: Arial, sans-serif; font-size: 17px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,860) scale(1,-1)">CU-04 | Ingresar y seleccionar contexto</text>
+			<rect x="942" y="423" width="176" height="60" rx="8" ry="8" style="stroke: rgb(54%,63%,70%); stroke-linecap: butt; stroke-width: 1.3; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="1008.319580078125" y="461.0" style="font-family: Arial, sans-serif; font-size: 13px;fill: rgb(30%,38%,45%); stroke:none;" transform="translate(0,922) scale(1,-1)">«actor»</text>
+			<text x="963.76171875" y="440.0" style="font-family: Arial, sans-serif; font-weight: 700; font-size: 16px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,880) scale(1,-1)">Identidad externa</text>
+			<path d="M 800,435 L 935,435" style="stroke: rgb(54%,63%,70%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<circle cx="125" cy="362" r="8" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<path d="M 125,354 L 125,328" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 108,345 L 142,345" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 125,328 L 111,310" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 125,328 L 139,310" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<text x="47.5693359375" y="290.0" style="font-family: Arial, sans-serif; font-size: 14px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,580) scale(1,-1)">Equipo / administradores</text>
+			<path d="M 148,325 L 350,325" style="stroke: rgb(54%,63%,70%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<ellipse cx="575.0" cy="325.0" rx="225.0" ry="35.0" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(91%,95%,98%); fill-rule: evenodd;"/>
+			<text x="417.812255859375" y="320.0" style="font-family: Arial, sans-serif; font-size: 17px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,640) scale(1,-1)">CU-05 | Recuperar contraseña del equipo</text>
+			<rect x="942" y="313" width="176" height="60" rx="8" ry="8" style="stroke: rgb(54%,63%,70%); stroke-linecap: butt; stroke-width: 1.3; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="1008.319580078125" y="351.0" style="font-family: Arial, sans-serif; font-size: 13px;fill: rgb(30%,38%,45%); stroke:none;" transform="translate(0,702) scale(1,-1)">«actor»</text>
+			<text x="1003.7734375" y="330.0" style="font-family: Arial, sans-serif; font-weight: 700; font-size: 16px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,660) scale(1,-1)">Correo</text>
+			<path d="M 800,325 L 935,325" style="stroke: rgb(54%,63%,70%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<circle cx="125" cy="252" r="8" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<path d="M 125,244 L 125,218" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 108,235 L 142,235" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 125,218 L 111,200" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 125,218 L 139,200" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<text x="58.45556640625" y="180.0" style="font-family: Arial, sans-serif; font-size: 14px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,360) scale(1,-1)">Profesional otorgante</text>
+			<path d="M 148,215 L 350,215" style="stroke: rgb(54%,63%,70%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<ellipse cx="575.0" cy="215.0" rx="225.0" ry="35.0" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(91%,95%,98%); fill-rule: evenodd;"/>
+			<text x="433.417724609375" y="210.0" style="font-family: Arial, sans-serif; font-size: 17px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,420) scale(1,-1)">CU-08 | Otorgar o revocar delegación</text>
+			<circle cx="125" cy="142" r="8" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<path d="M 125,134 L 125,108" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 108,125 L 142,125" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 125,108 L 111,90" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 125,108 L 139,90" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<text x="58.0625" y="70.0" style="font-family: Arial, sans-serif; font-size: 14px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,140) scale(1,-1)">Solicitante de entidad</text>
+			<path d="M 148,105 L 350,105" style="stroke: rgb(54%,63%,70%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<ellipse cx="575.0" cy="105.0" rx="225.0" ry="35.0" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(100%,95%,85%); fill-rule: evenodd;"/>
+			<text x="417.820556640625" y="100.0" style="font-family: Arial, sans-serif; font-size: 17px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,200) scale(1,-1)">CU-35 | Solicitar incorporación de entidad</text>
+			<circle cx="1030" cy="142" r="8" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<path d="M 1030,134 L 1030,108" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 1013,125 L 1047,125" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 1030,108 L 1016,90" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 1030,108 L 1044,90" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<text x="969.310546875" y="70.0" style="font-family: Arial, sans-serif; font-size: 14px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,140) scale(1,-1)">Plataforma revisora</text>
+			<path d="M 800,105 L 935,105" style="stroke: rgb(54%,63%,70%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<text x="28" y="20.0" style="font-family: Arial, sans-serif; font-size: 13px;fill: rgb(30%,38%,45%); stroke:none;" transform="translate(0,40) scale(1,-1)">CU-35 (ámbar) es propuesto y no aprobado. Paciente y representante conservan ámbitos distintos.</text>
+		</g>
+	</g>
+</svg>

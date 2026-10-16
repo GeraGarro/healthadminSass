@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="1190" height="790" preserveAspectRatio="xMinYMin meet" viewBox="0 0 1190 790" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>03 | Reserva: objetivos y subfunciones</title>
+	<desc>UML: &lt;&lt;include&gt;&gt; indica comportamiento obligatorio; las flechas no indican secuencia temporal.</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="1190" height="790"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-790)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="0" width="1190" height="790" rx="8" ry="8" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 1.3; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="28" y="760.0" style="font-family: Arial, sans-serif; font-weight: 700; font-size: 25px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,1520) scale(1,-1)">03 | Reserva: objetivos y subfunciones</text>
+			<text x="28" y="730.0" style="font-family: Arial, sans-serif; font-size: 14px;fill: rgb(30%,38%,45%); stroke:none;" transform="translate(0,1460) scale(1,-1)">UML: &lt;&lt;include&gt;&gt; indica comportamiento obligatorio; las flechas no indican secuencia temporal.</text>
+			<rect x="280" y="85" width="880" height="610" style="stroke: rgb(54%,63%,70%); stroke-linecap: butt; stroke-width: 1.3; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="295" y="671.0" style="font-family: Arial, sans-serif; font-weight: 700; font-size: 15px;fill: rgb(30%,38%,45%); stroke:none;" transform="translate(0,1342) scale(1,-1)">Sistema de Gestión Administrativa de Salud</text>
+			<circle cx="100" cy="597" r="8" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<path d="M 100,589 L 100,563" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 83,580 L 117,580" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 100,563 L 86,545" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 100,563 L 114,545" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<text x="40.84521484375" y="525.0" style="font-family: Arial, sans-serif; font-size: 14px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,1050) scale(1,-1)">Paciente habilitado</text>
+			<circle cx="100" cy="467" r="8" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<path d="M 100,459 L 100,433" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 83,450 L 117,450" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 100,433 L 86,415" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 100,433 L 114,415" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<text x="22.17626953125" y="395.0" style="font-family: Arial, sans-serif; font-size: 14px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,790) scale(1,-1)">Representante verificado</text>
+			<circle cx="100" cy="332" r="8" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<path d="M 100,324 L 100,298" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 83,315 L 117,315" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 100,298 L 86,280" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 100,298 L 114,280" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<text x="30.34521484375" y="260.0" style="font-family: Arial, sans-serif; font-size: 14px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,520) scale(1,-1)">Profesional autorizado</text>
+			<circle cx="100" cy="202" r="8" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<path d="M 100,194 L 100,168" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 83,185 L 117,185" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 100,168 L 86,150" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 100,168 L 114,150" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<text x="36.95556640625" y="130.0" style="font-family: Arial, sans-serif; font-size: 14px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,260) scale(1,-1)">Secretaría delegada</text>
+			<ellipse cx="535.0" cy="510.0" rx="210.0" ry="55.0" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(91%,95%,98%); fill-rule: evenodd;"/>
+			<text x="394.845458984375" y="505.0" style="font-family: Arial, sans-serif; font-size: 17px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,1010) scale(1,-1)">CU-14 | Reservar Consulta por portal</text>
+			<ellipse cx="535.0" cy="230.0" rx="210.0" ry="55.0" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(91%,95%,98%); fill-rule: evenodd;"/>
+			<text x="386.802001953125" y="225.0" style="font-family: Arial, sans-serif; font-size: 17px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,450) scale(1,-1)">CU-15 | Registrar turno desde personal</text>
+			<ellipse cx="975.0" cy="510.0" rx="150.0" ry="55.0" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(91%,95%,98%); fill-rule: evenodd;"/>
+			<text x="868.397216796875" y="505.0" style="font-family: Arial, sans-serif; font-size: 17px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,1010) scale(1,-1)">CU-36 | Adquirir pre-reserva</text>
+			<ellipse cx="975.0" cy="230.0" rx="150.0" ry="55.0" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(91%,95%,98%); fill-rule: evenodd;"/>
+			<text x="861.77734375" y="235.625" style="font-family: Arial, sans-serif; font-size: 17px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,471) scale(1,-1)">CU-37 | Completar registro de</text>
+			<text x="955.6259765625" y="214.375" style="font-family: Arial, sans-serif; font-size: 17px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,428) scale(1,-1)">turno</text>
+			<path d="M 125,560 L 330,530" style="stroke: rgb(54%,63%,70%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 125,430 L 330,485" style="stroke: rgb(54%,63%,70%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 125,295 L 330,250" style="stroke: rgb(54%,63%,70%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 125,165 L 330,205" style="stroke: rgb(54%,63%,70%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 745,510 L 825,510" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1.4; stroke-dasharray: 6, 4;"/>
+			<path d="M 815.243056,504.920429 L 825,510" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 815.243056,515.079571 L 825,510" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<text x="740.03125" y="527.0" style="font-family: Arial, sans-serif; font-size: 14px;fill: rgb(3%,49%,51%); stroke:none;" transform="translate(0,1054) scale(1,-1)">«include»</text>
+			<path d="M 745,230 L 825,230" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1.4; stroke-dasharray: 6, 4;"/>
+			<path d="M 815.243056,224.920429 L 825,230" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 815.243056,235.079571 L 825,230" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<text x="740.03125" y="247.0" style="font-family: Arial, sans-serif; font-size: 14px;fill: rgb(3%,49%,51%); stroke:none;" transform="translate(0,494) scale(1,-1)">«include»</text>
+			<path d="M 675,465 L 860,275" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1.4; stroke-dasharray: 6, 4;"/>
+			<path d="M 849.554027,278.446976 L 860,275" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 856.832759,285.534163 L 860,275" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<text x="762.03125" y="400.0" style="font-family: Arial, sans-serif; font-size: 14px;fill: rgb(3%,49%,51%); stroke:none;" transform="translate(0,800) scale(1,-1)">«include»</text>
+			<path d="M 675,275 L 860,465" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1.4; stroke-dasharray: 6, 4;"/>
+			<path d="M 856.832759,454.465837 L 860,465" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 849.554027,461.553024 L 860,465" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<text x="762.03125" y="325.0" style="font-family: Arial, sans-serif; font-size: 14px;fill: rgb(3%,49%,51%); stroke:none;" transform="translate(0,650) scale(1,-1)">«include»</text>
+			<rect x="320" y="600" width="800" height="65" rx="8" ry="8" style="stroke: rgb(54%,63%,70%); stroke-linecap: butt; stroke-width: 1.3; fill: rgb(95%,96%,98%); fill-rule: evenodd;"/>
+			<text x="340" y="640.0" style="font-family: Arial, sans-serif; font-size: 16px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,1280) scale(1,-1)">Siempre: autorización, práctica, elegibilidad, cuota y exclusión global.</text>
+			<text x="340" y="617.0" style="font-family: Arial, sans-serif; font-size: 16px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,1234) scale(1,-1)">Solo la práctica base Consulta habilitada admite autoselección.</text>
+			<text x="28" y="20.0" style="font-family: Arial, sans-serif; font-size: 13px;fill: rgb(30%,38%,45%); stroke:none;" transform="translate(0,40) scale(1,-1)">CU-36 ocupa capacidad; CU-37 la conserva. Asistencia pendiente al registrar. Errores: ver fichas.</text>
+		</g>
+	</g>
+</svg>

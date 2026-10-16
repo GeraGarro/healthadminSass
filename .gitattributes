@@ -1,0 +1,3 @@
+# Conservar los archivos binarios sin conversiones de fin de línea.
+*.pdf binary
+*.png binary

@@ -1,0 +1,39 @@
+@startuml
+left to right direction
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam defaultFontName Arial
+title Acceso y admisión
+rectangle "Sistema de Gestión Administrativa de Salud" {
+ usecase "CU-01\nSolicitar admisión" as C1
+ usecase "CU-02\nResolver admisión o habilitar conocido" as C2
+ usecase "CU-03\nActivar acceso y vincular cuenta" as C3
+ usecase "CU-04\nIngresar y seleccionar contexto" as C4
+ usecase "CU-05\nRecuperar contraseña del equipo" as C5
+ usecase "CU-08\nOtorgar o revocar delegación" as C8
+ usecase "CU-35\nSolicitar incorporación de entidad" as C35
+}
+actor "Solicitante" as A0
+A0 -- C1
+actor "Personal con facultad de admisión" as A1
+A1 -- C2
+actor "Paciente o representante" as A2
+A2 -- C3
+actor "Correo / identidad" as E2 <<servicio externo>>
+C3 -- E2
+actor "Usuario con contexto vigente" as A3
+A3 -- C4
+actor "Identidad externa" as E3 <<servicio externo>>
+C4 -- E3
+actor "Equipo / administradores" as A4
+A4 -- C5
+actor "Correo" as E4 <<servicio externo>>
+C5 -- E4
+actor "Profesional otorgante" as A5
+A5 -- C8
+actor "Solicitante de entidad" as A6
+A6 -- C35
+actor "Plataforma revisora" as E6
+C35 -- E6
+note bottom of C35 : Propuesto; no aprobado. Sin permisos por enviar formulario.
+@enduml

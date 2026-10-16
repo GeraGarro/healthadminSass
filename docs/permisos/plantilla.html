@@ -1,0 +1,115 @@
+<div id="matriz-permisos-salud">
+  <h2>Matriz de permisos · Beta</h2>
+  <div class="text-small text-muted">16/10/2026 · Base documental vigente · Detalle de permisos para revisión</div>
+  <div class="viz-controls">
+    <label class="form-label">Ámbito<select class="form-select" data-grupo aria-label="Ámbito de permisos"></select></label>
+    <label class="form-label">Actor<select class="form-select" data-rol aria-label="Actor de la matriz"></select></label>
+  </div>
+  <div class="text-small" data-conteo aria-live="polite"></div>
+  <div class="table-responsive">
+    <table class="table table-sm">
+      <caption class="sr-only">Permisos por acción y actor. C: condicionado; D: delegado; F: facultad expresa; ?: pendiente; —: sin concesión por rol; X: prohibido.</caption>
+      <thead data-cabecera></thead>
+      <tbody data-filas></tbody>
+    </table>
+  </div>
+  <div class="viz-row text-small" aria-label="Leyenda" data-leyenda></div>
+  <div class="card" data-detalle aria-live="polite"></div>
+  <details>
+    <summary>Acceso previo, automatizaciones y límites comunes</summary>
+    <table class="table table-sm">
+      <caption>Estados del acceso de paciente / representante</caption>
+      <thead><tr><th scope="col">Estado</th><th scope="col">Alcance</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Sin admisión / solicitud pendiente</th><td>Formulario protegido. Sin ficha, reservas, pre-reservas ni chat privados.</td></tr>
+        <tr><th scope="row">Aprobado, activación pendiente</th><td>Completar activación y vinculación. Aún sin facultades privadas sobre la ficha.</td></tr>
+        <tr><th scope="row">Activo</th><td>Solo contexto, recursos y acciones autorizados. Representación y delegación vigentes cuando correspondan.</td></tr>
+        <tr><th scope="row">Rechazado / suspendido / revocado</th><td>Sin nuevas operaciones privadas en ese contexto. La cuenta puede conservar otro contexto autorizado.</td></tr>
+      </tbody>
+    </table>
+    <div class="table-responsive"><table class="table table-sm">
+      <caption>Actores técnicos y trabajos internos · facultades separadas</caption>
+      <thead><tr><th scope="col">Actor</th><th scope="col">Operación</th><th scope="col">Límite</th></tr></thead>
+      <tbody data-operaciones></tbody>
+    </table></div>
+    <div class="text-small">Autorización en servidor por entidad, recurso y acción. Revocación efectiva con pantalla abierta. Cuenta global, número de paciente, vínculo profesional y contacto no son permisos. Las marcas «?» y «—» no conceden acceso. Ninguna marca acredita implementación ni pruebas del producto.</div>
+  </details>
+  <style>
+    #matriz-permisos-salud { color: var(--foreground); }
+    #matriz-permisos-salud > * + * { margin-top: 16px; }
+    #matriz-permisos-salud .matrix-head { min-width: 66px; }
+    #matriz-permisos-salud .matrix-action { min-width: 230px; }
+    #matriz-permisos-salud .matrix-mark { display: inline-block; padding: 2px 8px; color: var(--foreground); border-radius: 4px; font-weight: 500; }
+    #matriz-permisos-salud .matrix-conditional { background: color-mix(in srgb, var(--viz-series-1) 18%, transparent); }
+    #matriz-permisos-salud .matrix-pending { background: color-mix(in srgb, var(--viz-series-2) 18%, transparent); }
+    #matriz-permisos-salud .matrix-blocked { background: color-mix(in srgb, var(--destructive) 18%, transparent); }
+    #matriz-permisos-salud .matrix-none { color: var(--muted-foreground); }
+    #matriz-permisos-salud .matrix-selected { background: var(--accent); color: var(--accent-foreground); }
+    #matriz-permisos-salud [data-detalle] > * + * { margin-top: 8px; }
+    #matriz-permisos-salud [data-leyenda] { gap: 12px; }
+  </style>
+  <script type="application/json" data-matriz>__MATRIZ_JSON__</script>
+  <script>
+    (() => {
+      const root = document.getElementById('matriz-permisos-salud');
+      const data = JSON.parse(root.querySelector('[data-matriz]').textContent);
+      const groupSelect = root.querySelector('[data-grupo]');
+      const roleSelect = root.querySelector('[data-rol]');
+      const groups = [...new Set(data.filas.map(row => row.g))];
+      const shortLabels = { C: 'Condicionado', D: 'Delegado', F: 'Facultad expresa', '?': 'Pendiente', '—': 'Sin concesión', X: 'Prohibido' };
+      const escape = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+      const markClass = code => ['C','D','F'].includes(code) ? 'matrix-conditional' : code === '?' ? 'matrix-pending' : code === 'X' ? 'matrix-blocked' : 'matrix-none';
+      const mark = code => `<span class="matrix-mark ${markClass(code)}" aria-label="${escape(shortLabels[code])}">${escape(code)}</span>`;
+      let state = { group: 'Turnos y disponibilidad', role: 'all', selected: 'MP-14' };
+      groupSelect.innerHTML = '<option value="all">Todos los ámbitos</option>' + groups.map(group => `<option value="${escape(group)}">${escape(group)}</option>`).join('');
+      roleSelect.innerHTML = '<option value="all">Todos los actores</option>' + data.roles.map((role, i) => `<option value="${i}">${escape(role)}</option>`).join('');
+      root.querySelector('[data-leyenda]').innerHTML = Object.entries(shortLabels).map(([code,label]) => `<span data-tooltip="${escape(data.leyenda[code])}">${mark(code)} ${escape(label)}</span>`).join('');
+      root.querySelector('[data-operaciones]').innerHTML = data.operaciones.map(row => `<tr><th scope="row">${escape(row[1])}</th><td>${escape(row[2])}</td><td>${escape(row[3])}<div class="text-small text-muted">${escape(row[4])}</div></td></tr>`).join('');
+
+      // Se acepta únicamente estado compatible con los actores, ámbitos e IDs de esta matriz.
+      function restore(saved) {
+        const value = saved?.privateContent || saved;
+        if (!value || typeof value !== 'object') return;
+        if (value.group === 'all' || groups.includes(value.group)) state.group = value.group;
+        if (value.role === 'all' || /^[0-5]$/.test(String(value.role))) state.role = String(value.role);
+        if (data.filas.some(row => row.id === value.selected)) state.selected = value.selected;
+      }
+
+      function render() {
+        groupSelect.value = state.group;
+        roleSelect.value = state.role;
+        const visible = data.filas.filter(row => state.group === 'all' || row.g === state.group);
+        const columns = data.roles.map((_, i) => i).filter(i => state.role === 'all' || String(i) === state.role);
+        if (!visible.some(row => row.id === state.selected)) state.selected = visible[0].id;
+        root.querySelector('[data-conteo]').textContent = `${visible.length} de ${data.filas.length} acciones · Seleccioná un identificador para ver condiciones y fuentes`;
+        root.querySelector('[data-cabecera]').innerHTML = '<tr><th scope="col" class="matrix-action">Acción</th>' + columns.map(i => `<th scope="col" class="matrix-head text-center">${escape(data.roles[i])}</th>`).join('') + '</tr>';
+        root.querySelector('[data-filas]').innerHTML = visible.map(row => `<tr class="${row.id === state.selected ? 'matrix-selected' : ''}"><th scope="row"><button class="btn btn-ghost" type="button" data-id="${row.id}" aria-label="Ver condiciones de ${escape(row.a)}" aria-pressed="${row.id === state.selected}">${row.id}</button> ${escape(row.a)}</th>${columns.map(i => `<td class="text-center">${mark(row.p[i])}</td>`).join('')}</tr>`).join('');
+        const selected = data.filas.find(row => row.id === state.selected);
+        const sources = selected.refs.map(key => data.fuentes[key][0]).join(' · ');
+        root.querySelector('[data-detalle]').innerHTML = `<div><strong>${escape(selected.id)} · ${escape(selected.a)}</strong></div><div>${escape(selected.n)}</div><div class="text-small">${escape(columns.map(i => `${data.roles[i]}: ${selected.p[i]} (${shortLabels[selected.p[i]]})`).join(' · '))}</div><div class="text-small text-muted">Fuentes: ${escape(sources)}</div><div class="text-small text-muted">Trazabilidad: ${escape(selected.cu)} · Abierto: ${escape(selected.open)}</div>`;
+      }
+
+      function save() {
+        const host = window.openai;
+        if (typeof host?.setWidgetState === 'function') {
+          Promise.resolve(host.setWidgetState({ modelContent: { matriz: 'Permisos beta 2026-10-16', ambito: state.group, actor: state.role === 'all' ? 'Todos' : data.roles[Number(state.role)], accion: state.selected }, privateContent: { ...state } })).catch(() => {});
+        }
+      }
+      groupSelect.addEventListener('change', () => { state.group = groupSelect.value; render(); save(); });
+      roleSelect.addEventListener('change', () => { state.role = roleSelect.value; render(); save(); });
+      root.querySelector('[data-filas]').addEventListener('click', event => {
+        const button = event.target.closest('button[data-id]');
+        if (!button) return;
+        state.selected = button.dataset.id;
+        render();
+        root.querySelector(`button[data-id="${state.selected}"]`).focus();
+        save();
+      });
+      window.addEventListener('openai:set_globals', event => {
+        if (event.detail?.globals?.widgetState) { restore(event.detail.globals.widgetState); render(); }
+      });
+      restore(window.openai?.widgetState);
+      render();
+    })();
+  </script>
+</div>

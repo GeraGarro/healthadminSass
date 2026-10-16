@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'none'; connect-src 'none'; form-action 'none'; base-uri 'none'">
+  <title>Acceso y registro · Gestión Salud · Maqueta</title>
+  <style>
+    :root {color-scheme:light; --ink:#17343d; --muted:#4f6971; --line:#c8d6da; --teal:#086b69; --pale:#edf6f4; --paper:#fff; --error:#a02927}
+    * {box-sizing:border-box}
+    body {margin:0; background:#f3f6f6; color:var(--ink); font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+    button,input,select {font:inherit}
+    button,a,input,select {touch-action:manipulation}
+    button {cursor:pointer}
+    :focus-visible {outline:3px solid #a86710; outline-offset:4px}
+    .review {padding:15px 24px; border-bottom:1px solid var(--line); background:var(--paper); display:flex; gap:12px 24px; align-items:center; justify-content:space-between; flex-wrap:wrap}
+    .review p {margin:0; font-size:13px; max-width:650px}
+    .review strong {font-weight:650}
+    .review label {font-size:13px}
+    .review select {margin-left:6px; padding:8px; border:1px solid var(--line); border-radius:8px; max-width:100%}
+    .layout {max-width:1120px; margin:48px auto; display:grid; grid-template-columns:0.85fr 1.15fr; min-height:650px; background:var(--paper); border:1px solid var(--line); border-radius:22px; overflow:hidden}
+    .intro {background:#103e47; color:#f7ffff; padding:44px; display:flex; flex-direction:column; align-items:flex-start}
+    .brand {display:flex; align-items:center; gap:12px; font-weight:650; letter-spacing:.02em}
+    .brand span {display:grid; place-items:center; width:36px; height:36px; border-radius:12px; background:#267078; font-size:25px}
+    .intro h1 {font-size:38px; line-height:1.15; margin:70px 0 20px; font-weight:600; letter-spacing:-.035em}
+    .intro p {color:#cce5e8; max-width:290px}
+    .intro .actors {margin-top:auto; padding-top:50px; font-size:14px; color:#cce5e8}
+    main {padding:46px 52px; min-width:0}
+    .eyebrow {text-transform:uppercase; font-size:12px; letter-spacing:.12em; color:var(--teal); font-weight:700; margin:0 0 12px}
+    h2 {font-size:27px; line-height:1.2; letter-spacing:-.025em; margin:0 0 16px; font-weight:650}
+    p {margin:0 0 22px}
+    .lead {color:var(--muted)}
+    label {display:block; margin-bottom:7px; font-size:14px; font-weight:550}
+    input,select {color:var(--ink); background:var(--paper); border:1px solid var(--line); border-radius:9px; min-height:46px; width:100%; padding:10px 12px}
+    input[type=checkbox] {min-height:20px; width:20px; margin:0}
+    .field {margin-bottom:20px}
+    .primary,.secondary {min-height:46px; padding:11px 16px; border-radius:9px; font-weight:600; width:100%; margin-top:8px}
+    .primary {background:var(--teal); color:#fff; border:1px solid var(--teal)}
+    .primary:hover {background:#075957}
+    .secondary {color:var(--ink); border:1px solid var(--line); background:var(--paper)}
+    .text-button {padding:4px 0; border:0; background:none; color:var(--teal); text-decoration:underline; text-underline-offset:3px; text-align:left}
+    .links {margin-top:22px; display:flex; flex-wrap:wrap; gap:14px 24px}
+    .hint {font-size:13px; color:var(--muted); margin:8px 0 0}
+    .notice {background:var(--pale); padding:16px; border-radius:10px; margin:22px 0; color:#23534e; overflow-wrap:anywhere}
+    .error {color:var(--error); font-size:14px; margin:16px 0 0}
+    .check {display:flex; align-items:center; gap:10px; margin:8px 0 20px; font-size:14px}
+    .check label {margin:0; font-weight:400}
+    .step {font-size:13px; color:var(--muted); margin:0 0 24px}
+    .foot {font-size:13px; color:var(--muted); max-width:1120px; margin:0 auto 25px; padding:0 20px}
+    .support-list {padding-left:20px; color:var(--muted)}
+    .support-list li {margin-bottom:12px}
+    @media(max-width:760px) {
+      .layout {margin:18px 12px; display:block; min-height:0; border-radius:15px}
+      .intro {padding:24px}
+      .intro h1 {font-size:27px; margin:28px 0 12px}
+      .intro p {max-width:100%; margin-bottom:0}
+      .intro .actors {display:none}
+      main {padding:30px 24px 38px}
+      .review {padding:12px 16px}
+      .review label {width:100%}
+      .review select {width:100%; margin:5px 0 0}
+      h2 {font-size:24px}
+    }
+  </style>
+</head>
+<body>
+  <header class="review" aria-label="Controles de revisión de la maqueta">
+    <p><strong>Maqueta para revisión.</strong> Usá datos ficticios. No envía correos ni autentica usuarios; tampoco guarda contraseñas. El alta es una propuesta.</p>
+    <label for="preview">Explorar pantalla
+      <select id="preview">
+        <option value="login">Inicio de sesión</option>
+        <option value="recover">Recuperar contraseña</option>
+        <option value="sent">Revisar correo</option>
+        <option value="reset">Enlace de recuperación válido</option>
+        <option value="success">Contraseña actualizada</option>
+        <option value="invalid">Enlace inválido o vencido</option>
+        <option value="signup">Solicitar incorporación</option>
+        <option value="verify">Verificar email de alta</option>
+        <option value="activate">Activar cuenta personal</option>
+        <option value="organization">Datos de la entidad</option>
+        <option value="pending">Solicitud en revisión</option>
+        <option value="support">Sin acceso al email</option>
+      </select>
+    </label>
+  </header>
+  <div class="layout">
+    <aside class="intro">
+      <div class="brand"><span aria-hidden="true">+</span> GESTIÓN SALUD</div>
+      <h1>Tu equipo.<br>Un acceso personal.</h1>
+      <p>Organizá la atención de tu consultorio con los permisos que corresponden a cada persona.</p>
+      <p class="actors">Secretaría · Administración · Profesionales</p>
+    </aside>
+    <main id="screen" aria-labelledby="screen-title"></main>
+  </div>
+  <p class="foot">Diseño de acceso y alta · 15 de octubre de 2026 · Los controles superiores permiten revisar estados de ejemplo.</p>
+  <script>
+    (() => {
+      'use strict';
+      const screen = document.getElementById('screen');
+      const preview = document.getElementById('preview');
+      let current = 'login';
+      const header = (section, title, text) => `<p class="eyebrow">${section}</p><h2 id="screen-title" tabindex="-1">${title}</h2><p class="lead">${text}</p>`;
+      const field = (id, label, type = 'text', autocomplete = 'off') => `<div class="field"><label for="${id}">${label}</label><input id="${id}" name="${id}" type="${type}" autocomplete="${autocomplete}" required maxlength="254"></div>`;
+      const link = (state, text) => `<button type="button" class="text-button" data-go="${state}">${text}</button>`;
+      const feedback = '<p id="feedback" role="alert" class="error"></p>';
+      const passwords = (submit) => `${field('new-password', 'Nueva contraseña', 'password', 'new-password')}${field('repeat-password', 'Repetir contraseña', 'password', 'new-password')}<div class="check"><input type="checkbox" id="show-password"><label for="show-password">Mostrar contraseñas</label></div><p class="hint">En esta maqueta, usá una frase ficticia. La política definitiva está pendiente.</p><button class="primary" type="submit">${submit}</button>${feedback}`;
+      const views = {
+        login: () => header('Acceso al equipo', 'Iniciar sesión', 'Ingresá con tu cuenta personal. Después de autenticarte podrás elegir entre tus contextos habilitados.') +
+          `<form id="login-form">${field('email', 'Email', 'email', 'username')}${field('password', 'Contraseña', 'password', 'current-password')}${link('recover', 'Olvidé mi contraseña')}<button class="primary" type="submit">Ingresar</button>${feedback}</form><div class="links">${link('signup', 'Solicitar incorporación')}${link('support', 'Necesito ayuda')}</div><p class="hint">Si usás exclusivamente Google, ingresá por ese proveedor en la aplicación.</p>`,
+        recover: () => header('Recuperación de acceso', '¿Olvidaste tu contraseña?', 'Ingresá el email personal que usás para acceder. Te indicaremos cómo establecer una nueva contraseña.') +
+          `<form id="recover-form">${field('recovery-email', 'Email de acceso', 'email', 'email')}<button class="primary" type="submit">Enviar enlace</button></form><div class="links">${link('login', 'Volver a ingresar')}${link('support', 'No tengo acceso al email')}</div>`,
+        sent: () => header('Recuperación de acceso', 'Revisá tu correo', 'Si ese correo corresponde a una cuenta habilitada para este método, recibirás instrucciones.') +
+          `<p class="lead">Revisá también la carpeta de correo no deseado. Si usás Google, la recuperación se gestiona con ese proveedor.</p><button class="secondary" data-action="resend" type="button">Volver a solicitar instrucciones</button><p id="feedback" role="status" class="hint"></p><div class="links">${link('recover', 'Corregir email')}${link('login', 'Volver a ingresar')}</div>`,
+        reset: () => header('Recuperación de acceso', 'Elegí una nueva contraseña', 'La nueva contraseña corresponde a tu cuenta personal, aunque trabajes en varias entidades.') +
+          `<form id="reset-form">${passwords('Guardar contraseña')}</form><div class="links">${link('login', 'Volver a ingresar')}</div>`,
+        success: () => header('Recuperación de acceso', 'Contraseña actualizada', 'Volvé a ingresar con tu nueva contraseña. Si tu cuenta utiliza un segundo factor, también deberás completarlo.') +
+          `<div class="notice">Tus permisos y entidades habilitadas conservan su estado. Cambiar la contraseña no rehabilita una baja.</div><button class="primary" data-go="login">Volver a ingresar</button><p class="hint">Resultado simulado: no se modificó ninguna cuenta real.</p>`,
+        invalid: () => header('Recuperación de acceso', 'El enlace no está disponible', 'El enlace no es válido o ya no está disponible. Solicitá nuevas instrucciones para continuar.') +
+          `<button class="primary" data-go="recover">Solicitar un nuevo enlace</button><div class="links">${link('login', 'Volver a ingresar')}</div>`,
+        signup: () => header('Incorporación al servicio', 'Comenzá con tu cuenta', 'Creá tu acceso personal para solicitar la incorporación de una clínica o tu actividad independiente.') +
+          `<form id="signup-form">${field('name', 'Nombre y apellido', 'text', 'name')}${field('signup-email', 'Email personal', 'email', 'email')}<p class="hint">Usá un correo al que puedas seguir accediendo si cambiás de institución.</p><button class="primary" type="submit">Verificar email y continuar</button></form><div class="links">${link('login', 'Ya tengo cuenta')}</div><p class="hint">Si ya sos profesional de la plataforma, usá tu cuenta actual.</p>`,
+        verify: () => header('Incorporación al servicio', 'Verificá tu email', 'Si corresponde continuar con ese correo, recibirás instrucciones para verificarlo y completar el alta.') +
+          `<p class="lead">Si ya tenés cuenta, ingresá para continuar la solicitud con tu identidad actual.</p><div class="links">${link('login', 'Ya tengo cuenta')}${link('signup', 'Corregir datos')}</div>`,
+        activate: () => header('Incorporación al servicio', 'Activá tu cuenta personal', 'Después de verificar tu email, elegí tu contraseña. Podrás completar tu solicitud de incorporación.') +
+          `<form id="activate-form">${passwords('Crear acceso y continuar')}</form><p class="hint">Este paso no otorga administración ni habilita una entidad.</p>`,
+        organization: () => header('Incorporación al servicio', 'Contanos sobre la entidad', 'Estos datos permiten revisar la incorporación y coordinar quién administrará la entidad.') +
+          `<p class="step">Cuenta verificada · Solicitud de entidad</p><form id="organization-form"><div class="field"><label for="entity-type">Tipo de entidad</label><select id="entity-type" required><option value="">Seleccioná una opción</option><option>Clínica o institución</option><option>Profesional independiente</option></select></div>${field('entity-name', 'Nombre de la entidad')}<div class="field"><label for="relationship">Tu relación con la solicitud</label><select id="relationship" required><option value="">Seleccioná una opción</option><option value="self">Seré administrador de la entidad</option><option value="other">Gestiono la adquisición para otra persona</option></select></div><div id="designated-admin" hidden>${field('admin-name', 'Nombre del administrador propuesto')}${field('admin-email', 'Email del administrador propuesto', 'email', 'email')}</div><p class="hint">La designación se verificará antes de conceder permisos. El contacto comercial puede ser otra persona.</p><button class="primary" type="submit">Enviar solicitud de incorporación</button></form>`,
+        pending: () => header('Incorporación al servicio', 'Tu solicitud está en revisión', 'El equipo de plataforma revisará la entidad y la designación de su administrador antes de habilitar la operación.') +
+          `<div class="notice">La solicitud no concede acceso a pacientes o agendas. Recibirás instrucciones por el contacto verificado.</div><p class="lead">Si el administrador será otra persona, activará su propia cuenta mediante una invitación.</p><button class="secondary" data-go="login">Volver al inicio</button><p class="hint">Resultado simulado: no se envió ni registró una solicitud real.</p>`,
+        support: () => header('Ayuda con el acceso', '¿Perdiste acceso a tu email?', 'Solicitá asistencia mediante el canal de soporte acordado con la plataforma.') +
+          `<ul class="support-list"><li>Se verificará tu solicitud antes de cambiar el contacto de la cuenta.</li><li>Un administrador de clínica no puede elegir tu nueva contraseña ni apropiarse de tu cuenta.</li><li>La recuperación del segundo factor requiere su propio procedimiento.</li></ul><p class="hint">El canal y el procedimiento de soporte se definirán antes del piloto.</p><div class="links">${link('recover', 'Puedo usar mi email')}${link('login', 'Volver a ingresar')}</div>`
+      };
+      function render(state, focus = true) {
+        if (!Object.hasOwn(views, state)) return;
+        current = state;
+        screen.innerHTML = views[state]();
+        preview.value = Object.hasOwn(views, state) && [...preview.options].some(o => o.value === state) ? state : '';
+        document.title = `${document.getElementById('screen-title').textContent} · Gestión Salud · Maqueta`;
+        syncAdminFields();
+        if (focus) document.getElementById('screen-title').focus();
+      }
+      function syncAdminFields() {
+        const relationship = document.getElementById('relationship');
+        const admin = document.getElementById('designated-admin');
+        if (!relationship || !admin) return;
+        const enabled = relationship.value === 'other';
+        admin.hidden = !enabled;
+        admin.querySelectorAll('input').forEach(input => { input.disabled = !enabled; input.required = enabled; });
+      }
+      preview.addEventListener('change', () => render(preview.value));
+      screen.addEventListener('click', event => {
+        const button = event.target.closest('button');
+        if (!button) return;
+        if (button.dataset.go) render(button.dataset.go);
+        if (button.dataset.action === 'resend') {
+          document.getElementById('feedback').textContent = 'Solicitud simulada. Si corresponde, recibirás instrucciones. En la aplicación el reenvío estará sujeto a límites.';
+          button.disabled = true;
+        }
+      });
+      screen.addEventListener('change', event => {
+        if (event.target.id === 'relationship') syncAdminFields();
+        if (event.target.id === 'show-password') {
+          screen.querySelectorAll('input[name$="password"]').forEach(input => { input.type = event.target.checked ? 'text' : 'password'; });
+        }
+      });
+      screen.addEventListener('submit', event => {
+        event.preventDefault();
+        const form = event.target;
+        if (!form.reportValidity()) return;
+        if (form.id === 'login-form') {
+          document.getElementById('password').value = '';
+          document.getElementById('feedback').textContent = 'Acceso simulado. La aplicación verificará la cuenta, el segundo factor y los permisos actuales en servidor.';
+        } else if (form.id === 'recover-form') {
+          form.reset(); render('sent');
+        } else if (form.id === 'signup-form') {
+          form.reset(); render('verify');
+        } else if (form.id === 'reset-form' || form.id === 'activate-form') {
+          const first = document.getElementById('new-password');
+          const second = document.getElementById('repeat-password');
+          if (first.value !== second.value) {
+            document.getElementById('feedback').textContent = 'Las contraseñas no coinciden. Revisalas para continuar.';
+            second.focus(); return;
+          }
+          const next = current === 'activate' ? 'organization' : 'success';
+          form.reset(); render(next);
+        } else if (form.id === 'organization-form') {
+          form.reset(); render('pending');
+        }
+      });
+      render('login', false);
+    })();
+  </script>
+</body>
+</html>

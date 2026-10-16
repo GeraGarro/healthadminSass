@@ -1,0 +1,21 @@
+@startuml
+title Avisos con disparadores distintos
+start
+if (Tipo de evento?) then (cronograma)
+  :Revalidar turno vigente y política aplicable;
+  :Un correo entre T-72 y T-48;
+  if (Sigue pendiente a T-36?) then (sí)
+    :WhatsApp de respaldo;
+  endif
+  if (Sigue pendiente a T-24 sin excepción aplicable?) then (sí)
+    :Cancelar + liberar + auditoría + aviso interno consistente;
+  endif
+else (reprogramación del profesional)
+  :Determinar fecha / intervalos y afectados autorizados;
+  :WhatsApp individual a todos, incluidos confirmados;
+  :Enlace al portal; Consulta base o gestión asistida;
+  :Seguir entrega y reemplazo como hechos diferentes;
+endif
+:Leer, abrir o responder libremente no confirma ni reprograma;
+stop
+@enduml

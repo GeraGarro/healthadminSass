@@ -1,0 +1,39 @@
+@startuml
+left to right direction
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam defaultFontName Arial
+title Mapa resumido de objetivos
+rectangle "Sistema de Gestión Administrativa de Salud" {
+  usecase "Obtener acceso habilitado" as G0
+  usecase "Preparar oferta de atención" as G1
+  usecase "Obtener y gestionar un turno" as G2
+  usecase "Consultar al profesional por chat" as G3
+  usecase "Gestionar continuidad profesional" as G4
+  usecase "Operar beta y recuperar servicio" as G5
+}
+actor "Paciente / representante" as A0
+A0 -- G0
+actor "Google / correo" as E0 <<servicio externo>>
+G0 -- E0
+actor "Profesional / personal facultado" as A1
+A1 -- G1
+actor "Paciente / personal facultado" as A2
+A2 -- G2
+actor "Paciente / representante" as A3
+A3 -- G3
+actor "Profesional" as E3
+G3 -- E3
+actor "Profesional / administración" as A4
+A4 -- G4
+actor "Plataforma" as E4
+G4 -- E4
+actor "Plataforma / operador" as A5
+A5 -- G5
+actor "Respaldo externo" as E5 <<servicio externo>>
+G5 -- E5
+note as Alcance
+Agrupación de actores y objetivos;
+no es una matriz de permisos.
+end note
+@enduml

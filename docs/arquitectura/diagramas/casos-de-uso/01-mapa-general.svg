@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="1150" height="885" preserveAspectRatio="xMinYMin meet" viewBox="0 0 1150 885" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>01 | Mapa de actores y objetivos</title>
+	<desc>Vista resumida; los identificadores CU del catálogo dan el alcance completo.</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="1150" height="885"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-885)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="0" width="1150" height="885" rx="8" ry="8" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 1.3; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="28" y="855.0" style="font-family: Arial, sans-serif; font-weight: 700; font-size: 25px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,1710) scale(1,-1)">01 | Mapa de actores y objetivos</text>
+			<text x="28" y="825.0" style="font-family: Arial, sans-serif; font-size: 14px;fill: rgb(30%,38%,45%); stroke:none;" transform="translate(0,1650) scale(1,-1)">Vista resumida; los identificadores CU del catálogo dan el alcance completo.</text>
+			<rect x="250" y="55" width="650" height="735" style="stroke: rgb(54%,63%,70%); stroke-linecap: butt; stroke-width: 1.3; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="265" y="766.0" style="font-family: Arial, sans-serif; font-weight: 700; font-size: 15px;fill: rgb(30%,38%,45%); stroke:none;" transform="translate(0,1532) scale(1,-1)">Sistema de Gestión Administrativa de Salud</text>
+			<circle cx="120" cy="745" r="8" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<path d="M 120,737 L 120,711" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 103,728 L 137,728" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 120,711 L 106,693" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 120,711 L 134,693" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<text x="43.72802734375" y="673.0" style="font-family: Arial, sans-serif; font-size: 14px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,1346) scale(1,-1)">Paciente / representante</text>
+			<path d="M 143,710 L 350,710" style="stroke: rgb(54%,63%,70%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<ellipse cx="575.0" cy="710.0" rx="225.0" ry="35.0" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(91%,95%,98%); fill-rule: evenodd;"/>
+			<text x="476.241455078125" y="705.0" style="font-family: Arial, sans-serif; font-size: 17px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,1410) scale(1,-1)">Obtener acceso habilitado</text>
+			<rect x="942" y="696" width="176" height="60" rx="8" ry="8" style="stroke: rgb(54%,63%,70%); stroke-linecap: butt; stroke-width: 1.3; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="1008.319580078125" y="734.0" style="font-family: Arial, sans-serif; font-size: 13px;fill: rgb(30%,38%,45%); stroke:none;" transform="translate(0,1468) scale(1,-1)">«actor»</text>
+			<text x="970.87890625" y="713.0" style="font-family: Arial, sans-serif; font-weight: 700; font-size: 16px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,1426) scale(1,-1)">Google / correo</text>
+			<path d="M 800,710 L 935,710" style="stroke: rgb(54%,63%,70%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<circle cx="120" cy="635" r="8" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<path d="M 120,627 L 120,601" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 103,618 L 137,618" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 120,601 L 106,583" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 120,601 L 134,583" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<text x="52.29345703125" y="563.0" style="font-family: Arial, sans-serif; font-size: 14px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,1126) scale(1,-1)">Profesional / personal</text>
+			<text x="91.58984375" y="545.5" style="font-family: Arial, sans-serif; font-size: 14px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,1091) scale(1,-1)">facultado</text>
+			<path d="M 143,600 L 350,600" style="stroke: rgb(54%,63%,70%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<ellipse cx="575.0" cy="600.0" rx="225.0" ry="35.0" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(91%,95%,98%); fill-rule: evenodd;"/>
+			<text x="471.518310546875" y="595.0" style="font-family: Arial, sans-serif; font-size: 17px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,1190) scale(1,-1)">Preparar oferta de atención</text>
+			<circle cx="120" cy="525" r="8" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<path d="M 120,517 L 120,491" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 103,508 L 137,508" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 120,491 L 106,473" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 120,491 L 134,473" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<text x="29.7177734375" y="453.0" style="font-family: Arial, sans-serif; font-size: 14px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,906) scale(1,-1)">Paciente / personal facultado</text>
+			<path d="M 143,490 L 350,490" style="stroke: rgb(54%,63%,70%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<ellipse cx="575.0" cy="490.0" rx="225.0" ry="35.0" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(91%,95%,98%); fill-rule: evenodd;"/>
+			<text x="466.795166015625" y="485.0" style="font-family: Arial, sans-serif; font-size: 17px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,970) scale(1,-1)">Obtener y gestionar un turno</text>
+			<circle cx="120" cy="415" r="8" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<path d="M 120,407 L 120,381" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 103,398 L 137,398" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 120,381 L 106,363" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 120,381 L 134,363" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<text x="43.72802734375" y="343.0" style="font-family: Arial, sans-serif; font-size: 14px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,686) scale(1,-1)">Paciente / representante</text>
+			<path d="M 143,380 L 350,380" style="stroke: rgb(54%,63%,70%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<ellipse cx="575.0" cy="380.0" rx="225.0" ry="35.0" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(91%,95%,98%); fill-rule: evenodd;"/>
+			<text x="452.625732421875" y="375.0" style="font-family: Arial, sans-serif; font-size: 17px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,750) scale(1,-1)">Consultar al profesional por chat</text>
+			<circle cx="1030" cy="415" r="8" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<path d="M 1030,407 L 1030,381" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 1013,398 L 1047,398" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 1030,381 L 1016,363" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 1030,381 L 1044,363" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<text x="994.9794921875" y="343.0" style="font-family: Arial, sans-serif; font-size: 14px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,686) scale(1,-1)">Profesional</text>
+			<path d="M 800,380 L 935,380" style="stroke: rgb(54%,63%,70%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<circle cx="120" cy="305" r="8" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<path d="M 120,297 L 120,271" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 103,288 L 137,288" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 120,271 L 106,253" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 120,271 L 134,253" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<text x="34.01416015625" y="233.0" style="font-family: Arial, sans-serif; font-size: 14px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,466) scale(1,-1)">Profesional / administración</text>
+			<path d="M 143,270 L 350,270" style="stroke: rgb(54%,63%,70%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<ellipse cx="575.0" cy="270.0" rx="225.0" ry="35.0" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(91%,95%,98%); fill-rule: evenodd;"/>
+			<text x="448.36328125" y="265.0" style="font-family: Arial, sans-serif; font-size: 17px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,530) scale(1,-1)">Gestionar continuidad profesional</text>
+			<circle cx="1030" cy="305" r="8" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<path d="M 1030,297 L 1030,271" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 1013,288 L 1047,288" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 1030,271 L 1016,253" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 1030,271 L 1044,253" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<text x="996.15185546875" y="233.0" style="font-family: Arial, sans-serif; font-size: 14px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,466) scale(1,-1)">Plataforma</text>
+			<path d="M 800,270 L 935,270" style="stroke: rgb(54%,63%,70%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<circle cx="120" cy="195" r="8" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<path d="M 120,187 L 120,161" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 103,178 L 137,178" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 120,161 L 106,143" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<path d="M 120,161 L 134,143" style="stroke: rgb(8%,20%,27%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<text x="52.296875" y="123.0" style="font-family: Arial, sans-serif; font-size: 14px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,246) scale(1,-1)">Plataforma / operador</text>
+			<path d="M 143,160 L 350,160" style="stroke: rgb(54%,63%,70%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<ellipse cx="575.0" cy="160.0" rx="225.0" ry="35.0" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(91%,95%,98%); fill-rule: evenodd;"/>
+			<text x="453.115478515625" y="155.0" style="font-family: Arial, sans-serif; font-size: 17px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,310) scale(1,-1)">Operar beta y recuperar servicio</text>
+			<rect x="942" y="146" width="176" height="60" rx="8" ry="8" style="stroke: rgb(54%,63%,70%); stroke-linecap: butt; stroke-width: 1.3; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="1008.319580078125" y="184.0" style="font-family: Arial, sans-serif; font-size: 13px;fill: rgb(30%,38%,45%); stroke:none;" transform="translate(0,368) scale(1,-1)">«actor»</text>
+			<text x="962.87109375" y="163.0" style="font-family: Arial, sans-serif; font-weight: 700; font-size: 16px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,326) scale(1,-1)">Respaldo externo</text>
+			<path d="M 800,160 L 935,160" style="stroke: rgb(54%,63%,70%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<text x="28" y="20.0" style="font-family: Arial, sans-serif; font-size: 13px;fill: rgb(30%,38%,45%); stroke:none;" transform="translate(0,40) scale(1,-1)">Mapa de agrupación: rótulos con / reúnen actores; no representan un rol con permisos acumulados.</text>
+		</g>
+	</g>
+</svg>

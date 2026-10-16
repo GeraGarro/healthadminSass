@@ -1,0 +1,61 @@
+{
+  "version": "0.20",
+  "fecha": "15 octubre 2026",
+  "estado": "I1 / beta: diseño general aceptado; detalle de catálogo e implementación pendientes",
+  "titulo": "Turnero SaaS | mapa de arquitectura",
+  "pregunta": "En cada cambio: QUIÉN actúa / en QUÉ ENTIDAD y AGENDA / QUÉ PRÁCTICA / QUÉ COBERTURA / CUÁNDO",
+  "actores": [
+    {
+      "titulo": "ENTIDAD CLIENTE  [R01, R10]",
+      "texto": "Odontología inicial, núcleo extensible. Clínica o profesional independiente; sedes y agendas propias. Cobertura médica: concepto distinto. Suscripciones: incremento 2 o 3."
+    },
+    {
+      "titulo": "PROFESIONAL  [R03-R06]",
+      "texto": "Baja institucional por administrador local. Cuenta y fichaje persisten; continuidad independiente por plataforma. Eliminar cuenta/vínculos solo a petición propia; conservar fichas e historial."
+    },
+    {
+      "titulo": "PACIENTE Y REPRESENTANTE  [R01.a, R09]",
+      "texto": "Admisión y vínculo verificados. Formulario propio; Google + correo. Elige horario solo de la práctica Consulta habilitada. Chat al profesional. Número por profesional/entidad. Representación verificada."
+    }
+  ],
+  "pasos": [
+    {
+      "titulo": "1  VALIDAR",
+      "texto": "Login, admisión vigente, entidad, práctica, convenio y cuotas."
+    },
+    {
+      "titulo": "2  PRE-RESERVAR",
+      "texto": "Bloqueo atómico con vencimiento breve. Ya ocupa capacidad."
+    },
+    {
+      "titulo": "3  REGISTRAR",
+      "texto": "Completar pedido y conservar ocupación. Asistencia pendiente."
+    },
+    {
+      "titulo": "4  CONFIRMAR",
+      "texto": "Correo 72-48 h; WhatsApp 36 h sin confirmar. Cierre a 24 h."
+    },
+    {
+      "titulo": "5  ATENDER",
+      "texto": "Llegada, atención e historial. Cancelar/reprogramar según reglas."
+    }
+  ],
+  "capacidad": "R02-R03 | Un profesional, una capacidad coordinada entre entidades. Dos pedidos superpuestos: solo uno obtiene el bloqueo. Se comunica ocupado sin revelar datos ajenos.",
+  "reglas": [
+    {
+      "titulo": "AGENDA Y COBERTURA  [R06-R07]",
+      "texto": "Consulta, extracción, limpieza, cirugía y nuevas con permiso. Solo Consulta habilitada: paciente elige horario. Otras y personalizadas: personal, también al reprogramar. Conservar reglas."
+    },
+    {
+      "titulo": "DOS PLAZOS DISTINTOS  [R02, R08]",
+      "texto": "Pre-reserva: bloqueo breve. Turno sin confirmar a T-24: cancelar y liberar; aviso en plataforma a secretaría y/o profesional autorizados. Fallo técnico: revisión. Conservar historia."
+    },
+    {
+      "titulo": "SEGURIDAD Y CANALES  [R10-R12]",
+      "texto": "Email recupera acceso, no permisos. Cuotas con confirmados. Chat privado. Reprograma profesional: WhatsApp a afectados y portal. Leer no confirma. Auditoría y backups."
+    }
+  ],
+  "base": "ACEPTADO: PostgreSQL + tenant_id + RLS; Angular y Spring Boot estables. VPS. Objetivo: 20 profesionales a 3 meses; hasta 100 al año.",
+  "pendientes": "Revisar: alta comercial con formulario/cuenta y habilitación por plataforma; recuperación, sesión/MFA. Validar tiempos, catálogo, cuotas/TTL, excepciones, chat, proveedores y VPS. Suscripciones I2-I3; IA pendiente.",
+  "uso": "Reglas: docs/03. Estado: docs/13. Glosario/catálogo: docs/14-16. Ficha: docs/18. Transición: docs/19. Acceso/alta: docs/20. Decisiones: ADR-001 a ADR-013."
+}

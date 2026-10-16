@@ -1,0 +1,303 @@
+/* Variables compartidas: colores y dimensiones de la documentación. */
+:root {
+  color-scheme: light;
+  --ink: #163347;
+  --teal: #087e83;
+  --muted: #4d6173;
+  --border: #d9e3e9;
+  --sidebar-width: 280px;
+}
+
+/* Base y accesibilidad del teclado. */
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  background: #f1f5f8;
+  color: var(--ink);
+  font: 16px / 1.65 Arial, sans-serif;
+}
+
+a {
+  color: var(--teal);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #d99c32;
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 10;
+  padding: 10px 16px;
+  transform: translateY(-160%);
+  background: white;
+  border: 2px solid var(--teal);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* Índice y acciones del documento. */
+.sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: var(--sidebar-width);
+  overflow: auto;
+  padding: 25px;
+  background: var(--ink);
+  color: white;
+}
+
+.sidebar a {
+  display: block;
+  margin: 9px 0;
+  color: #d6e9f2;
+  font-size: 13px;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.sidebar a:hover {
+  text-decoration: underline;
+}
+
+.toc {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.toc .section {
+  margin-top: 20px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.toc a[aria-current="location"] {
+  padding-left: 8px;
+  border-left: 3px solid #73d5d0;
+  color: white;
+  font-weight: bold;
+}
+
+.document-actions {
+  margin-bottom: 22px;
+}
+
+.document-actions button {
+  margin-top: 6px;
+  padding: 7px 10px;
+  border: 1px solid #aac4d3;
+  border-radius: 4px;
+  background: transparent;
+  color: white;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* Contenido y jerarquía de títulos. */
+main {
+  min-height: 100vh;
+  max-width: 1280px;
+  margin-left: var(--sidebar-width);
+  padding: 42px 50px;
+  background: white;
+}
+
+h1 {
+  font-size: 36px;
+  line-height: 1.16;
+  letter-spacing: -0.7px;
+}
+
+h2 {
+  margin-top: 54px;
+  padding-top: 14px;
+  border-top: 2px solid #d8e5ec;
+  font-size: 25px;
+}
+
+h3 {
+  margin-top: 38px;
+  color: var(--teal);
+  font-size: 21px;
+}
+
+h1,
+h2,
+h3 {
+  scroll-margin-top: 20px;
+}
+
+p {
+  margin: 14px 0;
+}
+
+li {
+  margin: 6px 0;
+}
+
+code {
+  padding: 2px 4px;
+  background: #eaf3f6;
+}
+
+.badge {
+  margin: 24px 0;
+  padding: 14px 18px;
+  border-left: 4px solid var(--teal);
+  background: #eaf4fa;
+}
+
+/* Tablas: el desplazamiento en pantallas pequeñas se limita a cada tabla. */
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  margin: 20px 0;
+  border-collapse: collapse;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+th {
+  background: var(--ink);
+  color: white;
+  text-align: left;
+}
+
+td,
+th {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  vertical-align: top;
+}
+
+tbody tr:nth-child(even) {
+  background: #f3f7fa;
+}
+
+/* Diagramas y enlaces a sus fuentes editables. */
+figure {
+  margin: 28px 0;
+  border: 1px solid var(--border);
+  background: white;
+}
+
+figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+figcaption {
+  padding: 10px 18px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.diagram-sources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-top: 8px;
+}
+
+/* Fichas: el color ámbar identifica la propuesta CU-35, pendiente de aprobación. */
+.case {
+  margin: 32px 0;
+  padding: 10px 24px 20px;
+  border: 1px solid #dce6ed;
+  border-top: 4px solid var(--teal);
+  border-radius: 8px;
+}
+
+.case h3 {
+  margin-top: 12px;
+}
+
+.case.proposed {
+  border-top-color: #c18b25;
+  background: #fffcf5;
+}
+
+/* Adaptación a tablet y móvil, conservando acceso al índice completo. */
+@media (max-width: 1000px) {
+  .sidebar {
+    position: static;
+    width: 100%;
+    max-height: 320px;
+  }
+
+  main {
+    margin: 0;
+    padding: 24px;
+  }
+
+  h1 {
+    font-size: 29px;
+  }
+}
+
+/* Impresión nativa: el contenido no depende de que el JavaScript esté habilitado. */
+@media print {
+  .sidebar,
+  .skip-link,
+  .diagram-sources {
+    display: none;
+  }
+
+  main {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background: white;
+    font-size: 10pt;
+  }
+
+  .case {
+    break-before: page;
+    padding: 0;
+    border: 0;
+  }
+
+  figure {
+    break-inside: avoid;
+  }
+
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+
+  table {
+    font-size: 8pt;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  a {
+    color: inherit;
+  }
+}

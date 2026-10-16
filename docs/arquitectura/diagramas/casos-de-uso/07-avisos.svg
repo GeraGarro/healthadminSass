@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="1140" height="790" preserveAspectRatio="xMinYMin meet" viewBox="0 0 1140 790" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>07 | Avisos: dos disparadores diferentes</title>
+	<desc>Cronograma confirmado en ADR-004 y evento profesional confirmado en ADR-013.</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="1140" height="790"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-790)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="0" width="1140" height="790" rx="8" ry="8" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 1.3; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="28" y="760.0" style="font-family: Arial, sans-serif; font-weight: 700; font-size: 25px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,1520) scale(1,-1)">07 | Avisos: dos disparadores diferentes</text>
+			<text x="28" y="730.0" style="font-family: Arial, sans-serif; font-size: 14px;fill: rgb(30%,38%,45%); stroke:none;" transform="translate(0,1460) scale(1,-1)">Cronograma confirmado en ADR-004 y evento profesional confirmado en ADR-013.</text>
+			<rect x="35" y="405" width="1070" height="285" rx="8" ry="8" style="stroke: rgb(54%,63%,70%); stroke-linecap: butt; stroke-width: 1.3; fill: rgb(95%,96%,98%); fill-rule: evenodd;"/>
+			<text x="60" y="658.0" style="font-family: Arial, sans-serif; font-weight: 700; font-size: 21px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,1316) scale(1,-1)">A. Confirmación de asistencia | CU-18, CU-24 y CU-25</text>
+			<path d="M 125,585 L 1020,585" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<polygon points="1020 585, 1010.243 579.9204, 1010.243 590.0796" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,51%); fill-rule: evenodd;"/>
+			<circle cx="140" cy="585" r="6" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,51%); fill-rule: evenodd;"/>
+			<text x="95.48779296875" y="606.0" style="font-family: Arial, sans-serif; font-weight: 700; font-size: 18px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,1212) scale(1,-1)">T-72 / T-48</text>
+			<text x="83.720703125" y="542.0" style="font-family: Arial, sans-serif; font-size: 15px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,1084) scale(1,-1)">Un correo dentro</text>
+			<text x="94.96337890625" y="523.25" style="font-family: Arial, sans-serif; font-size: 15px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,1046) scale(1,-1)">de la ventana</text>
+			<circle cx="450" cy="585" r="6" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,51%); fill-rule: evenodd;"/>
+			<text x="431.49462890625" y="606.0" style="font-family: Arial, sans-serif; font-weight: 700; font-size: 18px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,1212) scale(1,-1)">T-36</text>
+			<text x="399.55810546875" y="542.0" style="font-family: Arial, sans-serif; font-size: 15px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,1084) scale(1,-1)">WhatsApp solo</text>
+			<text x="389.53857421875" y="523.25" style="font-family: Arial, sans-serif; font-size: 15px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,1046) scale(1,-1)">si sigue pendiente</text>
+			<circle cx="750" cy="585" r="6" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,51%); fill-rule: evenodd;"/>
+			<text x="731.49462890625" y="606.0" style="font-family: Arial, sans-serif; font-weight: 700; font-size: 18px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,1212) scale(1,-1)">T-24</text>
+			<text x="650.3759765625" y="542.0" style="font-family: Arial, sans-serif; font-size: 15px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,1084) scale(1,-1)">Sin confirmar y sin excepción:</text>
+			<text x="646.201171875" y="523.25" style="font-family: Arial, sans-serif; font-size: 15px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,1046) scale(1,-1)">cancelar, liberar y aviso interno</text>
+			<circle cx="1000" cy="585" r="6" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,51%); fill-rule: evenodd;"/>
+			<text x="994.50244140625" y="606.0" style="font-family: Arial, sans-serif; font-weight: 700; font-size: 18px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,1212) scale(1,-1)">T</text>
+			<text x="956.22314453125" y="542.0" style="font-family: Arial, sans-serif; font-size: 15px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,1084) scale(1,-1)">Inicio vigente</text>
+			<text x="970.81298828125" y="523.25" style="font-family: Arial, sans-serif; font-size: 15px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,1046) scale(1,-1)">del turno</text>
+			<text x="60" y="445.0" style="font-family: Arial, sans-serif; font-size: 17px;fill: rgb(30%,38%,45%); stroke:none;" transform="translate(0,890) scale(1,-1)">Confirmar es explícito. Leer, abrir el enlace o ingresar al portal no confirma.</text>
+			<rect x="35" y="115" width="1070" height="255" rx="8" ry="8" style="stroke: rgb(54%,63%,70%); stroke-linecap: butt; stroke-width: 1.3; fill: rgb(91%,95%,98%); fill-rule: evenodd;"/>
+			<text x="60" y="335.0" style="font-family: Arial, sans-serif; font-weight: 700; font-size: 21px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,670) scale(1,-1)">B. Reprogramación por motivos del profesional | CU-21</text>
+			<text x="65" y="285.0" style="font-family: Arial, sans-serif; font-weight: 700; font-size: 19px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,570) scale(1,-1)">Fecha o intervalos</text>
+			<text x="65" y="261.25" style="font-family: Arial, sans-serif; font-weight: 700; font-size: 19px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,522) scale(1,-1)">afectados</text>
+			<path d="M 280,270 L 355,270" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<polygon points="355 270, 345.2431 264.9204, 345.2431 275.0796" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,51%); fill-rule: evenodd;"/>
+			<text x="385" y="285.0" style="font-family: Arial, sans-serif; font-weight: 700; font-size: 19px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,570) scale(1,-1)">WhatsApp a TODOS</text>
+			<text x="385" y="261.25" style="font-family: Arial, sans-serif; font-weight: 700; font-size: 19px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,522) scale(1,-1)">los afectados</text>
+			<path d="M 665,270 L 740,270" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1.4;"/>
+			<polygon points="740 270, 730.2431 264.9204, 730.2431 275.0796" style="stroke: rgb(3%,49%,51%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,51%); fill-rule: evenodd;"/>
+			<text x="770" y="285.0" style="font-family: Arial, sans-serif; font-weight: 700; font-size: 19px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,570) scale(1,-1)">Portal o gestión</text>
+			<text x="770" y="261.25" style="font-family: Arial, sans-serif; font-weight: 700; font-size: 19px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,522) scale(1,-1)">asistida</text>
+			<text x="65" y="187.0" style="font-family: Arial, sans-serif; font-size: 17px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,374) scale(1,-1)">Incluye confirmados y no espera T-36. Entrega y reemplazo se siguen por separado.</text>
+			<text x="65" y="155.0" style="font-family: Arial, sans-serif; font-size: 17px;fill: rgb(8%,20%,27%); stroke:none;" transform="translate(0,310) scale(1,-1)">Solo Consulta base habilitada permite elegir el nuevo horario al paciente.</text>
+			<text x="28" y="20.0" style="font-family: Arial, sans-serif; font-size: 13px;fill: rgb(30%,38%,45%); stroke:none;" transform="translate(0,40) scale(1,-1)">Pendiente: turnos cercanos, excepción técnica/asistida, instante de correo, carrera T-24 y detalle del lote.</text>
+		</g>
+	</g>
+</svg>

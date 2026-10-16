@@ -1,0 +1,29 @@
+@startuml
+title Reserva por práctica
+start
+:Identificar actor, paciente, entidad y permisos;
+if (Paciente solicita elegir horario?) then (sí)
+  if (Consulta base habilitada y elegible?) then (sí)
+    :CU-14: autogestión permitida;
+  else (no)
+    :CU-16: solicitar gestión; no ocupa;
+    :CU-15: personal facultado selecciona oferta y horario;
+  endif
+else (personal)
+  :CU-15: validar facultad de agenda;
+endif
+:CU-13: consultar disponibilidad; no ocupa;
+:CU-36: revalidar y adquirir pre-reserva;
+if (Capacidad y cuota adquiridas?) then (sí)
+  :CU-37: completar y revalidar;
+  if (Pre-reserva y condiciones válidas?) then (sí)
+    :Registrar conservando ocupación;
+    :Asistencia pendiente; CU-18 confirma después;
+  else (no)
+    :Resolver vencimiento/cambio sin desplazar ocupación ajena;
+  endif
+else (no)
+  :Informar conflicto o límite sin datos ajenos;
+endif
+stop
+@enduml

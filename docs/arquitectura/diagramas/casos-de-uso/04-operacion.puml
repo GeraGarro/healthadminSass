@@ -1,0 +1,34 @@
+@startuml
+left to right direction
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam defaultFontName Arial
+title Comunicaciones y operación
+rectangle "Sistema de Gestión Administrativa de Salud" {
+ usecase "CU-21\nGestionar reprogramación del profesional" as C21
+ usecase "CU-23\nIntercambiar consultas por chat" as C23
+ usecase "CU-24\nEjecutar avisos de confirmación" as C24
+ usecase "CU-25\nCerrar turno sin confirmación a T-24" as C25
+ usecase "CU-26\nResolver avisos fallidos y gestiones pendientes" as C26
+}
+actor "Profesional / personal facultado" as A0
+A0 -- C21
+actor "WhatsApp" as E0 <<servicio externo>>
+C21 -- E0
+actor "Paciente o representante" as A1
+A1 -- C23
+actor "Profesional" as E1
+C23 -- E1
+actor "Destinatario autorizado" as A2
+A2 -- C24
+actor "Correo / WhatsApp" as E2 <<servicio externo>>
+C24 -- E2
+actor "Secretaría / profesional" as A3
+A3 -- C25
+actor "Personal facultado" as A4
+A4 -- C26
+actor "Servicios de canal" as E4 <<servicio externo>>
+C26 -- E4
+note bottom of C24 : Disparador interno por plazo; sin actor reloj.
+note bottom of C25 : Cierre T-24 sin confirmación y sin excepción aplicable.
+@enduml

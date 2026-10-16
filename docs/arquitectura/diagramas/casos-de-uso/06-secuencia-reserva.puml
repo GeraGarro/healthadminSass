@@ -1,0 +1,24 @@
+@startuml
+title Pre-reserva y registro - diseño propuesto
+actor "Actor autorizado" as A
+participant "API / permisos" as API
+participant "Prácticas / convenio" as P
+participant "Capacidad global" as C
+database "Persistencia" as DB
+A -> API : Pre-reservar agenda, práctica e intervalo
+API -> API : Validar identidad, admisión y facultades
+API -> P : Validar práctica, tiempos y elegibilidad
+API -> C : Validar cuota y adquirir intervalo consistentemente
+C -> DB : Resolver vencidas y excluir solapamientos
+alt Capacidad y cuota adquiridas
+  DB --> A : Pre-reserva y vencimiento
+  note over A,DB : Sin transacción abierta mientras completa datos
+  A -> API : Completar pedido de pre-reserva
+  API -> API : Revalidar facultades, práctica, cuota y elegibilidad
+  API -> DB : Convertir ocupación + turno + tareas + auditoría
+  DB --> A : Turno registrado; asistencia pendiente
+else Conflicto o límite
+  DB --> A : Resultado sin datos ajenos; no ocupa
+end
+note over API,DB : Protocolo concreto, TTL y restricciones por diseñar
+@enduml

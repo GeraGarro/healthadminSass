@@ -1,0 +1,33 @@
+# Credenciales y configuración local
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Dependencias y compilaciones
+node_modules/
+target/
+dist/
+build/
+.angular/
+
+# Resultados generados
+coverage/
+playwright-report/
+test-results/
+*.log
+
+# Datos locales: usar exclusivamente datos ficticios en desarrollo
+backups/
+local-data/
+tmp/
+
+# Archivos del sistema y del editor
+Thumbs.db
+.DS_Store
+.idea/
+*.iml

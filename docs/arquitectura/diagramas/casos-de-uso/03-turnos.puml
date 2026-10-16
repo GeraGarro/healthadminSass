@@ -1,0 +1,29 @@
+@startuml
+left to right direction
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam defaultFontName Arial
+title Reserva de turnos
+actor "Paciente habilitado" as Paciente
+actor "Representante verificado" as Representante
+actor "Profesional autorizado" as Profesional
+actor "Secretaría delegada" as Secretaria
+rectangle "Sistema de Gestión Administrativa de Salud" {
+ usecase "CU-14\nReservar Consulta por portal" as C14
+ usecase "CU-15\nRegistrar turno desde personal" as C15
+ usecase "CU-36\nAdquirir pre-reserva" as C36
+ usecase "CU-37\nCompletar registro de turno" as C37
+}
+Paciente -- C14
+Representante -- C14
+Profesional -- C15
+Secretaria -- C15
+C14 ..> C36 : <<include>>
+C14 ..> C37 : <<include>>
+C15 ..> C36 : <<include>>
+C15 ..> C37 : <<include>>
+note as Restricciones
+Solo Consulta base habilitada permite selección por paciente.
+Autorización y auditoría son restricciones transversales.
+end note
+@enduml
