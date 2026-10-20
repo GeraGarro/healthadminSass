@@ -1,0 +1,15 @@
+{
+  "lamina": 6,
+  "titulo": "Ficha y acceso del paciente, parte 2",
+  "objetivo": "Comprenda cómo se asigna un número visible estable sin repetirlo cuando varias personas registran pacientes a la vez.",
+  "ejemplo": "Lucía recibe el número 12 de Ana en Clínica Norte. Su baja no libera el 12, y dos altas simultáneas deben recibir números diferentes mediante una operación coordinada.",
+  "recorrido": "Serie por entidad y profesional > CONTADOR_PACIENTE > asignación confirmada > PACIENTE_PROFESIONAL, explicado en la parte 1.",
+  "entidades": {
+    "CONTADOR_PACIENTE": {
+      "nombre": "Control del próximo número de paciente de un profesional",
+      "explicacion": "Mantiene la serie de numeración por profesional y entidad. Permite asignar números sin duplicados cuando se producen altas simultáneas.",
+      "ejemplo": "El contador de Ana empieza en 0 y asigna 1 al primer vínculo. Si el último confirmado es 12, el siguiente alta válida asigna 13 mediante una operación controlada.",
+      "distincion": "No se obtiene el siguiente número contando pacientes ni buscando un máximo sin coordinar la concurrencia. El último número tampoco expresa cuántos pacientes activos existen."
+    }
+  }
+}

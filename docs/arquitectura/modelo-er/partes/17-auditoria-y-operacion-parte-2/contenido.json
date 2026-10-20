@@ -1,0 +1,15 @@
+{
+  "lamina": 17,
+  "titulo": "Auditoría y operación, parte 2",
+  "objetivo": "Cierre el recorrido con la coordinación de fallos técnicos. Un incidente vincula responsables, tiempos, actuaciones y evidencia mínima.",
+  "ejemplo": "Ante una interrupción, un responsable coordina contención y recuperación. El registro permite seguir el problema sin copiar fichas o conversaciones a una descripción técnica general.",
+  "recorrido": "Apertura del INCIDENTE > identificación de alcance mínimo > actuaciones de contención y recuperación > evidencia > cierre autorizado y documentado.",
+  "entidades": {
+    "INCIDENTE": {
+      "nombre": "Registro de coordinación de un problema técnico",
+      "explicacion": "Organiza la contención y recuperación de un incidente mediante responsable, tiempos, situación, alcance mínimo, acciones y evidencia.",
+      "ejemplo": "Un fallo operativo interrumpe parte del servicio. Se registra quién coordina la resolución y dónde consultar la evidencia técnica autorizada.",
+      "distincion": "Es un registro mínimo de coordinación. Los datos locales sensibles se mantienen bajo sus controles y no se trasladan indiscriminadamente a la descripción del incidente."
+    }
+  }
+}

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="1668" height="901" preserveAspectRatio="xMinYMin meet" viewBox="0 0 1668 901" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="1668" height="901"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-901)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="0" width="1668" height="901" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="34" y="866" style="font-family: ERB; font-size: 27px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,1732) scale(1,-1)">14 Auditoría y operación parte 1</text>
+			<text x="34" y="837" style="font-family: ER; font-size: 16px;fill: rgb(26%,34%,41%); stroke:none;" transform="translate(0,1674) scale(1,-1)">PK UUIDv7  |  FK UUID  |  ? opcional  |  G global  T entidad  X excepción  |  ADR-015</text>
+			<text x="34" y="812" style="font-family: ER; font-size: 15px;fill: rgb(26%,34%,41%); stroke:none;" transform="translate(0,1624) scale(1,-1)">Relaciones externas indicadas en cada FK; el registro completo resuelve cardinalidades y unicidades.</text>
+			<path d="M 1214,752 L 1245,752 Z" style="stroke: rgb(60%,67%,72%); stroke-linecap: butt; stroke-width: 1.25;"/>
+			<path d="M 1245,752 L 1245,752 Z" style="stroke: rgb(60%,67%,72%); stroke-linecap: butt; stroke-width: 1.25;"/>
+			<path d="M 1245,752 L 1294,752 Z" style="stroke: rgb(60%,67%,72%); stroke-linecap: butt; stroke-width: 1.25;"/>
+			<text x="1217" y="756" style="font-family: ER; font-size: 12px;fill: rgb(20%,29%,38%); stroke:none;" transform="translate(0,1512) scale(1,-1)">1</text>
+			<text x="1264.9921875" y="747" style="font-family: ER; font-size: 12px;fill: rgb(20%,29%,38%); stroke:none;" transform="translate(0,1494) scale(1,-1)">0..N</text>
+			<path d="M 1214,310 L 1254,310 Z" style="stroke: rgb(60%,67%,72%); stroke-linecap: butt; stroke-width: 1.25;"/>
+			<path d="M 1254,310 L 1254,310 Z" style="stroke: rgb(60%,67%,72%); stroke-linecap: butt; stroke-width: 1.25;"/>
+			<path d="M 1254,310 L 1294,310 Z" style="stroke: rgb(60%,67%,72%); stroke-linecap: butt; stroke-width: 1.25;"/>
+			<text x="1217" y="314" style="font-family: ER; font-size: 12px;fill: rgb(20%,29%,38%); stroke:none;" transform="translate(0,628) scale(1,-1)">1</text>
+			<text x="1264.9921875" y="305" style="font-family: ER; font-size: 12px;fill: rgb(20%,29%,38%); stroke:none;" transform="translate(0,610) scale(1,-1)">0..N</text>
+			<rect x="34" y="452" width="340" height="324" style="stroke: rgb(43%,53%,60%); stroke-linecap: butt; stroke-width: 1.4; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="34" y="733" width="340" height="43" style="stroke: rgb(43%,53%,60%); stroke-linecap: butt; stroke-width: 1; fill: rgb(89%,94%,93%); fill-rule: evenodd;"/>
+			<text x="43" y="749" style="font-family: ERB; font-size: 17px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,1498) scale(1,-1)">AUDITORIA_ENTIDAD [T]</text>
+			<text x="44" y="713" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1426) scale(1,-1)">FK tenant_id &gt; ENTIDAD</text>
+			<text x="44" y="695" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1390) scale(1,-1)">PK id : uuid</text>
+			<text x="44" y="677" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1354) scale(1,-1)">FK actor_id ? &gt; CUENTA</text>
+			<text x="44" y="659" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1318) scale(1,-1)">servicio_actor ? : texto</text>
+			<text x="44" y="641" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1282) scale(1,-1)">FK paciente_id ? &gt; PACIENTE</text>
+			<text x="44" y="623" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1246) scale(1,-1)">FK agenda_id ? &gt; AGENDA</text>
+			<text x="44" y="605" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1210) scale(1,-1)">accion : texto</text>
+			<text x="44" y="587" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1174) scale(1,-1)">recurso_tipo : texto</text>
+			<text x="44" y="569" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1138) scale(1,-1)">recurso_ref : texto</text>
+			<text x="44" y="551" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1102) scale(1,-1)">ocurrido_en : instante</text>
+			<text x="44" y="533" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1066) scale(1,-1)">resultado : enum</text>
+			<text x="44" y="515" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1030) scale(1,-1)">motivo ? : texto</text>
+			<text x="44" y="497" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,994) scale(1,-1)">cambios_minimos : json</text>
+			<text x="44" y="479" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,958) scale(1,-1)">correlacion : texto</text>
+			<rect x="454" y="560" width="340" height="216" style="stroke: rgb(43%,53%,60%); stroke-linecap: butt; stroke-width: 1.4; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="454" y="733" width="340" height="43" style="stroke: rgb(43%,53%,60%); stroke-linecap: butt; stroke-width: 1; fill: rgb(90%,93%,97%); fill-rule: evenodd;"/>
+			<text x="463" y="749" style="font-family: ERB; font-size: 17px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,1498) scale(1,-1)">AUDITORIA_GLOBAL [G]</text>
+			<text x="464" y="713" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1426) scale(1,-1)">PK id : uuid</text>
+			<text x="464" y="695" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1390) scale(1,-1)">FK actor_id ? &gt; CUENTA</text>
+			<text x="464" y="677" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1354) scale(1,-1)">servicio_actor ? : texto</text>
+			<text x="464" y="659" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1318) scale(1,-1)">FK cuenta_afectada_id ? &gt; CUENTA</text>
+			<text x="464" y="641" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1282) scale(1,-1)">accion : texto</text>
+			<text x="464" y="623" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1246) scale(1,-1)">ocurrido_en : instante</text>
+			<text x="464" y="605" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1210) scale(1,-1)">resultado : enum</text>
+			<text x="464" y="587" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1174) scale(1,-1)">contexto_minimo : json</text>
+			<rect x="874" y="560" width="340" height="216" style="stroke: rgb(43%,53%,60%); stroke-linecap: butt; stroke-width: 1.4; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="874" y="733" width="340" height="43" style="stroke: rgb(43%,53%,60%); stroke-linecap: butt; stroke-width: 1; fill: rgb(89%,94%,93%); fill-rule: evenodd;"/>
+			<text x="883" y="749" style="font-family: ERB; font-size: 17px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,1498) scale(1,-1)">POLITICA_OPERATIVA [T]</text>
+			<text x="884" y="713" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1426) scale(1,-1)">FK tenant_id &gt; ENTIDAD</text>
+			<text x="884" y="695" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1390) scale(1,-1)">PK id : uuid</text>
+			<text x="884" y="677" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1354) scale(1,-1)">tipo : enum</text>
+			<text x="884" y="659" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1318) scale(1,-1)">numero_version : entero</text>
+			<text x="884" y="641" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1282) scale(1,-1)">parametros : json</text>
+			<text x="884" y="623" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1246) scale(1,-1)">desde : instante</text>
+			<text x="884" y="605" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1210) scale(1,-1)">hasta ? : instante</text>
+			<text x="884" y="587" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1174) scale(1,-1)">FK aprobador_id &gt; CUENTA</text>
+			<rect x="1294" y="506" width="340" height="270" style="stroke: rgb(43%,53%,60%); stroke-linecap: butt; stroke-width: 1.4; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="1294" y="733" width="340" height="43" style="stroke: rgb(43%,53%,60%); stroke-linecap: butt; stroke-width: 1; fill: rgb(89%,94%,93%); fill-rule: evenodd;"/>
+			<text x="1303" y="749" style="font-family: ERB; font-size: 17px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,1498) scale(1,-1)">EXCEPCION_POLITICA [T]</text>
+			<text x="1304" y="713" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1426) scale(1,-1)">FK tenant_id &gt; ENTIDAD</text>
+			<text x="1304" y="695" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1390) scale(1,-1)">PK id : uuid</text>
+			<text x="1304" y="677" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1354) scale(1,-1)">FK politica_id &gt; POLITICA_OPERATIVA</text>
+			<text x="1304" y="659" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1318) scale(1,-1)">FK paciente_id ? &gt; PACIENTE</text>
+			<text x="1304" y="641" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1282) scale(1,-1)">FK turno_id ? &gt; TURNO</text>
+			<text x="1304" y="623" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1246) scale(1,-1)">FK actor_beneficiario_id ? &gt; CUENTA</text>
+			<text x="1304" y="605" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1210) scale(1,-1)">FK aprobador_id &gt; CUENTA</text>
+			<text x="1304" y="587" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1174) scale(1,-1)">motivo : texto</text>
+			<text x="1304" y="569" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1138) scale(1,-1)">desde : instante</text>
+			<text x="1304" y="551" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1102) scale(1,-1)">hasta : instante</text>
+			<text x="1304" y="533" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,1066) scale(1,-1)">alcance : json</text>
+			<rect x="34" y="95" width="340" height="252" style="stroke: rgb(43%,53%,60%); stroke-linecap: butt; stroke-width: 1.4; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="34" y="304" width="340" height="43" style="stroke: rgb(43%,53%,60%); stroke-linecap: butt; stroke-width: 1; fill: rgb(89%,94%,93%); fill-rule: evenodd;"/>
+			<text x="43" y="320" style="font-family: ERB; font-size: 17px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,640) scale(1,-1)">CASO_ABUSO [T]</text>
+			<text x="44" y="284" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,568) scale(1,-1)">FK tenant_id &gt; ENTIDAD</text>
+			<text x="44" y="266" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,532) scale(1,-1)">PK id : uuid</text>
+			<text x="44" y="248" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,496) scale(1,-1)">FK paciente_id ? &gt; PACIENTE</text>
+			<text x="44" y="230" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,460) scale(1,-1)">FK cuenta_id ? &gt; CUENTA</text>
+			<text x="44" y="212" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,424) scale(1,-1)">FK revisor_id ? &gt; CUENTA</text>
+			<text x="44" y="194" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,388) scale(1,-1)">senal_minima : json</text>
+			<text x="44" y="176" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,352) scale(1,-1)">estado : enum</text>
+			<text x="44" y="158" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,316) scale(1,-1)">decision ? : texto</text>
+			<text x="44" y="140" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,280) scale(1,-1)">abierto_en : instante</text>
+			<text x="44" y="122" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,244) scale(1,-1)">cerrado_en ? : instante</text>
+			<rect x="454" y="113" width="340" height="234" style="stroke: rgb(43%,53%,60%); stroke-linecap: butt; stroke-width: 1.4; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="454" y="304" width="340" height="43" style="stroke: rgb(43%,53%,60%); stroke-linecap: butt; stroke-width: 1; fill: rgb(89%,94%,93%); fill-rule: evenodd;"/>
+			<text x="463" y="320" style="font-family: ERB; font-size: 17px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,640) scale(1,-1)">ACCESO_SOPORTE [T]</text>
+			<text x="464" y="284" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,568) scale(1,-1)">FK tenant_id &gt; ENTIDAD</text>
+			<text x="464" y="266" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,532) scale(1,-1)">PK id : uuid</text>
+			<text x="464" y="248" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,496) scale(1,-1)">FK operador_id &gt; CUENTA</text>
+			<text x="464" y="230" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,460) scale(1,-1)">FK concedente_id &gt; CUENTA</text>
+			<text x="464" y="212" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,424) scale(1,-1)">motivo : texto</text>
+			<text x="464" y="194" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,388) scale(1,-1)">alcance : json</text>
+			<text x="464" y="176" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,352) scale(1,-1)">desde : instante</text>
+			<text x="464" y="158" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,316) scale(1,-1)">hasta : instante</text>
+			<text x="464" y="140" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,280) scale(1,-1)">revocado_en ? : instante</text>
+			<rect x="874" y="131" width="340" height="216" style="stroke: rgb(43%,53%,60%); stroke-linecap: butt; stroke-width: 1.4; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="874" y="304" width="340" height="43" style="stroke: rgb(43%,53%,60%); stroke-linecap: butt; stroke-width: 1; fill: rgb(90%,93%,97%); fill-rule: evenodd;"/>
+			<text x="883" y="320" style="font-family: ERB; font-size: 17px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,640) scale(1,-1)">RESPALDO [G]</text>
+			<text x="884" y="284" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,568) scale(1,-1)">PK id : uuid</text>
+			<text x="884" y="266" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,532) scale(1,-1)">operador_ref : texto</text>
+			<text x="884" y="248" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,496) scale(1,-1)">repositorio_seguro_ref : texto</text>
+			<text x="884" y="230" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,460) scale(1,-1)">iniciado_en : instante</text>
+			<text x="884" y="212" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,424) scale(1,-1)">finalizado_en ? : instante</text>
+			<text x="884" y="194" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,388) scale(1,-1)">alcance_ref : texto</text>
+			<text x="884" y="176" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,352) scale(1,-1)">integridad_ref ? : texto</text>
+			<text x="884" y="158" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,316) scale(1,-1)">estado : enum</text>
+			<rect x="1294" y="131" width="340" height="216" style="stroke: rgb(43%,53%,60%); stroke-linecap: butt; stroke-width: 1.4; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="1294" y="304" width="340" height="43" style="stroke: rgb(43%,53%,60%); stroke-linecap: butt; stroke-width: 1; fill: rgb(90%,93%,97%); fill-rule: evenodd;"/>
+			<text x="1303" y="320" style="font-family: ERB; font-size: 17px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,640) scale(1,-1)">ENSAYO_RESTAURACION [G]</text>
+			<text x="1304" y="284" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,568) scale(1,-1)">PK id : uuid</text>
+			<text x="1304" y="266" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,532) scale(1,-1)">FK respaldo_id &gt; RESPALDO</text>
+			<text x="1304" y="248" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,496) scale(1,-1)">entorno_ref : texto</text>
+			<text x="1304" y="230" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,460) scale(1,-1)">ejecutado_en : instante</text>
+			<text x="1304" y="212" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,424) scale(1,-1)">duracion_seg : entero</text>
+			<text x="1304" y="194" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,388) scale(1,-1)">perdida_datos_seg ? : entero</text>
+			<text x="1304" y="176" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,352) scale(1,-1)">resultado : enum</text>
+			<text x="1304" y="158" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,316) scale(1,-1)">evidencia_ref : texto</text>
+			<text x="34" y="32" style="font-family: ER; font-size: 14px;fill: rgb(26%,34%,41%); stroke:none;" transform="translate(0,64) scale(1,-1)">* 0..N salvo UQ específica: consultar reglas de entidad y registro de relaciones. Modelo lógico propuesto.</text>
+		</g>
+	</g>
+</svg>

@@ -1,0 +1,21 @@
+{
+  "lamina": 2,
+  "titulo": "Identidad y credenciales, parte 2",
+  "objetivo": "Continúe con los trabajos de recuperación y verificación. La primera parte define el usuario y la autorización temporal; esta lámina muestra cómo se organiza y registra el envío.",
+  "ejemplo": "Una tarea guardada enlaza el token de Ana con el canal de plataforma. Si el servicio falla, se conserva cada intento sin crear otra cuenta ni conceder nuevas facultades.",
+  "recorrido": "TOKEN_IDENTIDAD y CANAL_IDENTIDAD, en la parte 1 > TAREA_IDENTIDAD > uno o varios ENVIO_IDENTIDAD.",
+  "entidades": {
+    "TAREA_IDENTIDAD": {
+      "nombre": "Trabajo pendiente de enviar un correo de acceso",
+      "explicacion": "Representa una tarea guardada para ejecutar la recuperación o verificación, con programación, estado e intentos. Conecta el token que autoriza la acción con el canal que enviará el mensaje.",
+      "ejemplo": "Se guarda una tarea para enviar a Ana el enlace de recuperación. Un proceso de trabajo la recoge y registra cada intento de envío.",
+      "distincion": "La tarea es el trabajo lógico que debe hacerse. ENVIO_IDENTIDAD registra cada ejecución técnica. Guardarla permite retomar el trabajo tras una interrupción sin depender de una pantalla abierta."
+    },
+    "ENVIO_IDENTIDAD": {
+      "nombre": "Intento concreto de envío de un correo de acceso",
+      "explicacion": "Registra cada ejecución técnica de una tarea de identidad, su número, referencia del proveedor y posible fallo. Permite distinguir que un correo fue solicitado de que su envío se intentó.",
+      "ejemplo": "El primer intento falla por un problema temporal del proveedor y el segundo se acepta. Ambos pertenecen a la misma tarea.",
+      "distincion": "Un reintento crea otro intento técnico; no debería duplicar la cuenta ni conceder permisos nuevos. Antes de reenviar se revalidan el token y el presupuesto global."
+    }
+  }
+}

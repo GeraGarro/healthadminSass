@@ -1,0 +1,51 @@
+{
+  "lamina": 10,
+  "titulo": "Reservas y capacidad",
+  "objetivo": "Observe cómo una retención temporal se convierte en una cita y cómo se evita superponer al profesional entre clínicas. Separe registro del turno, horario histórico y confirmación de asistencia.",
+  "ejemplo": "Lucía elige un horario; se adquiere una ocupación mínima, se guarda una pre-reserva y después se registra el turno. La confirmación posterior y los eventos dejan trazabilidad. Los reintentos no deben duplicar la cita.",
+  "recorrido": "EVALUACION_ELEGIBILIDAD > OCUPACION_GLOBAL y PRE_RESERVA > TURNO > VERSION_TURNO > confirmación y eventos. IDEMPOTENCIA controla repeticiones de operaciones.",
+  "entidades": {
+    "OCUPACION_GLOBAL": {
+      "nombre": "Bloqueo mínimo del tiempo del profesional",
+      "explicacion": "Representa un intervalo ocupado de un profesional a nivel de plataforma para impedir superposición entre sus distintas entidades. Conserva el mínimo necesario para coordinar capacidad.",
+      "ejemplo": "Ana ya tiene una ocupación de 10:00 a 10:30 en una clínica. Otra entidad no debería reservar ese mismo tiempo como si estuviera libre.",
+      "distincion": "El registro no contiene paciente, agenda, entidad ni motivo. Global permite coordinar tiempo sin compartir las fichas. Los intervalos son [inicio, fin): el final no está incluido."
+    },
+    "PRE_RESERVA": {
+      "nombre": "Retención temporal de un horario",
+      "explicacion": "Es un bloqueo persistido previo a completar el turno. Reúne paciente-profesional, agenda, condiciones evaluadas, ocupación y vencimiento para coordinar el proceso.",
+      "ejemplo": "Lucía elige un horario y completa los datos mientras la capacidad queda retenida durante el plazo que finalmente se apruebe.",
+      "distincion": "El tiempo de retención sigue pendiente. No debe mantenerse una transacción de base de datos abierta mientras la persona llena el formulario. Una solicitud de admisión o gestión no crea esta retención."
+    },
+    "TURNO": {
+      "nombre": "Identidad estable de una cita registrada",
+      "explicacion": "Representa la cita como objeto que conserva su identidad a lo largo de cambios. Registra quién la creó y separa situación del turno, asistencia y jornada.",
+      "ejemplo": "Se registra la cita de Lucía con Ana. Si cambia su horario individualmente, el turno conserva identidad y se registra una nueva versión.",
+      "distincion": "Registrar un turno no confirma asistencia. Tampoco debe confundirse el estado de cancelación con la llegada del paciente o la atención durante la jornada."
+    },
+    "VERSION_TURNO": {
+      "nombre": "Horario y condiciones históricos de una cita",
+      "explicacion": "Conserva una versión inmutable con horario, agenda, oferta, elegibilidad, ocupación y condiciones aplicadas. Permite reconstruir cambios sin sobrescribir la historia.",
+      "ejemplo": "La cita de Lucía pasa del lunes al martes. Se conserva la versión del lunes y se crea la del martes, que queda vigente.",
+      "distincion": "Solo una versión está vigente. La primera reutiliza la ocupación de la pre-reserva. Reprogramar debe asegurar el destino y sustituir el origen en una operación consistente."
+    },
+    "CONFIRMACION_ASISTENCIA": {
+      "nombre": "Confirmación expresa de una cita concreta",
+      "explicacion": "Registra una acción explícita de confirmar asistencia sobre una versión determinada del turno, indicando actor o representación, medio y evidencia.",
+      "ejemplo": "Lucía confirma que asistirá a la versión vigente de su cita mediante el mecanismo autorizado.",
+      "distincion": "Entregar o leer un mensaje no confirma asistencia. Confirmar tampoco ocupa otra capacidad. Una confirmación telefónica debe conservar operador y evidencia con facultad específica."
+    },
+    "EVENTO_TURNO": {
+      "nombre": "Hecho registrado en la historia de una cita",
+      "explicacion": "Guarda los cambios y acontecimientos de un turno en orden temporal: acciones, motivos, resultados y actor humano o servicio que intervino.",
+      "ejemplo": "Se registra que Pedro reprogramó la cita, que Lucía llegó o que hubo una cancelación, según las operaciones autorizadas.",
+      "distincion": "La historia de eventos complementa el estado actual. La baja del profesional no borra estos eventos ni constituye automáticamente una cancelación."
+    },
+    "IDEMPOTENCIA": {
+      "nombre": "Control para que un reintento no duplique una operación",
+      "explicacion": "Guarda la clave de una operación, una huella de su entrada y la referencia al resultado. Permite reconocer una repetición de la misma petición.",
+      "ejemplo": "Pedro pulsa dos veces «Guardar turno» por una demora. Si ambas peticiones tienen la misma clave y entrada, deben resolver la misma operación.",
+      "distincion": "Idempotencia significa repetir sin duplicar el efecto. Usar la misma clave con datos diferentes debe rechazarse; la clave no es un permiso y no debe contener secretos."
+    }
+  }
+}

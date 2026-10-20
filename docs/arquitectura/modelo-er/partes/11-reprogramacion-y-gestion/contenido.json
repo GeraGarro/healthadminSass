@@ -1,0 +1,39 @@
+{
+  "lamina": 11,
+  "titulo": "Reprogramación y gestión",
+  "objetivo": "Estudie la ausencia que afecta muchas citas y el seguimiento individual de cada una. Mantenga por separado el aviso al paciente y la obtención de un reemplazo.",
+  "ejemplo": "Ana falta una mañana. El lote indica los tramos afectados; cada cita tiene seguimiento de aviso y resolución. Una solicitud de gestión pide intervención humana y no retiene horarios.",
+  "recorrido": "LOTE_REPROGRAMACION > INTERVALO_LOTE > TURNO_AFECTADO > gestión y reemplazo. TOKEN_TURNO limita acciones sobre una versión concreta.",
+  "entidades": {
+    "LOTE_REPROGRAMACION": {
+      "nombre": "Conjunto de cambios por una ausencia del profesional",
+      "explicacion": "Agrupa la gestión iniciada por una ausencia o cambio que afecta varias citas del mismo profesional en agendas autorizadas.",
+      "ejemplo": "Ana informa que no atenderá una mañana. Se crea un lote para identificar y seguir los turnos afectados.",
+      "distincion": "Avisar por WhatsApp a los afectados incluye a quienes ya habían confirmado. Enviar el aviso no resuelve el reemplazo; las políticas de liberación y cierre siguen pendientes."
+    },
+    "INTERVALO_LOTE": {
+      "nombre": "Franja de agenda afectada por un lote",
+      "explicacion": "Describe cada tramo temporal y agenda alcanzados por una reprogramación colectiva. Un lote puede incluir más de un intervalo.",
+      "ejemplo": "La ausencia de Ana afecta de 09:00 a 12:00 en una agenda y otro tramo en otra agenda local autorizada.",
+      "distincion": "Debe detectarse toda ocupación que se superponga, incluso si el turno empieza antes de la franja. Un día completo se interpreta según la zona horaria de la agenda."
+    },
+    "TURNO_AFECTADO": {
+      "nombre": "Seguimiento de una cita alcanzada por una ausencia",
+      "explicacion": "Une el lote con la versión original afectada y registra por separado aviso, resolución y posible turno de reemplazo.",
+      "ejemplo": "La cita de Lucía está afectada. Se marca el aviso y después se registra el reemplazo acordado con ella.",
+      "distincion": "Avisado y resuelto son estados diferentes. El diseño propone un nuevo turno para el reemplazo de lote; un cambio individual utiliza una nueva versión del mismo turno."
+    },
+    "SOLICITUD_GESTION": {
+      "nombre": "Pedido para que una persona gestione una necesidad",
+      "explicacion": "Registra un trámite humano relativo a un paciente, profesional o práctica, con solicitante, responsable y seguimiento.",
+      "ejemplo": "Lucía pide ayuda para conseguir una práctica que requiere gestión de personal. Se abre una solicitud para que alguien la resuelva.",
+      "distincion": "Crear la solicitud no elige ni bloquea un horario. Un mensaje puede motivarla, pero su creación requiere una acción explícita y autorizada."
+    },
+    "TOKEN_TURNO": {
+      "nombre": "Autorización temporal para una acción sobre una cita",
+      "explicacion": "Vincula un valor secreto con la versión concreta del turno y un destinatario autorizado. Conserva propósito, vencimiento y uso o revocación.",
+      "ejemplo": "Un mensaje a Lucía contiene un enlace para una acción habilitada sobre su cita vigente.",
+      "distincion": "Reprogramar o cancelar invalida el token obsoleto. Abrir un enlace no modifica el turno por sí solo. Su alcance es distinto al token para recuperar una cuenta."
+    }
+  }
+}

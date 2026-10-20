@@ -1,0 +1,57 @@
+{
+  "lamina": 7,
+  "titulo": "Agendas y catálogo",
+  "objetivo": "Distinga la agenda, el servicio del catálogo y la oferta concreta que se habilita en esa agenda. Después agregue condiciones históricas, horarios y autorizaciones para gestionarla.",
+  "ejemplo": "Ana tiene una agenda en sede Centro. La práctica Consulta se habilita como una oferta con duración y condiciones versionadas. Pedro solo gestiona esa agenda si existe delegación válida con acciones comprendidas.",
+  "recorrido": "AGENDA > OFERTA > VERSION_OFERTA; PRACTICA > VERSION_PRACTICA; HORARIO_AGENDA define recurrencia; DELEGACION_AGENDA y DELEGACION_PERMISO delimitan gestión.",
+  "entidades": {
+    "AGENDA": {
+      "nombre": "Agenda de atención de un profesional en una sede",
+      "explicacion": "Identifica una agenda local asociada al vínculo profesional y al lugar de atención. Es el contexto donde se habilitan prácticas, horarios y delegaciones.",
+      "ejemplo": "Ana tiene una agenda de consultas en la sede Centro de Clínica Norte.",
+      "distincion": "La agenda identifica dónde se organiza la atención. Las franjas recurrentes se guardan en HORARIO_AGENDA y los turnos concretos se registran por separado."
+    },
+    "DELEGACION_AGENDA": {
+      "nombre": "Autorización personal para gestionar una agenda",
+      "explicacion": "Registra a qué integrante del equipo le delega el titular profesional el manejo de una agenda, durante qué período y con posibilidad de revocación.",
+      "ejemplo": "Ana delega a Pedro la gestión autorizada de su agenda de consultas.",
+      "distincion": "El otorgante debe ser titular de la agenda y el destinatario miembro activo de la misma entidad. Ser secretario o administrador no reemplaza esta delegación y no implica poder volver a delegar."
+    },
+    "DELEGACION_PERMISO": {
+      "nombre": "Operación permitida dentro de una delegación",
+      "explicacion": "Indica cada acción específica que comprende la delegación de una agenda. Hace posible separar consulta, registro u otras operaciones que se aprueben.",
+      "ejemplo": "La delegación de Pedro puede incluir ciertas operaciones de turnos expresamente autorizadas.",
+      "distincion": "La delegación no concede chat ni admisión por el mero hecho de permitir operar una agenda. Cada acción debe estar comprendida en el permiso correspondiente."
+    },
+    "PRACTICA": {
+      "nombre": "Tipo estable de servicio de atención",
+      "explicacion": "Es la identidad de catálogo de una práctica administrativa dentro de una entidad. Conserva código, origen y una posible identidad reservada del catálogo inicial.",
+      "ejemplo": "Clínica Norte tiene una práctica base Consulta y puede crear otras prácticas personalizadas para su operación.",
+      "distincion": "El nombre y la descripción están en sus versiones. Llamar «Consulta» a una práctica personalizada no le otorga la identidad base CONSULTA ni habilita la selección desde el portal."
+    },
+    "VERSION_PRACTICA": {
+      "nombre": "Descripción histórica de una práctica",
+      "explicacion": "Conserva una definición inmutable de nombre, clasificación y descripción, con autor y fecha. Permite saber qué definición se utilizó en una oferta histórica.",
+      "ejemplo": "La práctica cambia su descripción. Se crea una nueva versión mientras las ofertas históricas siguen referenciando la anterior.",
+      "distincion": "Modificar la descripción no altera la identidad base de PRACTICA. Las versiones preservan historia; no deben sobrescribirse para aparentar que una definición vieja siempre tuvo el texto nuevo."
+    },
+    "OFERTA": {
+      "nombre": "Práctica habilitada en una agenda concreta",
+      "explicacion": "Asocia una práctica del catálogo con una agenda donde efectivamente se puede ofrecer. Marca la habilitación operativa de ese servicio en ese contexto.",
+      "ejemplo": "La práctica Consulta se habilita en la agenda de Ana en sede Centro.",
+      "distincion": "Crear una práctica en el catálogo no la vuelve reservable en todas las agendas. OFERTA establece esa vinculación y VERSION_OFERTA conserva sus condiciones."
+    },
+    "VERSION_OFERTA": {
+      "nombre": "Condiciones de atención vigentes para una oferta",
+      "explicacion": "Guarda una versión inmutable de duración, preparación, cierre, modalidades y habilitaciones de una oferta. Conserva también qué versión de práctica utiliza y durante qué período se aplica.",
+      "ejemplo": "Las consultas de Ana duran 30 minutos y requieren un margen de cierre, como ejemplo ilustrativo. Al cambiar las condiciones, se crea otra versión.",
+      "distincion": "Los minutos del ejemplo no son una regla aprobada. Habilitar el portal requiere la base CONSULTA y ausencia de gestión obligatoria; llamar Consulta a otra práctica no satisface esa condición."
+    },
+    "HORARIO_AGENDA": {
+      "nombre": "Horario semanal habitual de una agenda",
+      "explicacion": "Registra disponibilidad recurrente por día de semana, hora local y período de aplicación. La zona horaria de la agenda permite interpretar esas horas.",
+      "ejemplo": "La agenda de Ana se ofrece los lunes de 09:00 a 12:00 durante un período determinado, como ejemplo.",
+      "distincion": "El horario habitual no garantiza que un instante esté libre: hay que considerar excepciones, ocupaciones, condiciones de oferta y recursos. Los horarios nocturnos se dividen según la regla documentada."
+    }
+  }
+}

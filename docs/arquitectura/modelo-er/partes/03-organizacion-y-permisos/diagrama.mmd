@@ -1,0 +1,72 @@
+erDiagram
+    ENTIDAD {
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        enum tipo "obligatorio "
+        texto nombre "obligatorio "
+        texto zona_horaria "obligatorio "
+        enum estado "obligatorio "
+        instante creada_en "obligatorio "
+    }
+    SEDE {
+        uuid tenant_id FK "obligatorio ref ENTIDAD"
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        texto nombre "obligatorio "
+        texto direccion "opcional "
+        texto zona_horaria "obligatorio "
+        enum estado "obligatorio "
+    }
+    MEMBRESIA {
+        uuid tenant_id FK "obligatorio ref ENTIDAD"
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid cuenta_id FK "obligatorio ref CUENTA"
+        instante desde "obligatorio "
+        instante hasta "opcional "
+        enum estado "obligatorio "
+    }
+    ROL {
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        texto codigo "obligatorio "
+        texto nombre "obligatorio "
+        enum ambito "obligatorio "
+    }
+    PERMISO {
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        texto codigo "obligatorio "
+        texto accion "obligatorio "
+        enum tipo_ambito "obligatorio "
+    }
+    ROL_PERMISO {
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid rol_id FK "obligatorio ref ROL"
+        uuid permiso_id FK "obligatorio ref PERMISO"
+    }
+    MEMBRESIA_ROL {
+        uuid tenant_id FK "obligatorio ref ENTIDAD"
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid membresia_id FK "obligatorio ref MEMBRESIA"
+        uuid rol_id FK "obligatorio ref ROL"
+        uuid otorgante_id FK "obligatorio ref CUENTA"
+        instante desde "obligatorio "
+        instante hasta "opcional "
+        instante revocada_en "opcional "
+    }
+    MEMBRESIA_PERMISO {
+        uuid tenant_id FK "obligatorio ref ENTIDAD"
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid membresia_id FK "obligatorio ref MEMBRESIA"
+        uuid permiso_id FK "obligatorio ref PERMISO"
+        uuid otorgante_id FK "obligatorio ref CUENTA"
+        instante desde "obligatorio "
+        instante hasta "opcional "
+        instante revocada_en "opcional "
+    }
+    ENTIDAD ||--o{ SEDE : "tenant_id"
+    ENTIDAD ||--o{ MEMBRESIA : "tenant_id"
+    ROL ||--o{ ROL_PERMISO : "rol_id"
+    PERMISO ||--o{ ROL_PERMISO : "permiso_id"
+    ENTIDAD ||--o{ MEMBRESIA_ROL : "tenant_id"
+    MEMBRESIA ||--o{ MEMBRESIA_ROL : "membresia_id"
+    ROL ||--o{ MEMBRESIA_ROL : "rol_id"
+    ENTIDAD ||--o{ MEMBRESIA_PERMISO : "tenant_id"
+    MEMBRESIA ||--o{ MEMBRESIA_PERMISO : "membresia_id"
+    PERMISO ||--o{ MEMBRESIA_PERMISO : "permiso_id"

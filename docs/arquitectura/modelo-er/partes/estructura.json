@@ -1,0 +1,226 @@
+[
+  {
+    "index": 1,
+    "stem": "01-01-identidad-y-credenciales-parte-1",
+    "names": [
+      "CUENTA",
+      "IDENTIDAD_EXTERNA",
+      "CREDENCIAL_LOCAL",
+      "SESION",
+      "FACTOR_MFA",
+      "TOKEN_IDENTIDAD",
+      "FACULTAD_PLATAFORMA",
+      "CANAL_IDENTIDAD"
+    ],
+    "diagram_title": "01 Identidad y credenciales parte 1",
+    "folder": "01-identidad-y-credenciales-parte-1"
+  },
+  {
+    "index": 2,
+    "stem": "02-01-identidad-y-credenciales-parte-2",
+    "names": [
+      "TAREA_IDENTIDAD",
+      "ENVIO_IDENTIDAD"
+    ],
+    "diagram_title": "01 Identidad y credenciales parte 2",
+    "folder": "02-identidad-y-credenciales-parte-2"
+  },
+  {
+    "index": 3,
+    "stem": "03-02-organizaci-n-y-permisos",
+    "names": [
+      "ENTIDAD",
+      "SEDE",
+      "MEMBRESIA",
+      "ROL",
+      "PERMISO",
+      "ROL_PERMISO",
+      "MEMBRESIA_ROL",
+      "MEMBRESIA_PERMISO"
+    ],
+    "diagram_title": "02 Organización y permisos",
+    "folder": "03-organizacion-y-permisos"
+  },
+  {
+    "index": 4,
+    "stem": "04-03-profesionales-e-incorporaci-n",
+    "names": [
+      "PROFESIONAL_GLOBAL",
+      "PROFESIONAL_ENTIDAD",
+      "SOLICITUD_ENTIDAD",
+      "INVITACION_EQUIPO"
+    ],
+    "diagram_title": "03 Profesionales e incorporación",
+    "folder": "04-profesionales-e-incorporacion"
+  },
+  {
+    "index": 5,
+    "stem": "05-04-ficha-y-acceso-del-paciente-parte-1",
+    "names": [
+      "PACIENTE",
+      "CONTACTO_PACIENTE",
+      "SOLICITUD_ADMISION",
+      "REPRESENTACION",
+      "REPRESENTACION_PERMISO",
+      "ACCESO_PACIENTE",
+      "ALCANCE_ACCESO",
+      "PACIENTE_PROFESIONAL"
+    ],
+    "diagram_title": "04 Ficha y acceso del paciente parte 1",
+    "folder": "05-ficha-y-acceso-del-paciente-parte-1"
+  },
+  {
+    "index": 6,
+    "stem": "06-04-ficha-y-acceso-del-paciente-parte-2",
+    "names": [
+      "CONTADOR_PACIENTE"
+    ],
+    "diagram_title": "04 Ficha y acceso del paciente parte 2",
+    "folder": "06-ficha-y-acceso-del-paciente-parte-2"
+  },
+  {
+    "index": 7,
+    "stem": "07-05-agendas-y-cat-logo",
+    "names": [
+      "AGENDA",
+      "DELEGACION_AGENDA",
+      "DELEGACION_PERMISO",
+      "PRACTICA",
+      "VERSION_PRACTICA",
+      "OFERTA",
+      "VERSION_OFERTA",
+      "HORARIO_AGENDA"
+    ],
+    "diagram_title": "05 Agendas y catálogo",
+    "folder": "07-agendas-y-catalogo"
+  },
+  {
+    "index": 8,
+    "stem": "08-06-excepciones-y-recursos",
+    "names": [
+      "EXCEPCION_AGENDA",
+      "RECURSO",
+      "OFERTA_RECURSO",
+      "RESERVA_RECURSO"
+    ],
+    "diagram_title": "06 Excepciones y recursos",
+    "folder": "08-excepciones-y-recursos"
+  },
+  {
+    "index": 9,
+    "stem": "09-07-coberturas-y-convenios",
+    "names": [
+      "COBERTURA_MEDICA",
+      "PLAN_COBERTURA",
+      "AFILIACION_PACIENTE",
+      "CONVENIO",
+      "VERSION_CONVENIO",
+      "AUTORIZACION_COBERTURA",
+      "EVALUACION_ELEGIBILIDAD"
+    ],
+    "diagram_title": "07 Coberturas y convenios",
+    "folder": "09-coberturas-y-convenios"
+  },
+  {
+    "index": 10,
+    "stem": "10-08-reservas-y-capacidad",
+    "names": [
+      "OCUPACION_GLOBAL",
+      "PRE_RESERVA",
+      "TURNO",
+      "VERSION_TURNO",
+      "CONFIRMACION_ASISTENCIA",
+      "EVENTO_TURNO",
+      "IDEMPOTENCIA"
+    ],
+    "diagram_title": "08 Reservas y capacidad",
+    "folder": "10-reservas-y-capacidad"
+  },
+  {
+    "index": 11,
+    "stem": "11-09-reprogramaci-n-y-gesti-n",
+    "names": [
+      "LOTE_REPROGRAMACION",
+      "INTERVALO_LOTE",
+      "TURNO_AFECTADO",
+      "SOLICITUD_GESTION",
+      "TOKEN_TURNO"
+    ],
+    "diagram_title": "09 Reprogramación y gestión",
+    "folder": "11-reprogramacion-y-gestion"
+  },
+  {
+    "index": 12,
+    "stem": "12-10-canales-y-destinatarios",
+    "names": [
+      "CANAL_ENTIDAD",
+      "DESTINO_AVISO",
+      "PRESUPUESTO_CANAL",
+      "CONSUMO_CANAL"
+    ],
+    "diagram_title": "10 Canales y destinatarios",
+    "folder": "12-canales-y-destinatarios"
+  },
+  {
+    "index": 13,
+    "stem": "13-11-avisos-y-entrega",
+    "names": [
+      "TAREA_PERSISTIDA",
+      "AVISO_EXTERNO",
+      "INTENTO_ENVIO",
+      "EVENTO_PROVEEDOR",
+      "AVISO_INTERNO"
+    ],
+    "diagram_title": "11 Avisos y entrega",
+    "folder": "13-avisos-y-entrega"
+  },
+  {
+    "index": 14,
+    "stem": "14-12-chat-humano",
+    "names": [
+      "CONVERSACION",
+      "PARTICIPANTE_CHAT",
+      "PARTICIPANTE_PERMISO",
+      "MENSAJE",
+      "LECTURA_MENSAJE"
+    ],
+    "diagram_title": "12 Chat humano",
+    "folder": "14-chat-humano"
+  },
+  {
+    "index": 15,
+    "stem": "15-13-continuidad-del-fichaje",
+    "names": [
+      "TRANSICION_PROFESIONAL",
+      "CORRESPONDENCIA_FICHAJE",
+      "PETICION_ELIMINACION"
+    ],
+    "diagram_title": "13 Continuidad del fichaje",
+    "folder": "15-continuidad-del-fichaje"
+  },
+  {
+    "index": 16,
+    "stem": "16-14-auditor-a-y-operaci-n-parte-1",
+    "names": [
+      "AUDITORIA_ENTIDAD",
+      "AUDITORIA_GLOBAL",
+      "POLITICA_OPERATIVA",
+      "EXCEPCION_POLITICA",
+      "CASO_ABUSO",
+      "ACCESO_SOPORTE",
+      "RESPALDO",
+      "ENSAYO_RESTAURACION"
+    ],
+    "diagram_title": "14 Auditoría y operación parte 1",
+    "folder": "16-auditoria-y-operacion-parte-1"
+  },
+  {
+    "index": 17,
+    "stem": "17-14-auditor-a-y-operaci-n-parte-2",
+    "names": [
+      "INCIDENTE"
+    ],
+    "diagram_title": "14 Auditoría y operación parte 2",
+    "folder": "17-auditoria-y-operacion-parte-2"
+  }
+]

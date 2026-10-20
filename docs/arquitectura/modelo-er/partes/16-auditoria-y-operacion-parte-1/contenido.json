@@ -1,0 +1,57 @@
+{
+  "lamina": 16,
+  "titulo": "Auditoría y operación, parte 1",
+  "objetivo": "Revise cómo se registra quién actuó, qué políticas se aplicaron y qué intervenciones excepcionales se autorizaron. Después compruebe la diferencia entre hacer una copia y demostrar que puede recuperarse.",
+  "ejemplo": "Se audita una modificación de turno sin exponer secretos; una excepción necesita alcance y motivo. Operación registra el respaldo y realiza un ensayo separado para disponer de evidencia de recuperación.",
+  "recorrido": "AUDITORIA_ENTIDAD y AUDITORIA_GLOBAL separan ámbitos; POLITICA_OPERATIVA > EXCEPCION_POLITICA; CASO_ABUSO y ACCESO_SOPORTE acotan intervenciones; RESPALDO > ENSAYO_RESTAURACION.",
+  "entidades": {
+    "AUDITORIA_ENTIDAD": {
+      "nombre": "Registro de quién hizo qué dentro de una clínica",
+      "explicacion": "Guarda una cronología restringida de acciones, actor real, contexto local, resultado y cambios mínimos necesarios para trazabilidad.",
+      "ejemplo": "Se registra que Pedro modificó un turno autorizado de Clínica Norte, con fecha y resultado.",
+      "distincion": "Referenciar un paciente o recurso desde auditoría no concede acceso al recurso. No deben incluirse secretos ni cuerpos completos de chat. La baja profesional no borra la auditoría."
+    },
+    "AUDITORIA_GLOBAL": {
+      "nombre": "Registro restringido de acciones de identidad y plataforma",
+      "explicacion": "Conserva eventos globales como acceso, recuperación y concesiones operativas, con actor y contexto mínimo.",
+      "ejemplo": "Se registra un cambio de contraseña o la concesión de una facultad de plataforma.",
+      "distincion": "Su alcance está separado de la auditoría local. Un administrador de clínica no obtiene por ello visibilidad sobre todas las actividades globales de las cuentas."
+    },
+    "POLITICA_OPERATIVA": {
+      "nombre": "Versión de reglas y parámetros de operación",
+      "explicacion": "Identifica un conjunto versionado de parámetros para una clase de política y conserva vigencia y aprobación. El tipo determina cómo interpretar esos parámetros.",
+      "ejemplo": "Se documenta una versión de la política de reserva con los valores que se aprueben para la operación.",
+      "distincion": "El registro no aprueba valores por sí mismo. Los plazos de retención y cuotas pendientes no deben inventarse, y la regla general T-24 no se anula silenciosamente."
+    },
+    "EXCEPCION_POLITICA": {
+      "nombre": "Excepción acotada y aprobada a una regla",
+      "explicacion": "Registra una desviación asistida de una política para un sujeto o turno concreto, con motivo, alcance, aprobador y período.",
+      "ejemplo": "Una situación particular se tramita con una excepción expresamente autorizada sobre un turno identificado.",
+      "distincion": "Debe existir un alcance concreto y al menos un sujeto o turno. No representa suspensión masiva de reglas ni un permiso global para quien la recibe."
+    },
+    "CASO_ABUSO": {
+      "nombre": "Revisión humana de una posible conducta abusiva",
+      "explicacion": "Agrupa señales mínimas, revisión, decisión y cierre de un caso local. Permite analizar problemas sin convertir automáticamente un indicio en una sanción.",
+      "ejemplo": "Un patrón de reservas requiere revisión por personal autorizado de Clínica Norte.",
+      "distincion": "Un DNI declarado o una dirección IP compartida no bastan para sancionar. El modelo no comparte listas entre entidades ni necesita una tabla de dominio por cada petición técnica."
+    },
+    "ACCESO_SOPORTE": {
+      "nombre": "Autorización excepcional y temporal para soporte",
+      "explicacion": "Registra quién recibe una concesión de soporte, quién la concede, el motivo, los recursos o acciones comprendidos y la vigencia.",
+      "ejemplo": "Un problema operativo requiere una intervención de soporte con alcance delimitado y trazable, si se aprueba el diseño.",
+      "distincion": "Concedente, recursos y acciones todavía deben aprobarse. Ser desarrollador o administrador de plataforma no implica lectura libre ni suplantación de usuarios."
+    },
+    "RESPALDO": {
+      "nombre": "Ficha técnica de una copia de seguridad",
+      "explicacion": "Conserva metadatos protegidos sobre la ejecución y ubicación segura de un respaldo, con evidencia de alcance e integridad.",
+      "ejemplo": "Operación registra que se generó un respaldo, dónde está protegido y cómo se comprobó su integridad.",
+      "distincion": "La tabla no contiene el archivo de respaldo, fichas ni credenciales. Puede residir fuera de la base de negocio y debe abarcar datos consistentes, incluidos contadores y tareas."
+    },
+    "ENSAYO_RESTAURACION": {
+      "nombre": "Prueba documentada de recuperación de un respaldo",
+      "explicacion": "Guarda el respaldo probado, entorno separado, momento, duración, pérdida de datos observada y evidencia del resultado.",
+      "ejemplo": "Se restaura una copia en un entorno de prueba y se comprueba la consistencia de turnos, numeración y trabajos pendientes.",
+      "distincion": "Tener un backup no demuestra que pueda recuperarse. El ensayo aporta evidencia; sus resultados no son garantías de RPO o RTO, objetivos que aún deben acordarse. El ensayo no debe enviar avisos reales."
+    }
+  }
+}

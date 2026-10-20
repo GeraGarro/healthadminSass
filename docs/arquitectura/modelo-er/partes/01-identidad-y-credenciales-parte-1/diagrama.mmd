@@ -1,0 +1,75 @@
+erDiagram
+    CUENTA {
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        texto nombre "obligatorio "
+        texto email_acceso "opcional "
+        instante email_verificado_en "opcional "
+        enum estado "obligatorio "
+        instante creada_en "obligatorio "
+    }
+    IDENTIDAD_EXTERNA {
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid cuenta_id FK "obligatorio ref CUENTA"
+        texto emisor "obligatorio "
+        texto sujeto "obligatorio "
+        instante vinculada_en "obligatorio "
+        instante revocada_en "opcional "
+    }
+    CREDENCIAL_LOCAL {
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid cuenta_id FK "obligatorio ref CUENTA"
+        secreto hash_contrasena "obligatorio "
+        texto algoritmo_version "obligatorio "
+        instante actualizada_en "obligatorio "
+        instante revocada_en "opcional "
+    }
+    SESION {
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid cuenta_id FK "obligatorio ref CUENTA"
+        secreto huella_sesion "obligatorio "
+        instante iniciada_en "obligatorio "
+        instante vence_en "obligatorio "
+        instante revocada_en "opcional "
+        instante mfa_verificada_en "opcional "
+    }
+    FACTOR_MFA {
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid cuenta_id FK "obligatorio ref CUENTA"
+        enum tipo "obligatorio "
+        secreto referencia_secreta "obligatorio "
+        instante verificado_en "opcional "
+        instante revocado_en "opcional "
+    }
+    TOKEN_IDENTIDAD {
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid cuenta_id FK "opcional ref CUENTA"
+        texto destinatario "obligatorio "
+        secreto huella "obligatorio "
+        enum proposito "obligatorio "
+        instante vence_en "obligatorio "
+        instante usado_en "opcional "
+        instante revocado_en "opcional "
+    }
+    FACULTAD_PLATAFORMA {
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid cuenta_id FK "obligatorio ref CUENTA"
+        uuid permiso_id FK "obligatorio ref PERMISO"
+        uuid otorgante_id FK "obligatorio ref CUENTA"
+        instante desde "obligatorio "
+        instante hasta "opcional "
+        instante revocada_en "opcional "
+    }
+    CANAL_IDENTIDAD {
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        texto proveedor "obligatorio "
+        texto remitente "obligatorio "
+        secreto secreto_ref "obligatorio "
+        enum estado "obligatorio "
+    }
+    CUENTA ||--o{ IDENTIDAD_EXTERNA : "cuenta_id"
+    CUENTA ||--o{ CREDENCIAL_LOCAL : "cuenta_id"
+    CUENTA ||--o{ SESION : "cuenta_id"
+    CUENTA ||--o{ FACTOR_MFA : "cuenta_id"
+    CUENTA |o--o{ TOKEN_IDENTIDAD : "cuenta_id"
+    CUENTA ||--o{ FACULTAD_PLATAFORMA : "cuenta_id"
+    CUENTA ||--o{ FACULTAD_PLATAFORMA : "otorgante_id"

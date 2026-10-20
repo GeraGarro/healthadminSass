@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="1248" height="472" preserveAspectRatio="xMinYMin meet" viewBox="0 0 1248 472" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="1248" height="472"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-472)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="0" width="1248" height="472" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="34" y="437" style="font-family: ERB; font-size: 27px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,874) scale(1,-1)">13 Continuidad del fichaje</text>
+			<text x="34" y="408" style="font-family: ER; font-size: 16px;fill: rgb(26%,34%,41%); stroke:none;" transform="translate(0,816) scale(1,-1)">PK UUIDv7  |  FK UUID  |  ? opcional  |  G global  T entidad  X excepción  |  ADR-015</text>
+			<text x="34" y="383" style="font-family: ER; font-size: 15px;fill: rgb(26%,34%,41%); stroke:none;" transform="translate(0,766) scale(1,-1)">Relaciones externas indicadas en cada FK; el registro completo resuelve cardinalidades y unicidades.</text>
+			<path d="M 374,323 L 405,323 Z" style="stroke: rgb(60%,67%,72%); stroke-linecap: butt; stroke-width: 1.25;"/>
+			<path d="M 405,323 L 405,323 Z" style="stroke: rgb(60%,67%,72%); stroke-linecap: butt; stroke-width: 1.25;"/>
+			<path d="M 405,323 L 454,323 Z" style="stroke: rgb(60%,67%,72%); stroke-linecap: butt; stroke-width: 1.25;"/>
+			<text x="377" y="327" style="font-family: ER; font-size: 12px;fill: rgb(20%,29%,38%); stroke:none;" transform="translate(0,654) scale(1,-1)">1</text>
+			<text x="424.9921875" y="318" style="font-family: ER; font-size: 12px;fill: rgb(20%,29%,38%); stroke:none;" transform="translate(0,636) scale(1,-1)">0..N</text>
+			<rect x="34" y="95" width="340" height="252" style="stroke: rgb(43%,53%,60%); stroke-linecap: butt; stroke-width: 1.4; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="34" y="304" width="340" height="43" style="stroke: rgb(43%,53%,60%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,94%,83%); fill-rule: evenodd;"/>
+			<text x="43" y="320" style="font-family: ERB; font-size: 17px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,640) scale(1,-1)">TRANSICION_PROFESIONAL [X]</text>
+			<text x="44" y="284" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,568) scale(1,-1)">PK id : uuid</text>
+			<text x="44" y="266" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,532) scale(1,-1)">FK profesional_id &gt; PROFESIONAL_GLOBAL</text>
+			<text x="44" y="248" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,496) scale(1,-1)">FK entidad_origen_id &gt; ENTIDAD</text>
+			<text x="44" y="230" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,460) scale(1,-1)">FK entidad_destino_id ? &gt; ENTIDAD</text>
+			<text x="44" y="212" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,424) scale(1,-1)">FK operador_id &gt; CUENTA</text>
+			<text x="44" y="194" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,388) scale(1,-1)">tipo : enum</text>
+			<text x="44" y="176" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,352) scale(1,-1)">estado : enum</text>
+			<text x="44" y="158" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,316) scale(1,-1)">fecha_efectiva ? : instante</text>
+			<text x="44" y="140" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,280) scale(1,-1)">autorizacion_ref : texto</text>
+			<text x="44" y="122" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,244) scale(1,-1)">clave_operacion : texto</text>
+			<rect x="454" y="149" width="340" height="198" style="stroke: rgb(43%,53%,60%); stroke-linecap: butt; stroke-width: 1.4; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="454" y="304" width="340" height="43" style="stroke: rgb(43%,53%,60%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,94%,83%); fill-rule: evenodd;"/>
+			<text x="463" y="320" style="font-family: ERB; font-size: 17px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,640) scale(1,-1)">CORRESPONDENCIA_FICHAJE [X]</text>
+			<text x="464" y="284" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,568) scale(1,-1)">PK id : uuid</text>
+			<text x="464" y="266" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,532) scale(1,-1)">FK transicion_id &gt; TRANSICION_PROFESIONAL</text>
+			<text x="464" y="248" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,496) scale(1,-1)">FK vinculo_origen_id &gt; PACIENTE_PROFESIONAL</text>
+			<text x="464" y="230" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,460) scale(1,-1)">FK vinculo_destino_id ? &gt; PACIENTE_PROFESIONAL</text>
+			<text x="464" y="212" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,424) scale(1,-1)">estado : enum</text>
+			<text x="464" y="194" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,388) scale(1,-1)">alcance_datos_ref : texto</text>
+			<text x="464" y="176" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,352) scale(1,-1)">resolucion_numeracion_ref ? : texto</text>
+			<rect x="874" y="113" width="340" height="234" style="stroke: rgb(43%,53%,60%); stroke-linecap: butt; stroke-width: 1.4; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="874" y="304" width="340" height="43" style="stroke: rgb(43%,53%,60%); stroke-linecap: butt; stroke-width: 1; fill: rgb(90%,93%,97%); fill-rule: evenodd;"/>
+			<text x="883" y="320" style="font-family: ERB; font-size: 17px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,640) scale(1,-1)">PETICION_ELIMINACION [G]</text>
+			<text x="884" y="284" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,568) scale(1,-1)">PK id : uuid</text>
+			<text x="884" y="266" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,532) scale(1,-1)">FK profesional_id &gt; PROFESIONAL_GLOBAL</text>
+			<text x="884" y="248" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,496) scale(1,-1)">FK solicitante_id ? &gt; CUENTA</text>
+			<text x="884" y="230" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,460) scale(1,-1)">peticion_verificada_ref : texto</text>
+			<text x="884" y="212" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,424) scale(1,-1)">solicitada_en : instante</text>
+			<text x="884" y="194" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,388) scale(1,-1)">estado : enum</text>
+			<text x="884" y="176" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,352) scale(1,-1)">FK ejecutor_id ? &gt; CUENTA</text>
+			<text x="884" y="158" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,316) scale(1,-1)">ejecutada_en ? : instante</text>
+			<text x="884" y="140" style="font-family: ER; font-size: 13px;fill: rgb(9%,20%,27%); stroke:none;" transform="translate(0,280) scale(1,-1)">referencias_historicas_ref ? : texto</text>
+			<text x="34" y="32" style="font-family: ER; font-size: 14px;fill: rgb(26%,34%,41%); stroke:none;" transform="translate(0,64) scale(1,-1)">* 0..N salvo UQ específica: consultar reglas de entidad y registro de relaciones. Modelo lógico propuesto.</text>
+		</g>
+	</g>
+</svg>

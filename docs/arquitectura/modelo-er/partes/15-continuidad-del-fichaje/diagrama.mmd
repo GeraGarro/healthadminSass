@@ -1,0 +1,34 @@
+erDiagram
+    TRANSICION_PROFESIONAL {
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid profesional_id FK "obligatorio ref PROFESIONAL_GLOBAL"
+        uuid entidad_origen_id FK "obligatorio ref ENTIDAD"
+        uuid entidad_destino_id FK "opcional ref ENTIDAD"
+        uuid operador_id FK "obligatorio ref CUENTA"
+        enum tipo "obligatorio "
+        enum estado "obligatorio "
+        instante fecha_efectiva "opcional "
+        texto autorizacion_ref "obligatorio "
+        texto clave_operacion "obligatorio "
+    }
+    CORRESPONDENCIA_FICHAJE {
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid transicion_id FK "obligatorio ref TRANSICION_PROFESIONAL"
+        uuid vinculo_origen_id FK "obligatorio ref PACIENTE_PROFESIONAL"
+        uuid vinculo_destino_id FK "opcional ref PACIENTE_PROFESIONAL"
+        enum estado "obligatorio "
+        texto alcance_datos_ref "obligatorio "
+        texto resolucion_numeracion_ref "opcional "
+    }
+    PETICION_ELIMINACION {
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid profesional_id FK "obligatorio ref PROFESIONAL_GLOBAL"
+        uuid solicitante_id FK "opcional ref CUENTA"
+        texto peticion_verificada_ref "obligatorio "
+        instante solicitada_en "obligatorio "
+        enum estado "obligatorio "
+        uuid ejecutor_id FK "opcional ref CUENTA"
+        instante ejecutada_en "opcional "
+        texto referencias_historicas_ref "opcional "
+    }
+    TRANSICION_PROFESIONAL ||--o{ CORRESPONDENCIA_FICHAJE : "transicion_id"

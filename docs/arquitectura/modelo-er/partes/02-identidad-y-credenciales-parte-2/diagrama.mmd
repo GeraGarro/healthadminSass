@@ -1,0 +1,21 @@
+erDiagram
+    TAREA_IDENTIDAD {
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid token_id FK "obligatorio ref TOKEN_IDENTIDAD"
+        uuid canal_id FK "obligatorio ref CANAL_IDENTIDAD"
+        enum tipo "obligatorio "
+        texto clave_logica "obligatorio "
+        instante programada_en "obligatorio "
+        enum estado "obligatorio "
+        entero intentos "obligatorio "
+    }
+    ENVIO_IDENTIDAD {
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid tarea_id FK "obligatorio ref TAREA_IDENTIDAD"
+        entero numero "obligatorio "
+        texto referencia_proveedor "opcional "
+        instante iniciado_en "obligatorio "
+        enum estado "obligatorio "
+        texto error_codigo "opcional "
+    }
+    TAREA_IDENTIDAD ||--o{ ENVIO_IDENTIDAD : "tarea_id"

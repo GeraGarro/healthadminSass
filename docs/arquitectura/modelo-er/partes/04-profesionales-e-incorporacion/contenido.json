@@ -1,0 +1,33 @@
+{
+  "lamina": 4,
+  "titulo": "Profesionales e incorporación",
+  "objetivo": "Estudie la diferencia entre la identidad profesional que persiste y cada vínculo con una clínica. Luego revise las solicitudes de incorporación y las invitaciones del equipo.",
+  "ejemplo": "Ana puede atender en dos entidades con una identidad profesional global y dos vínculos locales. Una nueva clínica puede atravesar el trámite propuesto de incorporación y después invitar a su equipo.",
+  "recorrido": "PROFESIONAL_GLOBAL > PROFESIONAL_ENTIDAD; SOLICITUD_ENTIDAD > revisión > entidad y primera habilitación autorizadas; INVITACION_EQUIPO > aceptación verificada > MEMBRESIA.",
+  "entidades": {
+    "PROFESIONAL_GLOBAL": {
+      "nombre": "Identidad profesional reconocida en la plataforma",
+      "explicacion": "Identifica al mismo profesional a través de sus vínculos con distintas entidades. Permite coordinar su capacidad de atención y mantener una referencia profesional estable.",
+      "ejemplo": "Ana trabaja en dos clínicas. Ambas relaciones apuntan a su misma identidad profesional global.",
+      "distincion": "La identidad profesional es distinta de la cuenta de acceso, que puede ser opcional en este registro. Su alcance global no convierte las fichas de pacientes en información compartida."
+    },
+    "PROFESIONAL_ENTIDAD": {
+      "nombre": "Vínculo de un profesional con una clínica",
+      "explicacion": "Une una identidad profesional global con una entidad concreta y registra vigencia y posible membresía de acceso.",
+      "ejemplo": "Ana tiene un vínculo profesional con Clínica Norte y otro con Clínica Sur.",
+      "distincion": "Terminar un vínculo local no elimina su identidad global ni implica cancelar todos sus turnos automáticamente. La pertenencia profesional y la cuenta de usuario son dimensiones distintas."
+    },
+    "SOLICITUD_ENTIDAD": {
+      "nombre": "Solicitud para incorporar una clínica o actividad",
+      "explicacion": "Registra el trámite de quien pide incorporar una organización, su relación declarada, el contacto administrativo y el resultado de revisión.",
+      "ejemplo": "Ana solicita incorporar su consultorio independiente. Plataforma revisa la solicitud y verifica quién será su primer administrador.",
+      "distincion": "Es una propuesta funcional todavía no aprobada. Presentar el formulario no concede administración, contrato ni suscripción y no prueba por sí solo representación legal."
+    },
+    "INVITACION_EQUIPO": {
+      "nombre": "Invitación personal para incorporarse al equipo",
+      "explicacion": "Identifica la entidad, quién invita, destinatario, token y alcance propuesto. Tras la aceptación verificada puede quedar asociada a una membresía.",
+      "ejemplo": "Una persona autorizada de Clínica Norte invita a Pedro a incorporarse al equipo y le envía una invitación personal.",
+      "distincion": "El destinatario debe corresponder a la cuenta que acepta. Reenviar el enlace no debería otorgar facultades a otra persona. La invitación no delega automáticamente agendas."
+    }
+  }
+}

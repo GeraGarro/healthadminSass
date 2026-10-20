@@ -1,0 +1,43 @@
+erDiagram
+    PROFESIONAL_GLOBAL {
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid cuenta_id FK "opcional ref CUENTA"
+        texto nombre_referencia "obligatorio "
+        texto matricula_referencia "opcional "
+        texto verificacion_ref "opcional "
+        enum estado "obligatorio "
+    }
+    PROFESIONAL_ENTIDAD {
+        uuid tenant_id FK "obligatorio ref ENTIDAD"
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid profesional_id FK "obligatorio ref PROFESIONAL_GLOBAL"
+        uuid membresia_id FK "opcional ref MEMBRESIA"
+        instante desde "obligatorio "
+        instante hasta "opcional "
+        enum estado "obligatorio "
+    }
+    SOLICITUD_ENTIDAD {
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid solicitante_id FK "obligatorio ref CUENTA"
+        enum tipo_entidad "obligatorio "
+        texto nombre_propuesto "obligatorio "
+        texto relacion_declarada "obligatorio "
+        texto admin_contacto "opcional "
+        enum estado "obligatorio "
+        uuid entidad_resultado_id FK "opcional ref ENTIDAD"
+        uuid revisor_id FK "opcional ref CUENTA"
+        instante resuelta_en "opcional "
+    }
+    INVITACION_EQUIPO {
+        uuid tenant_id FK "obligatorio ref ENTIDAD"
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid emisor_id FK "obligatorio ref CUENTA"
+        texto destinatario "obligatorio "
+        uuid cuenta_destino_id FK "opcional ref CUENTA"
+        uuid token_id FK "obligatorio ref TOKEN_IDENTIDAD"
+        uuid rol_propuesto_id FK "opcional ref ROL"
+        enum estado "obligatorio "
+        instante vence_en "obligatorio "
+        uuid membresia_id FK "opcional ref MEMBRESIA"
+    }
+    PROFESIONAL_GLOBAL ||--o{ PROFESIONAL_ENTIDAD : "profesional_id"

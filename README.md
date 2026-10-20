@@ -2,9 +2,11 @@
 
 SaaS de gestión administrativa de pacientes y turnos, inicialmente odontológico y preparado para otras especialidades. Admite clínicas, profesionales independientes y actividad mixta, con datos y permisos aislados por entidad.
 
+**Identificadores aceptados el 17 de octubre de 2026:** [ADR-015](docs/arquitectura/adr/015-identificadores-uuidv7.md) fija UUID versión 7 para las claves primarias internas, generado por PostgreSQL mediante `uuidv7()`, y tipo nativo `uuid` para sus referencias, incluido `tenant_id`. El número visible del paciente continúa siendo entero por profesional y entidad, estable y separado del ID interno. Política documentada para la futura implementación; sin tablas de negocio ni migraciones nuevas.
+
 ## Estado al 16 de octubre de 2026
 
-Diseño general aceptado y requisitos del catálogo confirmados; su detalle de administración sigue propuesto para revisión. Todavía no hay aplicación implementada, despliegue ni pruebas funcionales superadas. Precios, cuotas, tiempos e infraestructura pendientes de validación no son compromisos aprobados.
+Diseño general aceptado y requisitos del catálogo confirmados; su detalle de administración sigue propuesto para revisión. Se implementó la base técnica del servidor en [salud-api](salud-api/README.md), con Spring Boot, Security, PostgreSQL y dependencias de reportes PDF/Excel/CSV; ver [ADR-014](docs/arquitectura/adr/014-base-tecnica-servidor.md). **15 pruebas superadas y arranque del JAR verificado**: [evidencia técnica](docs/24-verificacion-base-servidor.md). El producto funcional, autenticación definitiva y despliegue siguen pendientes. Precios, cuotas, tiempos e infraestructura pendientes de validación no son compromisos aprobados.
 
 **Acceso del equipo:** recuperación de contraseña por email para secretaría, administradores y profesionales confirmada en [ADR-012](docs/arquitectura/adr/012-recuperacion-y-alta-de-usuarios.md). Se preparó el [análisis de registro y recuperación](docs/20-registro-de-usuarios-y-recuperacion-de-acceso.md) y una [maqueta navegable local](docs/prototipos/acceso-y-registro.html), sin backend ni envío de correos. Formulario de incorporación + cuenta personal + revisión de plataforma es la propuesta de alta para quien gestiona la adquisición; aún no está aceptada. Esta ampliación consultó las fuentes técnicas indicadas en el análisis 20.
 
@@ -35,6 +37,12 @@ Suscripciones y datos ligados a su finalización se evalúan en I2/I3. Catálogo
 
 ## Documentación
 
+**Modelo entidad relación preparado el 16/10/2026:** [documento y diccionario](docs/23-modelo-entidad-relacion.md), [Word editable](output/docx/modelo-entidad-relacion-salud.docx), [PDF](output/pdf/modelo-entidad-relacion-salud.pdf) y [draw.io completo](docs/arquitectura/modelo-er/modelo-er-completo.drawio). Incluye 88 entidades, 252 referencias FK, 17 láminas de detalle y un plano integral editable con conexiones entre áreas. Las fuentes JSON, Mermaid, SVG y draw.io individuales están en la [carpeta del modelo](docs/arquitectura/modelo-er/README.md). Es una propuesta lógica para revisión: conserva las decisiones vigentes y los pendientes D01-D16, sin migraciones SQL ni implementación.
+
+**Estudio del modelo E-R:** las [17 partes explicadas](docs/arquitectura/modelo-er/partes/README.md) reúnen en `docs` cada diagrama, su guía PDF y la explicación de entidades, campos y relaciones. El [índice de lectura](docs/arquitectura/modelo-er/partes/00-indice-y-ruta-de-lectura.pdf) indica el orden recomendado.
+
+Actualizado el 17/10/2026 a versión 1.1 con la política de identificadores aceptada en ADR-015. El resto del detalle propuesto conserva su estado de revisión.
+
 | Documento | Contenido |
 | --- | --- |
 | [Estado consolidado](docs/13-estado-consolidado-y-pendientes.md) | Decisiones vigentes, parámetros abiertos y siguiente trabajo |
@@ -64,7 +72,7 @@ Suscripciones y datos ligados a su finalización se evalúan en I2/I3. Catálogo
 
 ## Base técnica y operación
 
-Angular/TypeScript, Java/Spring Boot/Spring Security y PostgreSQL, con versiones estables compatibles fijadas al implementar. Dirección arquitectónica: monolito modular y tareas persistidas. VPS aceptado, proveedor y capacidad por cotizar y medir. El seguimiento de versiones se realiza cada 15 días a las 09:00 de Argentina, según el cambio solicitado el 15/10/2026; propone revisiones y no actualiza producción automáticamente. Las versiones y tarifas citadas en los análisis son fotografías previas, no verificaciones nuevas.
+Servidor implementado como base en `salud-api/`: Java 21 LTS, Spring Boot 4.1.1, Spring Security administrada por su BOM, Maven Wrapper y PostgreSQL 18.6. [Guía de arranque y pruebas](salud-api/README.md). Frontend Angular/TypeScript todavía pendiente. Dirección arquitectónica: monolito modular y tareas persistidas. VPS aceptado, proveedor y capacidad por cotizar y medir. El seguimiento de versiones se realiza cada 15 días a las 09:00 de Argentina, según el cambio solicitado el 15/10/2026; propone revisiones y no actualiza producción automáticamente. Las versiones y tarifas citadas en los análisis son fotografías previas; la matriz instalada del servidor queda registrada en ADR-014.
 
 La referencia técnica local más reciente se conserva en el [seguimiento del 15/10/2026 a las 09:11](docs/seguimiento/2026-10-15-0911-versiones.md) y se refleja en presupuesto y operación; no equivale a una matriz instalada. El estado de la automatización no se consulta ni modifica durante esta revisión.
 
@@ -74,7 +82,7 @@ Una **entidad de cobertura médica** es una obra social, prepaga o similar; se d
 
 ## Forma de trabajo y mantenimiento
 
-Etapas supervisadas y commits específicos; no se realiza implementación por esta actualización documental. Mantener R01-R12 como referencias estables y registrar cambios de decisión en ADR. El próximo trabajo es revisar la matriz preparada, concretar sus asignaciones pendientes, transiciones, parámetros y evidencia del piloto, sin reabrir las decisiones aceptadas.
+Etapas supervisadas y commits específicos. La solicitud del responsable habilitó la base técnica del servidor, sin avanzar a funciones de negocio. Mantener R01-R12 como referencias estables y registrar cambios de decisión en ADR. El próximo trabajo requiere revisar la base y la matriz preparada, concretar sus asignaciones pendientes, transiciones, parámetros y evidencia del piloto, sin reabrir las decisiones aceptadas.
 
 La hoja A4 se genera desde `docs/arquitectura/ayuda-memoria.json` con `scripts/generar-ayuda-memoria.py` (Python y ReportLab). Cambiar reglas, fuente y PDF en el mismo trabajo y verificar visualmente el resultado. Los diagramas Mermaid y el modelo actual son conceptuales; no constituyen esquema SQL ni controles implementados.
 

@@ -1,0 +1,11 @@
+erDiagram
+    INCIDENTE {
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        texto responsable_ref "obligatorio "
+        instante abierto_en "obligatorio "
+        instante cerrado_en "opcional "
+        enum estado "obligatorio "
+        texto alcance_minimo "obligatorio "
+        texto acciones_ref "obligatorio "
+        texto evidencia_ref "opcional "
+    }

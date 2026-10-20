@@ -1,0 +1,57 @@
+{
+  "lamina": 3,
+  "titulo": "Organización y permisos",
+  "objetivo": "Una vez reconocida la persona, ubíquela en una organización y determine qué puede hacer allí. Distinga la clínica, sus sedes, la pertenencia del usuario y las acciones autorizadas.",
+  "ejemplo": "Pedro tiene una cuenta global, una membresía en Clínica Norte y roles o permisos locales expresamente concedidos. La sede ubica la atención y las delegaciones de agendas se estudian más adelante.",
+  "recorrido": "ENTIDAD > SEDE; CUENTA > MEMBRESIA > MEMBRESIA_ROL o MEMBRESIA_PERMISO; ROL > ROL_PERMISO > PERMISO.",
+  "entidades": {
+    "ENTIDAD": {
+      "nombre": "Clínica o actividad independiente que usa el sistema",
+      "explicacion": "Representa el ámbito organizativo que separa los datos de un cliente de los de otro. Una clínica y la actividad independiente de un profesional pueden ser entidades diferentes.",
+      "ejemplo": "Clínica Norte es una ENTIDAD. El consultorio independiente de Ana puede ser otra, con sus propias fichas y configuración.",
+      "distincion": "En un diagrama E-R, «entidad» también significa cualquier tipo de registro. La tabla ENTIDAD tiene el significado específico de organización o actividad cliente; su id aparece como tenant_id en los datos locales."
+    },
+    "SEDE": {
+      "nombre": "Lugar de atención de una organización",
+      "explicacion": "Identifica un lugar de atención perteneciente a una entidad. Permite ubicar agendas y recursos dentro de una organización con más de una dirección.",
+      "ejemplo": "Clínica Norte tiene una sede Centro y otra sede Barrio Sur. Cada agenda se vincula con la sede correspondiente.",
+      "distincion": "Una sede no crea otra organización aislada. Las sedes pertenecen a la misma entidad, aunque sus lugares y horarios puedan diferir."
+    },
+    "MEMBRESIA": {
+      "nombre": "Pertenencia de una persona al equipo de una clínica",
+      "explicacion": "Une una cuenta personal con una entidad durante una vigencia. Registra que esa persona pertenece al equipo de esa organización.",
+      "ejemplo": "Pedro tiene una CUENTA y una MEMBRESIA en Clínica Norte como integrante de su equipo.",
+      "distincion": "La membresía acredita pertenencia. Los roles, permisos y delegaciones de agenda se asignan con relaciones adicionales. Finalizar esta membresía no borra la cuenta global de Pedro."
+    },
+    "ROL": {
+      "nombre": "Conjunto identificado de funciones",
+      "explicacion": "Es una definición de catálogo para agrupar permisos. Sirve como una plantilla de facultades que luego se puede asignar expresamente a una membresía.",
+      "ejemplo": "Puede definirse un rol de secretaría con un conjunto revisado de operaciones permitidas, como ejemplo de organización de permisos.",
+      "distincion": "Crear el rol no se lo concede a nadie. Su contenido y asignación se registran en ROL_PERMISO y MEMBRESIA_ROL. Los nombres y permisos definitivos requieren aprobación."
+    },
+    "PERMISO": {
+      "nombre": "Acción concreta que puede autorizarse",
+      "explicacion": "Describe una operación autorizable y el tipo de ámbito donde se ejerce. Es una unidad más precisa que un cargo o un nombre de rol.",
+      "ejemplo": "«Consultar una agenda autorizada» puede ser una acción que el catálogo de permisos llegue a definir.",
+      "distincion": "El permiso define la acción. Otra tabla registra a quién se le concede y sobre qué contexto. Los códigos de la matriz MP permiten rastrear decisiones, pero no son automáticamente permisos implementados."
+    },
+    "ROL_PERMISO": {
+      "nombre": "Acción incluida en un rol",
+      "explicacion": "Es una tabla de unión: cada registro agrega un permiso a un rol. Así un rol puede reunir varias acciones y la misma acción puede integrar varios roles.",
+      "ejemplo": "Un registro asocia el rol de secretaría con una operación permitida de consulta de agenda.",
+      "distincion": "Resuelve una relación de muchos a muchos. La combinación rol y permiso es única, de modo que la misma acción no se incorpora dos veces al mismo rol."
+    },
+    "MEMBRESIA_ROL": {
+      "nombre": "Rol concedido a un integrante del equipo",
+      "explicacion": "Registra la asignación de un rol a una membresía local, incluyendo quién lo otorga y su período de validez.",
+      "ejemplo": "Una persona autorizada asigna a Pedro un rol dentro de Clínica Norte desde una fecha determinada.",
+      "distincion": "El rol queda asociado a su pertenencia a esa clínica. Tener un rol en una organización no lo extiende a otra donde Pedro también trabaje."
+    },
+    "MEMBRESIA_PERMISO": {
+      "nombre": "Permiso local concedido expresamente",
+      "explicacion": "Asocia una operación concreta con una membresía y registra otorgante y vigencia. Permite representar facultades locales expresas adicionales.",
+      "ejemplo": "Pedro recibe una facultad local específica mediante una concesión autorizada y trazable.",
+      "distincion": "Operar una agenda exige su delegación correspondiente. Esta concesión tampoco incorpora por sí sola a Pedro a un chat ni aprueba pacientes."
+    }
+  }
+}

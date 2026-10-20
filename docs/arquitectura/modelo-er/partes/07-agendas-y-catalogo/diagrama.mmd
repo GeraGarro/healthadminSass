@@ -1,0 +1,86 @@
+erDiagram
+    AGENDA {
+        uuid tenant_id FK "obligatorio ref ENTIDAD"
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid profesional_entidad_id FK "obligatorio ref PROFESIONAL_ENTIDAD"
+        uuid sede_id FK "obligatorio ref SEDE"
+        texto nombre "obligatorio "
+        texto zona_horaria "obligatorio "
+        enum estado "obligatorio "
+    }
+    DELEGACION_AGENDA {
+        uuid tenant_id FK "obligatorio ref ENTIDAD"
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid agenda_id FK "obligatorio ref AGENDA"
+        uuid membresia_id FK "obligatorio ref MEMBRESIA"
+        uuid otorgante_profesional_id FK "obligatorio ref PROFESIONAL_ENTIDAD"
+        instante desde "obligatorio "
+        instante hasta "opcional "
+        instante revocada_en "opcional "
+    }
+    DELEGACION_PERMISO {
+        uuid tenant_id FK "obligatorio ref ENTIDAD"
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid delegacion_id FK "obligatorio ref DELEGACION_AGENDA"
+        uuid permiso_id FK "obligatorio ref PERMISO"
+    }
+    PRACTICA {
+        uuid tenant_id FK "obligatorio ref ENTIDAD"
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        texto codigo_local "obligatorio "
+        enum origen "obligatorio "
+        enum base_inicial "opcional "
+        enum estado "obligatorio "
+    }
+    VERSION_PRACTICA {
+        uuid tenant_id FK "obligatorio ref ENTIDAD"
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid practica_id FK "obligatorio ref PRACTICA"
+        entero numero_version "obligatorio "
+        texto nombre "obligatorio "
+        texto clasificacion "obligatorio "
+        texto descripcion "opcional "
+        uuid autor_id FK "obligatorio ref CUENTA"
+        instante creada_en "obligatorio "
+    }
+    OFERTA {
+        uuid tenant_id FK "obligatorio ref ENTIDAD"
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid agenda_id FK "obligatorio ref AGENDA"
+        uuid practica_id FK "obligatorio ref PRACTICA"
+        enum estado "obligatorio "
+    }
+    VERSION_OFERTA {
+        uuid tenant_id FK "obligatorio ref ENTIDAD"
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid oferta_id FK "obligatorio ref OFERTA"
+        uuid version_practica_id FK "obligatorio ref VERSION_PRACTICA"
+        entero numero_version "obligatorio "
+        entero duracion_min "obligatorio "
+        entero preparacion_min "obligatorio "
+        entero cierre_min "obligatorio "
+        enum modalidad "obligatorio "
+        bool portal_habilitado "obligatorio "
+        bool gestion_personal "obligatorio "
+        bool particular_habilitado "obligatorio "
+        instante desde "obligatorio "
+        instante hasta "opcional "
+    }
+    HORARIO_AGENDA {
+        uuid tenant_id FK "obligatorio ref ENTIDAD"
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid agenda_id FK "obligatorio ref AGENDA"
+        entero dia_semana "obligatorio "
+        hora hora_inicio "obligatorio "
+        hora hora_fin "obligatorio "
+        fecha desde "obligatorio "
+        fecha hasta "opcional "
+    }
+    AGENDA ||--o{ DELEGACION_AGENDA : "agenda_id"
+    DELEGACION_AGENDA ||--o{ DELEGACION_PERMISO : "delegacion_id"
+    PRACTICA ||--o{ VERSION_PRACTICA : "practica_id"
+    AGENDA ||--o{ OFERTA : "agenda_id"
+    PRACTICA ||--o{ OFERTA : "practica_id"
+    OFERTA ||--o{ VERSION_OFERTA : "oferta_id"
+    VERSION_PRACTICA ||--o{ VERSION_OFERTA : "version_practica_id"
+    AGENDA ||--o{ HORARIO_AGENDA : "agenda_id"

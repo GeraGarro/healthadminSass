@@ -1,0 +1,39 @@
+{
+  "lamina": 13,
+  "titulo": "Avisos y entrega",
+  "objetivo": "Separe el trabajo programado, el mensaje lógico, cada intento de envío y las notificaciones del proveedor. Luego diferencie entrega, lectura y resolución.",
+  "ejemplo": "Un trabajo genera el aviso de la cita de Lucía. Un fallo produce reintento. El proveedor informa entrega y el sistema puede avisar al equipo; ninguno de esos hechos confirma asistencia por sí solo.",
+  "recorrido": "TAREA_PERSISTIDA > AVISO_EXTERNO > INTENTO_ENVIO > EVENTO_PROVEEDOR; AVISO_INTERNO comunica hechos a cuentas autorizadas.",
+  "entidades": {
+    "TAREA_PERSISTIDA": {
+      "nombre": "Trabajo automático guardado para ejecutarse después",
+      "explicacion": "Registra una acción diferida con programación, deduplicación, estado, reintentos y origen controlado. Permite retomar trabajos tras fallos del proceso que los ejecuta.",
+      "ejemplo": "Se guarda el trabajo de enviar un recordatorio de una versión de turno en la ventana temporal correspondiente.",
+      "distincion": "La tarea organiza cuándo y por qué se trabaja. AVISO_EXTERNO representa el mensaje y cada INTENTO_ENVIO representa su ejecución técnica. Persistir el trabajo no prueba entrega."
+    },
+    "AVISO_EXTERNO": {
+      "nombre": "Mensaje lógico que debe enviarse a un destinatario",
+      "explicacion": "Representa un mensaje individual con tarea de origen, destino, canal y versión de plantilla. Conserva su identidad aunque sean necesarios varios intentos.",
+      "ejemplo": "El aviso de la cita de Lucía es un mensaje lógico. Si falla su envío, se reintenta ese mismo aviso según la política.",
+      "distincion": "Mensaje e intento son objetos diferentes. La deduplicación considera evento, versión, destinatario y canal para evitar crear mensajes lógicos repetidos."
+    },
+    "INTENTO_ENVIO": {
+      "nombre": "Ejecución concreta de envío de un aviso",
+      "explicacion": "Registra el número de intento, referencia del proveedor, estado y posibles momentos de entrega o lectura.",
+      "ejemplo": "El primer intento del aviso falla. Un segundo intento queda aceptado por el proveedor y puede recibir actualizaciones posteriores.",
+      "distincion": "Aceptación, entrega, lectura y confirmación de asistencia son hechos distintos. El modelo no promete entrega exactamente una vez frente a todos los fallos externos."
+    },
+    "EVENTO_PROVEEDOR": {
+      "nombre": "Notificación técnica recibida del servicio de envío",
+      "explicacion": "Registra un evento externo autenticado, correlacionado con un canal e intento y deduplicado. Un webhook es una notificación que el proveedor envía al sistema.",
+      "ejemplo": "El proveedor informa que un mensaje fue entregado y se registra ese evento con su identificador externo.",
+      "distincion": "Un evento de lectura o entrega informa sobre el mensaje. No confirma asistencia ni convierte texto libre en una operación sobre el turno."
+    },
+    "AVISO_INTERNO": {
+      "nombre": "Notificación guardada dentro del sistema",
+      "explicacion": "Representa un aviso destinado a una cuenta autorizada dentro de una entidad, con origen y seguimiento de lectura o resolución.",
+      "ejemplo": "Pedro recibe un aviso interno sobre un turno cancelado por la regla de cierre o sobre una conversación que requiere intervención autorizada.",
+      "distincion": "Recibirlo no concede permisos nuevos sobre el recurso. Leído y resuelto tienen significados distintos; consultar el recurso exige autorización actual."
+    }
+  }
+}

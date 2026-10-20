@@ -1,0 +1,48 @@
+erDiagram
+    CANAL_ENTIDAD {
+        uuid tenant_id FK "obligatorio ref ENTIDAD"
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        enum canal "obligatorio "
+        texto proveedor "obligatorio "
+        texto cuenta_externa "obligatorio "
+        texto remitente "obligatorio "
+        secreto secreto_ref "obligatorio "
+        instante verificada_en "opcional "
+        enum estado "obligatorio "
+    }
+    DESTINO_AVISO {
+        uuid tenant_id FK "obligatorio ref ENTIDAD"
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid paciente_id FK "obligatorio ref PACIENTE"
+        uuid contacto_id FK "obligatorio ref CONTACTO_PACIENTE"
+        uuid cuenta_destinataria_id FK "opcional ref CUENTA"
+        uuid representacion_id FK "opcional ref REPRESENTACION"
+        enum canal "obligatorio "
+        enum proposito "obligatorio "
+        texto autorizacion_ref "obligatorio "
+        instante desde "obligatorio "
+        instante hasta "opcional "
+        instante revocado_en "opcional "
+    }
+    PRESUPUESTO_CANAL {
+        uuid tenant_id FK "obligatorio ref ENTIDAD"
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid canal_id FK "obligatorio ref CANAL_ENTIDAD"
+        instante periodo_inicio "obligatorio "
+        instante periodo_fin "obligatorio "
+        texto moneda "obligatorio "
+        decimal limite_tecnico "obligatorio "
+        decimal umbral_alerta "obligatorio "
+        texto politica_continuidad "obligatorio "
+    }
+    CONSUMO_CANAL {
+        uuid tenant_id FK "obligatorio ref ENTIDAD"
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid intento_id FK "obligatorio ref INTENTO_ENVIO"
+        texto moneda "obligatorio "
+        decimal importe "obligatorio "
+        enum tipo_medicion "obligatorio "
+        texto tarifa_version_ref "obligatorio "
+        instante registrado_en "obligatorio "
+    }
+    CANAL_ENTIDAD ||--o{ PRESUPUESTO_CANAL : "canal_id"

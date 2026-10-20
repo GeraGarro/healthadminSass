@@ -1,0 +1,212 @@
+[
+  {
+    "path": "docs/01-propuesta-v1.md",
+    "sha256": "c173bccefaffeae67fc122ab16e52f36091e031944f6b8b63bd11a92ef1b87a1",
+    "vigente": true
+  },
+  {
+    "path": "docs/02-plan-de-trabajo.md",
+    "sha256": "eb6d73638cb9341449ee933e586fffa26688f4505f680db845bd6ec10342ffca",
+    "vigente": true
+  },
+  {
+    "path": "docs/03-reglas-del-dominio.md",
+    "sha256": "0b5b7c94fbd1d1415b09b8b38ff43394c187adeb72767de8ab73ab7d817289bf",
+    "vigente": true
+  },
+  {
+    "path": "docs/04-canales-y-costos.md",
+    "sha256": "33eb4bf7d30e95d44d7578169f276747737365e6252ee57444b4e0576fd533df",
+    "vigente": true
+  },
+  {
+    "path": "docs/05-incrementos-y-beta.md",
+    "sha256": "6cffc6aa449592456d5ac2bd76ef1189be95e0fd4bde5e16c22e0f74e69842b8",
+    "vigente": true
+  },
+  {
+    "path": "docs/06-seguridad-beta.md",
+    "sha256": "a9df7032d0f874c2dd0bc72bcd2768d0e7cf06c44eb18c599ba3785408796130",
+    "vigente": true
+  },
+  {
+    "path": "docs/07-revision-decisiones-producto.md",
+    "sha256": "4720686045ea279d46aa1da5209453b08dbe9b9c4341b1479628c64fd707bead",
+    "vigente": true
+  },
+  {
+    "path": "docs/08-presupuesto-y-operacion.md",
+    "sha256": "2c9b61c5284f8a91ccdd425389b4e7c0a7da8ffd9243a1f5c64d156287f9183d",
+    "vigente": true
+  },
+  {
+    "path": "docs/09-portal-correo-y-membresia.md",
+    "sha256": "3ceb00e9e0ebd39c435b5a127e24a7dd34f742791b6d13738a66622f9df6c9e6",
+    "vigente": true
+  },
+  {
+    "path": "docs/10-prevencion-de-reservas-abusivas.md",
+    "sha256": "371ba5f770019a2ad3417cf60aab9338336b968a6978dffab30d6b387aba5759",
+    "vigente": true
+  },
+  {
+    "path": "docs/11-formulario-empadronamiento-y-catalogo.md",
+    "sha256": "579f36bb49dd75ca409f0362fab0aa529e3db520d5da4e6bfa0d2e42ab936b98",
+    "vigente": true
+  },
+  {
+    "path": "docs/12-acceso-con-aprobacion-administrativa.md",
+    "sha256": "a9da087df73cc58e8a81521424baf5849122cfeab1760963e252b2a55a42567a",
+    "vigente": true
+  },
+  {
+    "path": "docs/13-estado-consolidado-y-pendientes.md",
+    "sha256": "bc98606b1a9b1a2761e763457808872ae9354026a97e7291044c6016a709ebeb",
+    "vigente": true
+  },
+  {
+    "path": "docs/14-glosario-del-dominio.md",
+    "sha256": "82aefc04c0de397bc3250ccbf19fd6e1edf46770492e505de4104005243e1213",
+    "vigente": true
+  },
+  {
+    "path": "docs/15-alcance-y-cierre-del-item.md",
+    "sha256": "b120fdd337025fad6e54d85ec1091cc0dbe238f5bab153cc09002e78407fd633",
+    "vigente": true
+  },
+  {
+    "path": "docs/16-catalogo-de-practicas.md",
+    "sha256": "146e5e9038220ea76abcf62d6a774e9c6dd9ca9298a899765e8e053140e05dce",
+    "vigente": true
+  },
+  {
+    "path": "docs/17-revision-y-limpieza-documental.md",
+    "sha256": "08a9a0aa8049bc7dcc9dca18c3cca73eb679b0a4c23860f69655888941dcc9f3",
+    "vigente": true
+  },
+  {
+    "path": "docs/18-ficha-paciente-y-cobertura-medica.md",
+    "sha256": "1d1d15aa0be3e119d0a53ced141c1feb7732af7607037945fb03d967a62fc850",
+    "vigente": true
+  },
+  {
+    "path": "docs/19-desvinculacion-y-transicion-del-profesional.md",
+    "sha256": "c9b02134f75b82400fa45338623ec853c01449121ff9d68db39aa2a6ff051861",
+    "vigente": true
+  },
+  {
+    "path": "docs/20-registro-de-usuarios-y-recuperacion-de-acceso.md",
+    "sha256": "76b90cd2f6f1d6d7e896e84a012a728c39dbfcc8c2de67c9df7b5fd0e179196b",
+    "vigente": true
+  },
+  {
+    "path": "docs/21-casos-de-uso.md",
+    "sha256": "75569b9db0480b9f77fc70eba449a90fd6a496757f21f45d113e56bc71c80d35",
+    "vigente": true
+  },
+  {
+    "path": "docs/22-matriz-de-permisos.md",
+    "sha256": "05148887edd65073add022017ddcc4d6d0af7f4a756cd3f809201ad3c5299ebb",
+    "vigente": true
+  },
+  {
+    "path": "docs/24-verificacion-base-servidor.md",
+    "sha256": "e379bd6fdbf7bc4a983247d1c4eb0260d0c7fe541876852825cb194e96bcb55e",
+    "vigente": true
+  },
+  {
+    "path": "docs/archivo/2026-10-15-analisis-sustituidos.md",
+    "sha256": "2f42d3a03441014a64c792becc25167c4514891fc9144b2c6c168cbe17bb06a7",
+    "vigente": false
+  },
+  {
+    "path": "docs/arquitectura/adr/001-aislamiento-y-numeracion-pacientes.md",
+    "sha256": "6fb65f808119f9896e9facc653e49a4288f5cd444d87803723c21bbde10249f4",
+    "vigente": true
+  },
+  {
+    "path": "docs/arquitectura/adr/002-producto-y-operacion-inicial.md",
+    "sha256": "2ebc2d2c87d1eeb03ce2edb86d3c97898da7d9a6cb357c305522e6777b4b8068",
+    "vigente": true
+  },
+  {
+    "path": "docs/arquitectura/adr/003-portal-y-revision-de-canales.md",
+    "sha256": "4b344d3209b56d95b619e22c4bc158c934275ac2d5a7e652908f23ab0549e091",
+    "vigente": true
+  },
+  {
+    "path": "docs/arquitectura/adr/004-confirmacion-por-correo-y-respaldo.md",
+    "sha256": "4c6b37d5a39399448b3815144a09d8d720a431776bcb94aedfe163bb6345ba26",
+    "vigente": true
+  },
+  {
+    "path": "docs/arquitectura/adr/005-chat-y-seleccion-de-consultas.md",
+    "sha256": "b949457f28a57612ca78034c590d011d56f7b7a9b726cebe8926f2de2d37fdf3",
+    "vigente": true
+  },
+  {
+    "path": "docs/arquitectura/adr/006-admision-y-vision-de-empadronamiento.md",
+    "sha256": "12606a7ca64b1a2b6e62697dccd51cbac188870235519ff8783557a020ca0529",
+    "vigente": true
+  },
+  {
+    "path": "docs/arquitectura/adr/007-acceso-sujeto-a-admision-administrativa.md",
+    "sha256": "4c6d94bbf601f63f9166e7900fd83945ec517657124d139b7974fb7923d39e82",
+    "vigente": true
+  },
+  {
+    "path": "docs/arquitectura/adr/008-consolidacion-del-chat.md",
+    "sha256": "aaa200bc9c39abaf3bf56196bf1b632cf5cc4987fed426eae9d5f5b8ecb99435",
+    "vigente": true
+  },
+  {
+    "path": "docs/arquitectura/adr/009-catalogo-inicial-y-personalizacion.md",
+    "sha256": "293dfcb47923123c2d20eec7b8a70b51e68885ca1e6b05429a4abd0585adc1ea",
+    "vigente": true
+  },
+  {
+    "path": "docs/arquitectura/adr/010-ficha-de-referencia-y-alcance-administrativo.md",
+    "sha256": "121596efe36b1acd5f81b9089fc8cfcb311d1b5eae2f294b22de0a78b604212f",
+    "vigente": true
+  },
+  {
+    "path": "docs/arquitectura/adr/011-transicion-administrada-del-profesional.md",
+    "sha256": "b8aee06f1a4e7886f0645c8fd4198124f7ad8416b98eeae49c46eeeff5a2c2c7",
+    "vigente": true
+  },
+  {
+    "path": "docs/arquitectura/adr/012-recuperacion-y-alta-de-usuarios.md",
+    "sha256": "66e3fa717b16d069546e3ffdc673c79819db7b19a8426561d1c6016359a5f67c",
+    "vigente": true
+  },
+  {
+    "path": "docs/arquitectura/adr/013-reprogramacion-profesional-por-whatsapp.md",
+    "sha256": "a5db701ffdfcea49cdb799dfcd7a96fd75e242963660aa6d3f16c97eeb010e0d",
+    "vigente": true
+  },
+  {
+    "path": "docs/arquitectura/adr/014-base-tecnica-servidor.md",
+    "sha256": "bb818bb37078d6bc7644daafb1a5d2b34f2c7f241b56de6684fb4763817f947e",
+    "vigente": true
+  },
+  {
+    "path": "docs/arquitectura/adr/015-identificadores-uuidv7.md",
+    "sha256": "1d149300375a494bbd4eda0812778892e949ec95415929e7b4ebe5ae5c6ba07a",
+    "vigente": true
+  },
+  {
+    "path": "docs/arquitectura/diagramas/casos-de-uso/README.md",
+    "sha256": "19826fdb76785fa721701d421bab0e18df0786a928cf4d6cf901f8691069c7ce",
+    "vigente": true
+  },
+  {
+    "path": "docs/casos-de-uso/README.md",
+    "sha256": "461688b3589e4755561f8148691ed82ac1e5e881a8e61b245279908de28d0818",
+    "vigente": true
+  },
+  {
+    "path": "docs/seguimiento/2026-10-15-0911-versiones.md",
+    "sha256": "bf40f63d1a8dfb40160ae15df49690aaa1ea7d22463f0f0db142eabf6c87c610",
+    "vigente": true
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "status": "OK",
+  "entities": 88,
+  "foreign_keys": 252,
+  "drawio_pages": 18,
+  "detail_sheets": 17,
+  "document_pages": 76,
+  "checks": [
+    "Ámbitos y FK válidas",
+    "Todas las FK tienen relación",
+    "PK y FK UUID coherentes con ADR-015",
+    "Número visible conserva tipo entero",
+    "Plano integral con todos los conectores",
+    "Todas las entidades aparecen una vez en láminas de detalle",
+    "Campos editables presentes",
+    "Extremos de conectores válidos",
+    "Diccionario completo en DOCX y PDF",
+    "Política UUIDv7 presente en DOCX y PDF",
+    "PDF sin páginas vacías"
+  ]
+}

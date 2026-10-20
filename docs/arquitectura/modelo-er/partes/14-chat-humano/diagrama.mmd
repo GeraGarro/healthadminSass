@@ -1,0 +1,50 @@
+erDiagram
+    CONVERSACION {
+        uuid tenant_id FK "obligatorio ref ENTIDAD"
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid paciente_profesional_id FK "obligatorio ref PACIENTE_PROFESIONAL"
+        enum estado "obligatorio "
+        instante creada_en "obligatorio "
+        instante cerrada_en "opcional "
+    }
+    PARTICIPANTE_CHAT {
+        uuid tenant_id FK "obligatorio ref ENTIDAD"
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid conversacion_id FK "obligatorio ref CONVERSACION"
+        uuid cuenta_id FK "obligatorio ref CUENTA"
+        uuid representacion_id FK "opcional ref REPRESENTACION"
+        enum tipo "obligatorio "
+        instante desde "obligatorio "
+        instante hasta "opcional "
+        instante revocado_en "opcional "
+    }
+    PARTICIPANTE_PERMISO {
+        uuid tenant_id FK "obligatorio ref ENTIDAD"
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid participante_id FK "obligatorio ref PARTICIPANTE_CHAT"
+        uuid permiso_id FK "obligatorio ref PERMISO"
+    }
+    MENSAJE {
+        uuid tenant_id FK "obligatorio ref ENTIDAD"
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid conversacion_id FK "obligatorio ref CONVERSACION"
+        uuid participante_autor_id FK "obligatorio ref PARTICIPANTE_CHAT"
+        texto texto "obligatorio "
+        instante enviado_en "obligatorio "
+        enum estado "obligatorio "
+        uuid correccion_de_id FK "opcional ref MENSAJE"
+    }
+    LECTURA_MENSAJE {
+        uuid tenant_id FK "obligatorio ref ENTIDAD"
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid mensaje_id FK "obligatorio ref MENSAJE"
+        uuid participante_id FK "obligatorio ref PARTICIPANTE_CHAT"
+        instante leido_en "obligatorio "
+    }
+    CONVERSACION ||--o{ PARTICIPANTE_CHAT : "conversacion_id"
+    PARTICIPANTE_CHAT ||--o{ PARTICIPANTE_PERMISO : "participante_id"
+    CONVERSACION ||--o{ MENSAJE : "conversacion_id"
+    PARTICIPANTE_CHAT ||--o{ MENSAJE : "participante_autor_id"
+    MENSAJE |o--o{ MENSAJE : "correccion_de_id"
+    MENSAJE ||--o{ LECTURA_MENSAJE : "mensaje_id"
+    PARTICIPANTE_CHAT ||--o{ LECTURA_MENSAJE : "participante_id"

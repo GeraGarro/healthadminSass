@@ -1,0 +1,27 @@
+{
+  "lamina": 15,
+  "titulo": "Continuidad del fichaje",
+  "objetivo": "Esta parte estudia operaciones excepcionales entre organizaciones. Separe terminar un vínculo, autorizar continuidad y tramitar una petición expresa de eliminación.",
+  "ejemplo": "Ana deja Clínica Norte. La continuidad, si se autoriza, debe definir procedencia y alcance de los vínculos del destino, preservando la información ajena y resolviendo su numeración.",
+  "recorrido": "TRANSICION_PROFESIONAL > CORRESPONDENCIA_FICHAJE para continuidad autorizada; PETICION_ELIMINACION es un trámite distinto que requiere verificación y diseño de ejecución.",
+  "entidades": {
+    "TRANSICION_PROFESIONAL": {
+      "nombre": "Operación excepcional de baja o continuidad entre entidades",
+      "explicacion": "Registra una actuación administrativa sobre un profesional, con origen, posible destino, operador, autorización y fecha efectiva.",
+      "ejemplo": "Se administra la salida de Ana de una clínica y, si corresponde, una continuidad autorizada hacia su actividad independiente.",
+      "distincion": "Es una alternativa de modelado pendiente de revisión. No mueve fichas cambiando tenant_id ni contiene fichas en este registro. Una baja puede no tener destino; una continuidad sí lo requiere."
+    },
+    "CORRESPONDENCIA_FICHAJE": {
+      "nombre": "Relación trazable entre vínculos de origen y destino",
+      "explicacion": "Documenta la procedencia entre el vínculo paciente-profesional original y el del destino dentro de una transición autorizada.",
+      "ejemplo": "Una continuidad autorizada necesita registrar qué vínculo de origen corresponde a cuál en el destino, con su alcance y resolución de numeración.",
+      "distincion": "Es una excepción administrativa entre entidades. No decide todavía si habrá copia o proyección y no habilita lectura general de datos de la clínica de origen."
+    },
+    "PETICION_ELIMINACION": {
+      "nombre": "Solicitud verificada de eliminación presentada por el profesional",
+      "explicacion": "Registra la petición expresa, quién la solicita, la evidencia de verificación y, si se ejecuta, quién interviene y cuándo.",
+      "ejemplo": "Ana presenta una petición de eliminación que debe verificarse y tramitarse según el diseño que se apruebe.",
+      "distincion": "Solicitar, aprobar y ejecutar no son equivalentes. La conservación de fichas e historial, la anonimización y las referencias históricas requieren diseño; no hay un borrado en cascada aprobado."
+    }
+  }
+}

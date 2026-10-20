@@ -1,0 +1,33 @@
+{
+  "lamina": 8,
+  "titulo": "Excepciones y recursos",
+  "objetivo": "Añada al horario habitual los cambios puntuales y las necesidades físicas. Distinga declarar que hace falta un recurso de reservarlo efectivamente.",
+  "ejemplo": "La ausencia de Ana genera una excepción de agenda. Una atención que necesita un equipo requiere que el recurso físico y el tiempo profesional se adquieran de manera consistente según el alcance aprobado.",
+  "recorrido": "HORARIO_AGENDA, lámina anterior > EXCEPCION_AGENDA; RECURSO > OFERTA_RECURSO, necesidad > RESERVA_RECURSO, uso concreto.",
+  "entidades": {
+    "EXCEPCION_AGENDA": {
+      "nombre": "Cambio puntual al horario habitual",
+      "explicacion": "Describe una apertura extraordinaria o una indisponibilidad de una agenda en un intervalo concreto, con autor y motivo interno. Puede relacionarse con un lote de reprogramación.",
+      "ejemplo": "Ana informa una ausencia el próximo lunes y se registra una excepción de indisponibilidad.",
+      "distincion": "Bloquear la franja evita nuevas disponibilidades según la operación autorizada, pero no cancela ni resuelve los turnos ya existentes. Esos turnos requieren gestión expresa."
+    },
+    "RECURSO": {
+      "nombre": "Sala, equipo u otro recurso físico",
+      "explicacion": "Representa un recurso administrativo de una sede y su capacidad. Sirve para describir necesidades adicionales al tiempo del profesional.",
+      "ejemplo": "Una práctica necesita el consultorio 2 o un equipo de la sede Centro, como ejemplos de recursos posibles.",
+      "distincion": "La capacidad del profesional y la del recurso son controles distintos. El alcance del control automático de recursos depende del piloto y no permite asumir sobrecupos."
+    },
+    "OFERTA_RECURSO": {
+      "nombre": "Recurso necesario para prestar una oferta",
+      "explicacion": "Relaciona una versión de oferta con el recurso requerido, indicando cantidad y si su uso abarca preparación o cierre.",
+      "ejemplo": "Una versión de oferta requiere una unidad de un equipo durante la atención y su preparación.",
+      "distincion": "Describe la necesidad; no es todavía una reserva concreta. La sede del recurso debe coincidir con la agenda salvo una regla futura explícita."
+    },
+    "RESERVA_RECURSO": {
+      "nombre": "Uso reservado de un recurso físico",
+      "explicacion": "Registra la ocupación concreta de un recurso en un intervalo y la vincula con el bloqueo de capacidad del profesional.",
+      "ejemplo": "Al asegurar un horario para Ana, también se reserva el equipo necesario para esa atención.",
+      "distincion": "La adquisición y liberación de recurso y profesional deben ser consistentes. El detalle de este control está sujeto al alcance aprobado; una reserva aislada no debe dejar el sistema en contradicción."
+    }
+  }
+}

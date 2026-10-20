@@ -1,0 +1,39 @@
+{
+  "lamina": 14,
+  "titulo": "Chat humano",
+  "objetivo": "Empiece por el hilo de conversación y compruebe quién puede participar y qué acciones tiene permitidas. Después examine mensajes y lectura.",
+  "ejemplo": "Lucía conversa con Ana dentro de su relación local. Cada texto conserva su autor real y cada lectura se registra por participante. Pedro no obtiene acceso por gestionar la agenda.",
+  "recorrido": "CONVERSACION > PARTICIPANTE_CHAT > PARTICIPANTE_PERMISO; CONVERSACION > MENSAJE > LECTURA_MENSAJE.",
+  "entidades": {
+    "CONVERSACION": {
+      "nombre": "Hilo de chat de un paciente con un profesional",
+      "explicacion": "Agrupa mensajes en el contexto de una relación paciente-profesional de una entidad. Tiene ciclo de apertura y cierre.",
+      "ejemplo": "Lucía y Ana tienen una conversación vinculada a su relación en Clínica Norte.",
+      "distincion": "El número de conversaciones simultáneas permitido sigue pendiente. Tener delegación de agenda no incorpora automáticamente a secretaría a este chat."
+    },
+    "PARTICIPANTE_CHAT": {
+      "nombre": "Cuenta habilitada para participar en una conversación",
+      "explicacion": "Registra quién participa, con qué tipo de vínculo, posible representación y período de validez.",
+      "ejemplo": "La cuenta de Lucía participa como paciente y la de Ana como profesional, previa comprobación de correspondencia.",
+      "distincion": "Cada participante debe tener un vínculo verificable con la conversación. La participación administrativa sigue pendiente y los permisos de lectura o envío se detallan aparte."
+    },
+    "PARTICIPANTE_PERMISO": {
+      "nombre": "Acción autorizada a un participante del chat",
+      "explicacion": "Relaciona un participante con una operación permitida, como las facultades de lectura, envío o respuesta que se definan.",
+      "ejemplo": "Una cuenta participante recibe una facultad concreta sobre esa conversación.",
+      "distincion": "Participar no concede todas las operaciones. Estos permisos son independientes de los permisos sobre agendas y deben comprobarse en su propio contexto."
+    },
+    "MENSAJE": {
+      "nombre": "Texto enviado por una persona en una conversación",
+      "explicacion": "Guarda el contenido de un mensaje humano, su participante autor, fecha y posible referencia a un mensaje que corrige.",
+      "ejemplo": "Lucía escribe una consulta y Ana responde. Cada texto conserva la identidad del participante que lo envió.",
+      "distincion": "El chat no ejecuta cambios de turnos interpretando el texto. El alcance excluye adjuntos e IA y el mecanismo exacto de correcciones trazables debe revisarse."
+    },
+    "LECTURA_MENSAJE": {
+      "nombre": "Constancia de que un participante leyó un mensaje",
+      "explicacion": "Asocia un mensaje con un participante y el momento de lectura, evitando duplicar la misma relación.",
+      "ejemplo": "Se registra cuándo Ana leyó el mensaje de Lucía.",
+      "distincion": "Leer no significa haber respondido ni haber atendido a la paciente. El mensaje y el participante deben pertenecer a la misma conversación."
+    }
+  }
+}

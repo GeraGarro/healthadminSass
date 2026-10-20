@@ -1,0 +1,43 @@
+erDiagram
+    EXCEPCION_AGENDA {
+        uuid tenant_id FK "obligatorio ref ENTIDAD"
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid agenda_id FK "obligatorio ref AGENDA"
+        instante inicio "obligatorio "
+        instante fin "obligatorio "
+        enum tipo "obligatorio "
+        texto motivo_interno "opcional "
+        uuid lote_id FK "opcional ref LOTE_REPROGRAMACION"
+        uuid autor_id FK "obligatorio ref CUENTA"
+    }
+    RECURSO {
+        uuid tenant_id FK "obligatorio ref ENTIDAD"
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid sede_id FK "obligatorio ref SEDE"
+        texto nombre "obligatorio "
+        enum tipo "obligatorio "
+        entero capacidad "obligatorio "
+        enum estado "obligatorio "
+    }
+    OFERTA_RECURSO {
+        uuid tenant_id FK "obligatorio ref ENTIDAD"
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid version_oferta_id FK "obligatorio ref VERSION_OFERTA"
+        uuid recurso_id FK "obligatorio ref RECURSO"
+        entero cantidad "obligatorio "
+        bool incluye_preparacion "obligatorio "
+        bool incluye_cierre "obligatorio "
+    }
+    RESERVA_RECURSO {
+        uuid tenant_id FK "obligatorio ref ENTIDAD"
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid recurso_id FK "obligatorio ref RECURSO"
+        uuid ocupacion_id FK "obligatorio ref OCUPACION_GLOBAL"
+        instante inicio "obligatorio "
+        instante fin "obligatorio "
+        entero cantidad "obligatorio "
+        enum estado "obligatorio "
+        instante vence_en "opcional "
+    }
+    RECURSO ||--o{ OFERTA_RECURSO : "recurso_id"
+    RECURSO ||--o{ RESERVA_RECURSO : "recurso_id"

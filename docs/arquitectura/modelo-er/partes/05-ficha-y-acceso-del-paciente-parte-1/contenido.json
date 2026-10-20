@@ -1,0 +1,57 @@
+{
+  "lamina": 5,
+  "titulo": "Ficha y acceso del paciente, parte 1",
+  "objetivo": "Separe los datos administrativos del paciente de su cuenta de acceso. Después revise quién puede actuar por él, cómo se aprueba el acceso y qué profesional o agenda comprende.",
+  "ejemplo": "Lucía tiene una ficha local y contactos. Si solicita el portal, se revisa la admisión, se verifica la vinculación de su cuenta y se concede un alcance concreto. Una representante necesita su propio vínculo y facultades.",
+  "recorrido": "PACIENTE > contactos y solicitud de admisión > representación si corresponde > ACCESO_PACIENTE > ALCANCE_ACCESO. PACIENTE_PROFESIONAL conserva su relación numerada.",
+  "entidades": {
+    "PACIENTE": {
+      "nombre": "Ficha administrativa de un paciente en una clínica",
+      "explicacion": "Reúne datos administrativos de una persona atendida dentro de una entidad, tenga o no cuenta de acceso. La ficha es local a esa organización.",
+      "ejemplo": "Clínica Norte registra a Lucía Gómez como paciente, aunque Lucía nunca haya entrado al portal.",
+      "distincion": "La tabla contiene información administrativa, no una historia clínica. Una ficha de otra entidad no se fusiona por coincidencias de nombre o documento. La edad se calcula a partir del nacimiento."
+    },
+    "CONTACTO_PACIENTE": {
+      "nombre": "Teléfono o correo registrado para contactar al paciente",
+      "explicacion": "Guarda un medio de contacto y una descripción de su titular, con su verificación y situación. Permite conservar varios contactos por paciente.",
+      "ejemplo": "La ficha de Lucía incluye su correo y el teléfono de su madre, identificando quién utiliza cada contacto.",
+      "distincion": "Tener un teléfono registrado no demuestra representación ni habilita el portal. Un contacto familiar puede servir a varios pacientes; el número por sí solo no identifica inequívocamente a uno."
+    },
+    "SOLICITUD_ADMISION": {
+      "nombre": "Pedido de habilitación administrativa del paciente",
+      "explicacion": "Registra una solicitud para ingresar al circuito autorizado de una entidad. Conserva datos declarados, verificación de contacto, revisión y la ficha a la que se resolvió asociar.",
+      "ejemplo": "Lucía solicita acceso para atenderse con Ana. El personal revisa su solicitud antes de habilitar el acceso correspondiente.",
+      "distincion": "La solicitud no reserva horarios ni ocupa capacidad. El solicitante puede actuar por otra persona y puede no tener una cuenta previa. Coincidir en datos no autoriza una fusión automática."
+    },
+    "REPRESENTACION": {
+      "nombre": "Vínculo verificado para actuar por un paciente",
+      "explicacion": "Vincula la cuenta de un representante con un paciente, especificando tipo, evidencia, verificador, vigencia y restricciones.",
+      "ejemplo": "La madre de una paciente menor queda registrada como representante después de la comprobación correspondiente.",
+      "distincion": "Un contacto de emergencia o un titular de cobertura no se convierte automáticamente en representante. Puede haber varios representantes con alcances diferentes."
+    },
+    "REPRESENTACION_PERMISO": {
+      "nombre": "Acción que puede ejercer un representante",
+      "explicacion": "Descompone la representación en facultades concretas, mediante una relación entre el vínculo de representación y un permiso.",
+      "ejemplo": "Una representación permite gestionar turnos, mientras que otra facultad de lectura de chat debe analizarse por separado.",
+      "distincion": "Ser representante no concede todas las operaciones. La tabla permite expresar cada atribución sin inferirla a partir del parentesco."
+    },
+    "ACCESO_PACIENTE": {
+      "nombre": "Vinculación aprobada de una cuenta con una ficha",
+      "explicacion": "Registra la cuenta que puede operar respecto de un paciente, con aprobación, activación y evidencia de vinculación. Puede tratarse de la persona misma o de su representante.",
+      "ejemplo": "La cuenta de Lucía se vincula con su ficha tras verificar correspondencia y aprobar su acceso. Para una menor, puede vincularse una cuenta representante.",
+      "distincion": "Aprobar y activar son momentos distintos. Si hay representación, debe coincidir con el paciente y la cuenta registrados. Conocer un número de paciente no concede acceso."
+    },
+    "ALCANCE_ACCESO": {
+      "nombre": "Profesional, agenda y acción habilitados en el portal",
+      "explicacion": "Detalla qué contextos puede utilizar un acceso de paciente: el profesional local, una agenda cuando corresponda y el permiso concreto, con su vigencia.",
+      "ejemplo": "Lucía obtiene autorización para gestionar consultas con Ana en el ámbito habilitado de Clínica Norte.",
+      "distincion": "Tener acceso a la ficha no habilita todos los profesionales ni todas las clínicas. La semántica de una agenda vacía como alcance a las agendas locales del profesional sigue pendiente de revisión."
+    },
+    "PACIENTE_PROFESIONAL": {
+      "nombre": "Relación del paciente con su profesional y su número visible",
+      "explicacion": "Une paciente y profesional dentro de la entidad y conserva el número estable que ese profesional utiliza para identificarlo administrativamente.",
+      "ejemplo": "Lucía es la paciente número 12 de Ana en Clínica Norte. Otro profesional puede tener otra numeración para su propia relación con Lucía.",
+      "distincion": "El número pertenece a la combinación entidad y profesional; no es el UUID ni un número universal del paciente. Una baja no permite renumerar ni reutilizar ese número."
+    }
+  }
+}

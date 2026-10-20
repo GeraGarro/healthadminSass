@@ -1,0 +1,57 @@
+{
+  "lamina": 1,
+  "titulo": "Identidad y credenciales, parte 1",
+  "objetivo": "Primero identifique al usuario y luego los mecanismos de acceso. Separe quién es la persona, cómo demuestra su identidad, qué acceso mantiene iniciado y qué facultades globales recibe.",
+  "ejemplo": "CUENTA identifica a Ana. CREDENCIAL_LOCAL o IDENTIDAD_EXTERNA permiten autenticarla. FACTOR_MFA aporta la comprobación adicional y SESION recuerda el acceso. Si necesita recuperar la contraseña, TOKEN_IDENTIDAD delimita la acción y CANAL_IDENTIDAD configura el envío; la parte 2 explica la ejecución.",
+  "recorrido": "CUENTA > método de acceso > segundo factor cuando corresponda > SESION > comprobación de permisos en cada operación.",
+  "entidades": {
+    "CUENTA": {
+      "nombre": "Usuario personal del sistema",
+      "explicacion": "Es el registro estable que identifica a una persona que puede acceder a la plataforma. Reúne nombre, contacto de acceso y situación de su cuenta. Una misma cuenta puede utilizarse para trabajar en distintas clínicas con permisos diferentes.",
+      "ejemplo": "Ana Pérez crea una cuenta personal. Con ella puede trabajar en Clínica Norte y Clínica Sur, siempre que tenga los vínculos y permisos correspondientes.",
+      "distincion": "La cuenta identifica a Ana; sus roles, su matrícula y los pacientes que puede consultar se registran por separado. La baja de una clínica conserva la cuenta global. Puede haber pacientes con ficha que nunca creen una cuenta."
+    },
+    "IDENTIDAD_EXTERNA": {
+      "nombre": "Vinculación con un proveedor de acceso",
+      "explicacion": "Asocia una cuenta propia con el identificador estable que reconoce un proveedor externo admitido. Sirve para reconocer a la misma persona cuando ingresa mediante ese proveedor, después de una vinculación verificada.",
+      "ejemplo": "Ana elige «Ingresar con Google». La plataforma reconoce la combinación del proveedor y el identificador de Ana, y encuentra su CUENTA.",
+      "distincion": "«Emisor» es quien emite la identidad y «sujeto» es el identificador del usuario en ese proveedor. La contraseña del proveedor queda a cargo del proveedor. Coincidir en correo no autoriza a unir cuentas."
+    },
+    "CREDENCIAL_LOCAL": {
+      "nombre": "Contraseña propia de esta aplicación",
+      "explicacion": "Guarda la información protegida que permite comprobar una contraseña creada en este sistema. «Local» indica que la administra la aplicación, en lugar de delegar la comprobación en un proveedor externo.",
+      "ejemplo": "Ana escribe su correo y contraseña. El sistema busca su cuenta y contrasta lo ingresado con la credencial local vigente.",
+      "distincion": "El hash es una representación para comprobar la contraseña sin guardarla como texto legible. Hay una sola credencial local vigente por cuenta; la relación 0..N no implica varias contraseñas válidas simultáneamente. Una cuenta exclusivamente externa puede no tener ninguna."
+    },
+    "SESION": {
+      "nombre": "Acceso que queda iniciado",
+      "explicacion": "Representa un acceso autenticado que la aplicación recuerda durante un período. Permite que la persona pase de una pantalla a otra sin identificarse desde cero en cada operación. Su mecanismo concreto está pendiente de definición.",
+      "ejemplo": "Ana ingresa en la computadora del consultorio y después en su teléfono. Pueden existir dos sesiones asociadas a su cuenta.",
+      "distincion": "Una sesión acredita un acceso, pero cada operación debe revalidar sus permisos actuales. Cerrar o revocar una sesión es distinto de terminar la membresía de una clínica."
+    },
+    "FACTOR_MFA": {
+      "nombre": "Método adicional para comprobar identidad",
+      "explicacion": "Registra un segundo factor de autenticación y su ciclo de verificación o revocación. MFA significa autenticación multifactor. El tipo de factor y su custodia deben definirse en el proyecto.",
+      "ejemplo": "Como ejemplo de un método posible, Ana configura una aplicación autenticadora y luego utiliza sus códigos al ingresar.",
+      "distincion": "Verificar el factor registrado comprueba su configuración. SESION.mfa_verificada_en registra cuándo se comprobó ese factor en un acceso particular. Recuperar la contraseña no elimina el segundo factor."
+    },
+    "TOKEN_IDENTIDAD": {
+      "nombre": "Autorización temporal para una acción de acceso",
+      "explicacion": "Representa un valor secreto de uso limitado para recuperar una contraseña, verificar un contacto o intervenir en una invitación de identidad. Conserva propósito, destinatario, vencimiento y consumo.",
+      "ejemplo": "Ana pulsa «Olvidé mi contraseña» y recibe un enlace. El sistema comprueba su token cuando confirma la nueva contraseña.",
+      "distincion": "El token permite una acción concreta; su identificador interno no reemplaza el valor secreto. Puede existir antes de asociarse a una cuenta. Abrir el enlace no lo consume por sí solo y este token no confirma turnos."
+    },
+    "FACULTAD_PLATAFORMA": {
+      "nombre": "Permiso administrativo sobre la plataforma",
+      "explicacion": "Es una concesión concreta para operar funciones globales, como la incorporación y operación de la plataforma. Conserva quién recibe el permiso, cuál es, quién lo otorga y durante qué período.",
+      "ejemplo": "Laura autoriza a Martín a revisar solicitudes de incorporación durante una semana, como ejemplo de una facultad operativa.",
+      "distincion": "«Facultad» significa atribución o autorización. Las dos referencias a CUENTA tienen papeles distintos: cuenta_id recibe y otorgante_id concede. Esta facultad no abre la lectura general de fichas ni permite suplantar usuarios."
+    },
+    "CANAL_IDENTIDAD": {
+      "nombre": "Servicio y remitente de correos de acceso",
+      "explicacion": "Es la configuración de plataforma utilizada para enviar mensajes de recuperación o verificación sin exigir que la persona elija una clínica. Reúne proveedor, remitente y referencia protegida de acceso al servicio.",
+      "ejemplo": "El enlace de recuperación de Ana sale desde acceso@plataforma.ejemplo mediante un servicio de envío configurado.",
+      "distincion": "El destinatario de Ana figura en el proceso de identidad; esta tabla describe desde dónde se envía. IDENTIDAD_EXTERNA autentica usuarios; CANAL_IDENTIDAD permite enviar mensajes. Su conexión mediante TAREA_IDENTIDAD aparece en la parte 2."
+    }
+  }
+}

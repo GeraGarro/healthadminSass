@@ -1,0 +1,33 @@
+{
+  "lamina": 12,
+  "titulo": "Canales y destinatarios",
+  "objetivo": "Antes de enviar, identifique desde qué cuenta se comunica la entidad, a quién puede hacerlo y qué límites técnicos de consumo tiene.",
+  "ejemplo": "Clínica Norte configura su canal y autoriza un destino para Lucía según propósito. El presupuesto controla la operación y el consumo registra mediciones del costo de los intentos.",
+  "recorrido": "CANAL_ENTIDAD + DESTINO_AVISO > envío autorizado; PRESUPUESTO_CANAL controla el período; CONSUMO_CANAL referencia INTENTO_ENVIO, de la siguiente lámina.",
+  "entidades": {
+    "CANAL_ENTIDAD": {
+      "nombre": "Servicio y remitente de avisos de una clínica",
+      "explicacion": "Configura el medio de envío y la cuenta de proveedor verificada que utiliza una entidad para sus comunicaciones.",
+      "ejemplo": "Clínica Norte configura su remitente de correo y su cuenta autorizada para WhatsApp, según lo que se habilite.",
+      "distincion": "Se diferencia del canal global de recuperación de cuentas. Los eventos del proveedor deben correlacionarse con la cuenta verificada; no se confía en un tenant declarado sin comprobar."
+    },
+    "DESTINO_AVISO": {
+      "nombre": "Destinatario autorizado para cierto mensaje de un paciente",
+      "explicacion": "Relaciona paciente, contacto y eventual cuenta o representación con un canal y propósito autorizados. Delimita a quién corresponde enviar un aviso.",
+      "ejemplo": "Se autoriza enviar el aviso de una cita de Lucía a un contacto verificado que corresponde al propósito.",
+      "distincion": "Tener un contacto en la ficha no autoriza todos los mensajes. La autorización se revalida al enviar y recibir un aviso no concede acceso al portal."
+    },
+    "PRESUPUESTO_CANAL": {
+      "nombre": "Límite operativo del gasto en comunicaciones",
+      "explicacion": "Registra un período, moneda, límite técnico, umbral de alerta y política de continuidad para un canal de una entidad.",
+      "ejemplo": "Clínica Norte fija un límite técnico de consumo y una alerta antes de alcanzarlo, con valores aún por acordar.",
+      "distincion": "Es un control operativo del canal. No representa una suscripción ni una cuota facturada; agotarlo no cancela turnos ni cierra el portal automáticamente."
+    },
+    "CONSUMO_CANAL": {
+      "nombre": "Costo técnico de un intento de comunicación",
+      "explicacion": "Guarda una medición estimada o conciliada del consumo asociado a un intento de envío, su moneda y referencia de tarifa.",
+      "ejemplo": "Un intento de WhatsApp tiene un costo estimado y luego se concilia con el proveedor.",
+      "distincion": "Estimación y conciliación representan dos mediciones del mismo hecho. No deben sumarse como si fueran dos cargos independientes. El detalle de tarifas no queda aprobado por el ejemplo."
+    }
+  }
+}

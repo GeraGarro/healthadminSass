@@ -1,0 +1,128 @@
+{
+  "fecha": "2026-10-18",
+  "modelo_version": "1.1",
+  "entidades": 88,
+  "campos": 722,
+  "relaciones": 252,
+  "laminas": [
+    {
+      "carpeta": "01-identidad-y-credenciales-parte-1",
+      "entidades": 8,
+      "campos": 51,
+      "relaciones_salientes": 8,
+      "paginas_pdf": 13
+    },
+    {
+      "carpeta": "02-identidad-y-credenciales-parte-2",
+      "entidades": 2,
+      "campos": 15,
+      "relaciones_salientes": 3,
+      "paginas_pdf": 6
+    },
+    {
+      "carpeta": "03-organizacion-y-permisos",
+      "entidades": 8,
+      "campos": 45,
+      "relaciones_salientes": 13,
+      "paginas_pdf": 13
+    },
+    {
+      "carpeta": "04-profesionales-e-incorporacion",
+      "entidades": 4,
+      "campos": 33,
+      "relaciones_salientes": 13,
+      "paginas_pdf": 11
+    },
+    {
+      "carpeta": "05-ficha-y-acceso-del-paciente-parte-1",
+      "entidades": 8,
+      "campos": 72,
+      "relaciones_salientes": 30,
+      "paginas_pdf": 19
+    },
+    {
+      "carpeta": "06-ficha-y-acceso-del-paciente-parte-2",
+      "entidades": 1,
+      "campos": 6,
+      "relaciones_salientes": 3,
+      "paginas_pdf": 5
+    },
+    {
+      "carpeta": "07-agendas-y-catalogo",
+      "entidades": 8,
+      "campos": 61,
+      "relaciones_salientes": 22,
+      "paginas_pdf": 15
+    },
+    {
+      "carpeta": "08-excepciones-y-recursos",
+      "entidades": 4,
+      "campos": 32,
+      "relaciones_salientes": 12,
+      "paginas_pdf": 11
+    },
+    {
+      "carpeta": "09-coberturas-y-convenios",
+      "entidades": 7,
+      "campos": 58,
+      "relaciones_salientes": 23,
+      "paginas_pdf": 16
+    },
+    {
+      "carpeta": "10-reservas-y-capacidad",
+      "entidades": 7,
+      "campos": 74,
+      "relaciones_salientes": 29,
+      "paginas_pdf": 18
+    },
+    {
+      "carpeta": "11-reprogramacion-y-gestion",
+      "entidades": 5,
+      "campos": 45,
+      "relaciones_salientes": 21,
+      "paginas_pdf": 13
+    },
+    {
+      "carpeta": "12-canales-y-destinatarios",
+      "entidades": 4,
+      "campos": 38,
+      "relaciones_salientes": 10,
+      "paginas_pdf": 10
+    },
+    {
+      "carpeta": "13-avisos-y-entrega",
+      "entidades": 5,
+      "campos": 50,
+      "relaciones_salientes": 17,
+      "paginas_pdf": 15
+    },
+    {
+      "carpeta": "14-chat-humano",
+      "entidades": 5,
+      "campos": 32,
+      "relaciones_salientes": 16,
+      "paginas_pdf": 10
+    },
+    {
+      "carpeta": "15-continuidad-del-fichaje",
+      "entidades": 3,
+      "campos": 26,
+      "relaciones_salientes": 10,
+      "paginas_pdf": 9
+    },
+    {
+      "carpeta": "16-auditoria-y-operacion-parte-1",
+      "entidades": 8,
+      "campos": 76,
+      "relaciones_salientes": 22,
+      "paginas_pdf": 17
+    },
+    {
+      "carpeta": "17-auditoria-y-operacion-parte-2",
+      "entidades": 1,
+      "campos": 8,
+      "relaciones_salientes": 0,
+      "paginas_pdf": 5
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "lamina": 9,
+  "titulo": "Coberturas y convenios",
+  "objetivo": "Recorra la cobertura desde el catálogo hasta la evaluación de una reserva. Tener obra social, tener un plan y poder usarlo para una práctica son situaciones diferentes.",
+  "ejemplo": "Lucía declara una afiliación. La oferta de Ana tiene convenios versionados y puede exigir autorización. La evaluación conserva qué se eligió y qué regla se aplicó antes de reservar.",
+  "recorrido": "COBERTURA_MEDICA > PLAN_COBERTURA > AFILIACION_PACIENTE; OFERTA > CONVENIO > VERSION_CONVENIO; AUTORIZACION_COBERTURA cuando corresponda > EVALUACION_ELEGIBILIDAD.",
+  "entidades": {
+    "COBERTURA_MEDICA": {
+      "nombre": "Obra social o prepaga del catálogo local",
+      "explicacion": "Identifica una cobertura médica que la entidad configura administrativamente para sus pacientes y ofertas.",
+      "ejemplo": "Clínica Norte registra una cobertura ficticia Salud Ejemplo dentro de su catálogo.",
+      "distincion": "La cobertura del paciente es distinta de la organización que contrata el sistema. El catálogo local no comparte afiliaciones con otras entidades."
+    },
+    "PLAN_COBERTURA": {
+      "nombre": "Plan de una obra social o prepaga",
+      "explicacion": "Es un producto o plan perteneciente a una cobertura médica local. Permite distinguir condiciones dentro de la misma cobertura.",
+      "ejemplo": "Salud Ejemplo tiene un plan Básico y un plan Ampliado, como datos ficticios.",
+      "distincion": "Un plan siempre pertenece a su cobertura. Su presencia en el catálogo no significa que toda oferta de la entidad lo acepte."
+    },
+    "AFILIACION_PACIENTE": {
+      "nombre": "Vínculo del paciente con una cobertura",
+      "explicacion": "Asocia al paciente con cobertura, posible plan y número de afiliado. Distingue lo declarado de su verificación administrativa y registra vigencia.",
+      "ejemplo": "Lucía declara afiliación a Salud Ejemplo, plan Básico, y el personal registra el resultado de la verificación.",
+      "distincion": "Un paciente puede tener varias afiliaciones. Un número familiar no es necesariamente único por paciente y ser titular de cobertura no prueba representación del paciente."
+    },
+    "CONVENIO": {
+      "nombre": "Acuerdo de aceptación de cobertura para una oferta",
+      "explicacion": "Asocia una oferta concreta con una cobertura y, cuando corresponde, un plan. Al referir a una oferta identifica también la agenda, práctica y profesional involucrados.",
+      "ejemplo": "La oferta de consultas de Ana acepta cierto plan de Salud Ejemplo según un convenio local.",
+      "distincion": "La cobertura registrada en la ficha no alcanza para afirmar que un turno está cubierto. Un plan vacío propone abarcar los planes de esa cobertura, pero esa semántica y su precedencia requieren revisión."
+    },
+    "VERSION_CONVENIO": {
+      "nombre": "Condiciones históricas de un convenio",
+      "explicacion": "Conserva una regla inmutable de cobertura con período, exigencia de autorización y condiciones. Permite reconstruir qué regla se aplicó a una reserva.",
+      "ejemplo": "Un convenio empieza a requerir autorización. Se crea una versión nueva y los turnos históricos conservan la regla que utilizaron.",
+      "distincion": "La resolución de reglas en conflicto debe ser explícita. Si una cobertura resulta incompatible, la aplicación no debe convertir la atención a particular sin elección expresa."
+    },
+    "AUTORIZACION_COBERTURA": {
+      "nombre": "Constancia administrativa para una práctica",
+      "explicacion": "Registra una autorización específica vinculada a una afiliación y a una práctica, con referencia, situación, vigencia y posible verificador.",
+      "ejemplo": "Para cierta práctica, el personal registra la referencia de autorización presentada para la afiliación de Lucía.",
+      "distincion": "Esta autorización corresponde a la cobertura de una prestación; no es un permiso para usar el software. Tampoco equivale a haber verificado toda la afiliación ni implica una API externa aprobada."
+    },
+    "EVALUACION_ELEGIBILIDAD": {
+      "nombre": "Comprobación de si se puede reservar bajo ciertas condiciones",
+      "explicacion": "Guarda el resultado de aplicar oferta, modalidad elegida, afiliación, convenio y posible autorización antes de adquirir o completar una reserva.",
+      "ejemplo": "Lucía elige atenderse con su cobertura. El sistema evalúa las condiciones y registra si resulta elegible, incompatible o requiere revisión.",
+      "distincion": "La evaluación deja evidencia de la decisión aplicada. La atención particular necesita elección expresa y oferta habilitada; no puede inferirse como solución automática a una incompatibilidad."
+    }
+  }
+}

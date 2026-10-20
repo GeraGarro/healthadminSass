@@ -1,0 +1,83 @@
+erDiagram
+    COBERTURA_MEDICA {
+        uuid tenant_id FK "obligatorio ref ENTIDAD"
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        texto nombre "obligatorio "
+        texto codigo_local "opcional "
+        enum estado "obligatorio "
+    }
+    PLAN_COBERTURA {
+        uuid tenant_id FK "obligatorio ref ENTIDAD"
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid cobertura_id FK "obligatorio ref COBERTURA_MEDICA"
+        texto nombre "obligatorio "
+        texto codigo "opcional "
+        enum estado "obligatorio "
+    }
+    AFILIACION_PACIENTE {
+        uuid tenant_id FK "obligatorio ref ENTIDAD"
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid paciente_id FK "obligatorio ref PACIENTE"
+        uuid cobertura_id FK "obligatorio ref COBERTURA_MEDICA"
+        uuid plan_id FK "opcional ref PLAN_COBERTURA"
+        texto numero_afiliado "opcional "
+        texto titular_declarado "opcional "
+        texto parentesco "opcional "
+        fecha desde "opcional "
+        fecha hasta "opcional "
+        enum estado_verificacion "obligatorio "
+        texto verificacion_ref "opcional "
+    }
+    CONVENIO {
+        uuid tenant_id FK "obligatorio ref ENTIDAD"
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid oferta_id FK "obligatorio ref OFERTA"
+        uuid cobertura_id FK "obligatorio ref COBERTURA_MEDICA"
+        uuid plan_id FK "opcional ref PLAN_COBERTURA"
+        enum estado "obligatorio "
+    }
+    VERSION_CONVENIO {
+        uuid tenant_id FK "obligatorio ref ENTIDAD"
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid convenio_id FK "obligatorio ref CONVENIO"
+        entero numero_version "obligatorio "
+        instante desde "obligatorio "
+        instante hasta "opcional "
+        bool requiere_autorizacion "obligatorio "
+        enum resultado_regla "obligatorio "
+        json condiciones "obligatorio "
+    }
+    AUTORIZACION_COBERTURA {
+        uuid tenant_id FK "obligatorio ref ENTIDAD"
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid afiliacion_id FK "obligatorio ref AFILIACION_PACIENTE"
+        uuid practica_id FK "obligatorio ref PRACTICA"
+        texto referencia "obligatorio "
+        enum estado "obligatorio "
+        instante desde "opcional "
+        instante hasta "opcional "
+        uuid verificador_id FK "opcional ref CUENTA"
+    }
+    EVALUACION_ELEGIBILIDAD {
+        uuid tenant_id FK "obligatorio ref ENTIDAD"
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid paciente_id FK "obligatorio ref PACIENTE"
+        uuid version_oferta_id FK "obligatorio ref VERSION_OFERTA"
+        enum modalidad_elegida "obligatorio "
+        uuid afiliacion_id FK "opcional ref AFILIACION_PACIENTE"
+        uuid version_convenio_id FK "opcional ref VERSION_CONVENIO"
+        uuid autorizacion_id FK "opcional ref AUTORIZACION_COBERTURA"
+        enum resultado "obligatorio "
+        instante evaluada_en "obligatorio "
+        json evidencia "obligatorio "
+    }
+    COBERTURA_MEDICA ||--o{ PLAN_COBERTURA : "cobertura_id"
+    COBERTURA_MEDICA ||--o{ AFILIACION_PACIENTE : "cobertura_id"
+    PLAN_COBERTURA |o--o{ AFILIACION_PACIENTE : "plan_id"
+    COBERTURA_MEDICA ||--o{ CONVENIO : "cobertura_id"
+    PLAN_COBERTURA |o--o{ CONVENIO : "plan_id"
+    CONVENIO ||--o{ VERSION_CONVENIO : "convenio_id"
+    AFILIACION_PACIENTE ||--o{ AUTORIZACION_COBERTURA : "afiliacion_id"
+    AFILIACION_PACIENTE |o--o{ EVALUACION_ELEGIBILIDAD : "afiliacion_id"
+    VERSION_CONVENIO |o--o{ EVALUACION_ELEGIBILIDAD : "version_convenio_id"
+    AUTORIZACION_COBERTURA |o--o{ EVALUACION_ELEGIBILIDAD : "autorizacion_id"

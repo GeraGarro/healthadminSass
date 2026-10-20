@@ -1,0 +1,9 @@
+erDiagram
+    CONTADOR_PACIENTE {
+        uuid tenant_id FK "obligatorio ref ENTIDAD"
+        uuid id PK "obligatorio UUIDv7 interno estable; generación en PostgreSQL con DEFAULT uuidv7(); ADR-015"
+        uuid profesional_id FK "obligatorio ref PROFESIONAL_GLOBAL"
+        uuid profesional_entidad_id FK "obligatorio ref PROFESIONAL_ENTIDAD"
+        entero ultimo_confirmado "obligatorio "
+        entero version "obligatorio "
+    }
