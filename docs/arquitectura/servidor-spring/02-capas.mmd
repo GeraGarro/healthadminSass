@@ -1,0 +1,4 @@
+flowchart TB
+  API[API: DTO y controladores] --> App[Application: casos de uso y puertos]
+  App --> Domain[Domain: invariantes]
+  Infra[Infrastructure: JPA, JDBC y HTTP] --> App

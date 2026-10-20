@@ -1,0 +1,6 @@
+flowchart TB
+  Portal[Portal Angular] --> Proxy[Proxy HTTPS]
+  Proxy --> Spring[Servidor Spring: HTTP y workers]
+  Spring --> DB[(PostgreSQL: datos, RLS y capacidad)]
+  Spring --> Delivery[Correo y WhatsApp]
+  Spring --> OIDC[Identidad OIDC si se adopta]

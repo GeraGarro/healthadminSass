@@ -1,0 +1,5 @@
+flowchart LR
+  D[Disponibilidad: no ocupa] --> H[Pre-reserva: ocupa hasta vencer]
+  H --> T[Turno: conserva ocupación]
+  H --> E[Vencida o liberada]
+  T --> A[Asistencia: confirmación separada]
