@@ -1,0 +1,84 @@
+name: salud-production
+x-runtime: &runtime
+  DB_URL: jdbc:postgresql://postgres:5432/salud
+  DB_USERNAME: salud_app
+  DB_PASSWORD: ${DB_PASSWORD:?Definir DB_PASSWORD}
+  APP_ENCRYPTION_KEY: ${APP_ENCRYPTION_KEY:?Definir APP_ENCRYPTION_KEY}
+  PORTAL_URL: https://${DOMAIN:?Definir DOMAIN}
+  DELIVERY_URL: ${DELIVERY_URL:?Configurar gateway HTTPS}
+  DELIVERY_TOKEN: ${DELIVERY_TOKEN:?Configurar secreto del gateway}
+  WEBHOOK_SECRET: ${WEBHOOK_SECRET:?Configurar secreto de callbacks}
+  GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
+services:
+  postgres:
+    image: postgres:18.6
+    environment:
+      POSTGRES_DB: salud
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Definir POSTGRES_PASSWORD}
+      APP_DB_PASSWORD: ${DB_PASSWORD}
+      MIGRATION_DB_PASSWORD: ${DB_MIGRATION_PASSWORD:?Definir DB_MIGRATION_PASSWORD}
+    volumes:
+      - postgres-data:/var/lib/postgresql
+      - ./docker/postgres/001-roles.sql:/docker-entrypoint-initdb.d/001-roles.sql:ro
+    networks: [database]
+    healthcheck:
+      test: [CMD-SHELL, pg_isready -U postgres -d salud]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+  migrate:
+    image: ${API_IMAGE:-salud-api:local}
+    build: .
+    environment:
+      <<: *runtime
+      SPRING_PROFILES_ACTIVE: bootstrap
+      DB_MIGRATION_USERNAME: salud_migrator
+      DB_MIGRATION_PASSWORD: ${DB_MIGRATION_PASSWORD}
+      WORKER_ENABLED: 'false'
+      BOOTSTRAP_EMAIL: ${BOOTSTRAP_EMAIL:?Definir primer administrador}
+      BOOTSTRAP_PASSWORD: ${BOOTSTRAP_PASSWORD:?Definir contraseña inicial}
+      DEMO_ENABLED: 'false'
+    networks: [database, outbound]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: 'no'
+  api:
+    image: ${API_IMAGE:-salud-api:local}
+    environment:
+      <<: *runtime
+      SPRING_PROFILES_ACTIVE: production
+    networks: [database, frontend, outbound]
+    read_only: true
+    tmpfs: [/tmp:size=128m]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    restart: unless-stopped
+    stop_grace_period: 40s
+  proxy:
+    image: caddy:2-alpine
+    environment:
+      DOMAIN: ${DOMAIN}
+    ports: ['80:80', '443:443']
+    volumes:
+      - ./docker/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    networks: [frontend, outbound]
+    depends_on: [api]
+    restart: unless-stopped
+networks:
+  database:
+    internal: true
+  frontend:
+    internal: true
+  outbound: {}
+volumes:
+  postgres-data: {}
+  caddy-data: {}
+  caddy-config: {}

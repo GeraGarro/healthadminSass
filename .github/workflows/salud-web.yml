@@ -1,0 +1,31 @@
+name: Salud frontend
+on:
+  push:
+    paths: ['salud-web/**', '.github/workflows/salud-web.yml']
+  pull_request:
+    paths: ['salud-web/**', '.github/workflows/salud-web.yml']
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: salud-web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: salud-web/package-lock.json
+      - run: npm ci
+      - run: npm run verify:strict
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: angular-verification
+          path: |
+            salud-web/coverage/
+            salud-web/test-results/
+            salud-web/dist/

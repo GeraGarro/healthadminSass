@@ -1,0 +1,228 @@
+<a class="skip-link" href="#main-content">Ir al contenido</a>
+<div class="app-shell">
+  @if (mobileOpen()) {
+  <button
+    class="mobile-scrim"
+    aria-hidden="true"
+    tabindex="-1"
+    (click)="closeNavigation()"
+  ></button>
+  }
+  <aside
+    #sidebar
+    id="primary-navigation"
+    class="sidebar"
+    [class.mobile-open]="mobileOpen()"
+    [inert]="mobile() && !mobileOpen()"
+    [attr.aria-hidden]="mobile() && !mobileOpen() ? 'true' : null"
+    [attr.role]="mobile() && mobileOpen() ? 'dialog' : null"
+    [attr.aria-modal]="mobile() && mobileOpen() ? 'true' : null"
+    aria-label="Navegación principal"
+  >
+    <button
+      class="icon-btn nav-close"
+      aria-label="Cerrar navegación"
+      (click)="closeNavigation()"
+    >
+      <app-icon name="close" />
+    </button>
+    <a class="brand" [routerLink]="s.home()" (click)="closeNavigation()"
+      ><span class="brand-symbol"><span></span></span
+      ><span class="brand-name">patio<span>Gestión en salud</span></span></a
+    >
+    <div class="workspace-label">
+      <span class="availability-dot"></span>{{ s.role() === "administrador" ? "Administración institucional" : s.role() === "secretaria" ? "Espacio de secretaría" : "Espacio profesional" }}
+    </div>
+    <nav>
+      @for (group of navigationGroups; track group.label) {
+      <div class="nav-group" role="group" [attr.aria-label]="group.label">
+      @for (link of group.links; track link.path) { @if (visible(link.path)) {
+      <a
+        [routerLink]="link.path"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        [routerLinkActiveOptions]="{ exact: true }"
+        (click)="closeNavigation()"
+        ><app-icon [name]="link.icon" /><span>{{ link.label }}</span>
+        @if (link.path === "/solicitudes" && s.pending().length) {
+        <span class="nav-count">{{ s.pending().length }}</span>
+        }
+      </a>
+      } }
+      </div>
+      }
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="sidebar-note">
+        <app-icon name="leaf" /><strong>Más tiempo para cuidar.</strong>
+        <p>Todo lo administrativo,<br />en un mismo lugar.</p>
+      </div>
+      <a
+        routerLink="/configuracion"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        (click)="closeNavigation()"
+        ><app-icon name="settings" /><span>Configuración</span></a
+      ><button class="sidebar-account" (click)="openHelp()"><app-icon name="help" /><span>Ayuda</span></button
+      ><button class="sidebar-account" (click)="closeNavigation(); logout()">
+        <app-icon name="logout" /><span
+          >{{ s.demo() ? "Ingresar a mi cuenta" : "Cerrar sesión" }}</span
+        >
+      </button>
+    </div>
+  </aside>
+  <div class="main-shell" [inert]="mobile() && mobileOpen()">
+    <header class="topbar">
+      <button
+        #menuTrigger
+        class="icon-btn mobile-menu"
+        aria-label="Abrir navegación"
+        aria-controls="primary-navigation"
+        [attr.aria-expanded]="mobileOpen()"
+        (click)="openNavigation()"
+      >
+        <app-icon name="menu" />
+      </button>
+      <div class="entity-picker">
+        <app-icon name="location" /><select
+          aria-label="Entidad de trabajo"
+          [ngModel]="s.entity().id"
+          (ngModelChange)="context($event)"
+        >
+          @for (entity of s.entities(); track entity.id) {
+          <option [value]="entity.id">{{ entity.name }}</option>
+          }
+        </select>
+      </div>
+      <div class="global-search" [hidden]="!s.has('patients:manage')">
+        <app-icon name="search" /><input
+          id="global-search"
+          type="search"
+          placeholder="Buscar un paciente…"
+          aria-label="Buscar un paciente por nombre, documento o número"
+          [ngModel]="s.search()"
+          (ngModelChange)="s.search.set($event)"
+        /><kbd>Ctrl K</kbd>
+        @if (s.search().trim()) {
+        <div class="search-results">
+          <strong>Pacientes</strong>
+          @for ( patient of s.searchPatients(s.search()).slice(0, 5); track
+          patient.id ) {
+          <button (click)="openPatient(patient.id)">
+            <span class="avatar small-avatar"
+              >{{ initials(patient.firstName + " " + patient.lastName) }}</span
+            ><span
+              >{{ patient.firstName }} {{ patient.lastName }}<small
+                >{{ patient.number ? "N.º " + patient.number : "Ficha
+                administrativa" }}</small
+              ></span
+            ><app-icon name="arrow" />
+          </button>
+          } @if (!s.searchPatients(s.search()).length) {
+          <p>No encontramos pacientes. Probá con otro nombre o documento.</p>
+          }
+        </div>
+        }
+      </div>
+      <div class="topbar-actions">
+        @if(s.role() !== 'administrador') { <a
+          class="icon-btn notification-button"
+          [class.urgent-notifications]="s.urgentNotices()>0"
+          routerLink="/comunicaciones"
+          [attr.aria-label]="s.unread() + ' notificaciones sin leer'"
+          ><app-icon name="bell" />
+          @if (s.unread()) {
+          <span></span>
+          }</a
+        > }<span class="topbar-divider"></span
+        ><a routerLink="/mi-perfil" class="profile"
+          ><span class="avatar user-avatar">{{ initials(s.user().name) }}</span
+          ><span
+            ><strong>{{ s.user().name }}</strong
+            ><small
+              >{{ s.roleLabel() }}</small
+            ></span
+          ><app-icon name="down"
+        /></a>
+      </div>
+    </header>
+    @if (s.demo()) {
+    <div class="demo-bar">
+      <span
+        ><span class="demo-dot"></span>Demostración
+        <span class="demo-description"
+          >· Datos ficticios · 20 oct 2026</span
+        ></span
+      >
+      <div>
+        <label for="demo-role">Explorar como</label
+        ><select
+          id="demo-role"
+          aria-label="Explorar como"
+          [ngModel]="s.role()"
+          (ngModelChange)="changeRole($event)"
+        >
+          <option value="secretaria">Secretaría</option>
+          <option value="profesional">Profesional</option>
+          <option value="administrador">{{ mobile() ? 'Administración' : 'Administrador de institución' }}</option></select
+        ><a routerLink="/acceso">Conectar mi cuenta<app-icon name="arrow" /></a>
+      </div>
+    </div>
+    }
+    <main id="main-content" tabindex="-1">
+      @if (localError() || s.error()) {
+      <div class="alert error" role="alert">
+        <app-icon name="warning" /><span>{{ localError() || s.error() }}</span
+        ><button class="btn small" (click)="retry()">Actualizar</button>
+      </div>
+      } @if (s.api.expired()) {
+      <div class="alert error" role="alert">
+        <app-icon name="lock" /><span
+          >Tu sesión venció. Volvé a ingresar para continuar.</span
+        ><a class="btn small" routerLink="/acceso">Ingresar</a>
+      </div>
+      } @if (s.api.mfaRequired()) {
+      <div class="alert warning" role="alert">
+        <app-icon name="shield" /><span
+          >Completá la verificación de dos pasos para acceder a tus
+          agendas.</span
+        ><a class="btn small" routerLink="/mfa">Verificar acceso</a>
+      </div>
+      } @if (s.partialErrors().length) {
+      <details class="partial-errors">
+        <summary>
+          Hay {{ s.partialErrors().length }} secciones que no se pudieron
+          cargar.
+        </summary>
+        @for (error of s.partialErrors(); track error) {
+        <p>{{ error }}</p>
+        }
+        <button class="btn small" (click)="context(s.entity().id)">
+          Volver a cargar
+        </button>
+      </details>
+      } @if (s.busy()) {
+      <div
+        class="skeleton"
+        role="status"
+        aria-label="Cargando espacio de trabajo"
+      >
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      } @else { @for (context of [s.entity().id + ":" + s.user().id]; track
+      context) {
+      <router-outlet />
+      } }
+    </main>
+    <footer class="app-footer">
+      <span>Patio · Un espacio para cuidar</span
+      ><span
+        ><app-icon name="shield" />{{ s.demo() ? "Entorno de demostración" :
+        "Contexto de acceso verificado" }}</span
+      >
+    </footer>
+  </div>
+</div>
+<app-help-panel />

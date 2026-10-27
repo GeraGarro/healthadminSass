@@ -1,0 +1,293 @@
+<section
+  class="calendar-panel"
+  [class.compact]="compact"
+  aria-label="Calendario de turnos"
+  [attr.aria-busy]="s.calendarBusy()"
+>
+  @if(s.calendarBusy()){
+  <p role="status" class="quiet-note">Cargando todos los turnos del período…</p>
+  }
+  <div class="calendar-toolbar">
+    <div class="date-control">
+      <button
+        class="icon-btn"
+        aria-label="Fecha anterior"
+        (click)="changeDate(-1)"
+      >
+        <app-icon name="chevron" class="rotate" />
+      </button>
+      <h2>{{ month }}</h2>
+      <button
+        class="icon-btn"
+        aria-label="Fecha siguiente"
+        (click)="changeDate(1)"
+      >
+        <app-icon name="chevron" /></button
+      ><button class="btn small quiet" (click)="goToday()">
+        Hoy
+      </button>
+    </div>
+    <div class="segmented" aria-label="Vista del calendario">
+      <button
+        [class.active]="view === 'day'"
+        [attr.aria-pressed]="view === 'day'"
+        (click)="view = 'day'"
+      >
+        Día
+      </button>
+      <button
+        [class.active]="view === 'week'"
+        [attr.aria-pressed]="view === 'week'"
+        (click)="view = 'week'"
+      >
+        Semana
+      </button>
+      <button
+        [class.active]="view === 'month'"
+        [attr.aria-pressed]="view === 'month'"
+        (click)="view = 'month'"
+      >
+        Mes
+      </button>
+      <button
+        class="icon-tab"
+        [class.active]="view === 'list'"
+        [attr.aria-pressed]="view === 'list'"
+        aria-label="Vista de lista"
+        (click)="view = 'list'"
+      >
+        <app-icon name="list" /><span>Lista</span>
+      </button>
+    </div>
+  </div>
+  @if (view === "day") {
+  <div class="week-strip" aria-label="Seleccionar día de la semana">
+    @for (day of days; track day) {
+    <button
+      [class.selected]="day === s.date()"
+      [class.today]="day === s.today"
+      (click)="s.date.set(day)"
+      [attr.aria-label]="dateLabel(day)"
+      [attr.aria-pressed]="day === s.date()"
+    >
+      <span>{{ weekLabel(day) }}</span><strong>{{ monthDay(day) }}</strong
+      ><span
+        class="day-mark"
+        [class.has-turns]="appointments(day).length > 0"
+      ></span>
+    </button>
+    }
+  </div>
+  @if (columns.length) {
+  @if (showAgendaFilter) {
+  <label class="mobile-agenda-filter"
+    >Ver agenda<select
+      [ngModel]="s.selectedAgenda()"
+      (ngModelChange)="s.selectedAgenda.set($event)"
+    >
+      <option value="all">Todos los profesionales</option>
+      @for (a of s.data().agendas; track a.id) {
+      <option [value]="a.id">{{ a.professional }}</option>
+      }
+    </select></label
+  >
+  }
+  <div
+    #timelineScroll
+    class="timeline-scroll"
+    tabindex="0"
+    aria-label="Agenda por profesional. Usá las flechas para recorrer y Enter para activar."
+    (scroll)="rememberScroll()"
+    (keydown)="navigateTimeline($event)"
+  >
+    <div
+      class="timeline"
+      [style.min-width.px]="60 + columns.length * 192"
+      [style.--agenda-count]="columns.length"
+      [style.--hour-height.px]="hourHeight"
+    >
+      <div class="timeline-head">
+        <div class="timezone-label">{{ zoneLabel }}</div>
+        @for (agenda of columns; track agenda.id) {
+        <div class="professional-heading">
+          <span
+            class="avatar small-avatar"
+            [class]="'avatar small-avatar ' + agenda.color"
+            >{{ agenda.initials }}</span
+          ><span
+            ><strong>{{ agenda.professional }}</strong
+            ><small>{{ agenda.name }}</small></span
+          >
+        </div>
+        }
+      </div>
+      <div class="timeline-body" [style.height.px]="timelineHeight">
+        <div class="time-axis">
+          @for (hour of hours; track hour) {
+          <span [style.top.px]="$index * hourHeight">{{ hour }}</span>
+          }
+        </div>
+        @for (agenda of columns; track agenda.id) {
+        <div class="agenda-column" [style.--past-height.px]="pastHeight(agenda.timezone)" [attr.aria-label]="agenda.professional">
+          @for (hour of hours; track hour) {
+          <div class="hour-cell" [style.top.px]="$index * hourHeight">
+            <button
+              class="slot-button"
+              tabindex="-1"
+              [attr.data-column]="columns.indexOf(agenda)"
+              [attr.data-minute]="minuteOf(hour)"
+              [disabled]="!s.agendaCan(agenda.id, 'booking:create') || !free(agenda.id,hour)"
+              [attr.aria-label]="
+                        'Nuevo turno con ' +
+                        agenda.professional +
+                        ' a las ' +
+                        hour
+                      "
+              (click)="
+                        s.newAppointment({ agendaId: agenda.id, time: hour })
+                      "
+            >
+              <app-icon name="plus" /><span>Sin turno · {{ hour }}</span>
+            </button>
+          </div>
+          } @for ( turn of appointments(s.date(), agenda.id); track turn.id ) {
+          <button
+            class="calendar-event"
+            tabindex="-1"
+            [attr.data-column]="columns.indexOf(agenda)"
+            [attr.data-minute]="minuteOf(turn.time)"
+            [title]="s.patientName(turn.patientId) + ' · ' + turn.practice + ' · ' + turn.duration + ' min'"
+            [class]="'calendar-event ' + agenda.color + ' temporal-' + temporalState(turn)"
+            [class.awaiting]="turn.attendance === 'PENDIENTE'"
+            [class.patient-waiting]="staff.reception()[turn.id]==='ESPERA'"
+            [class.patient-attending]="staff.reception()[turn.id]==='ATENCION'"
+            [style.top.px]="top(turn)"
+            [style.height.px]="height(turn)"
+            (click)="s.openAppointment(turn.id)"
+            [attr.aria-label]="
+                      turn.time +
+                      ' ' +
+                      s.patientName(turn.patientId) +
+                      ', ' +
+                      turn.practice +
+                      ', ' +
+                      (turn.attendance === 'CONFIRMADA'
+                        ? 'confirmado'
+                        : 'por confirmar')
+                    "
+          >
+            <span class="event-line"
+              ><b>{{ turn.time }}</b
+              ><span class="event-attendance"><app-icon [name]="turn.attendance === 'CONFIRMADA' ? 'check' : 'clock'" />{{ temporalLabel(turn) }}</span></span
+            ><strong>{{ s.patientName(turn.patientId) }}</strong>
+            <span class="event-practice">{{ turn.practice }} · {{ turn.duration }} min · {{ turn.attendance === 'CONFIRMADA' ? 'Confirmado' : 'Por confirmar' }}</span>
+          </button>
+          }
+        </div>
+        } @if ( s.date() === s.today && nowPosition >= 0 && nowPosition <
+        timelineHeight ) {
+        <div
+          class="now-line"
+          [style.top.px]="nowPosition"
+          [attr.aria-label]="
+                  s.demo()
+                    ? 'Hora de referencia de demostración: 10:20'
+                    : 'Hora actual de la agenda'
+                "
+        >
+          <span>{{ referenceTime }}</span>
+        </div>
+        }
+      </div>
+    </div>
+  </div>
+  } @else {
+  <app-empty
+    title="No hay agendas habilitadas"
+    text="Las agendas aparecerán cuando tengas lectura o una delegación vigente."
+  />
+  } } @if (view === "week") {
+  <div class="weekly-scroll">
+    <div class="weekly-grid">
+      @for (day of days; track day) {
+      <section class="weekly-day" [class.elapsed-day]="day < currentDate()" [class.selected-day]="day === s.date()">
+        <button class="week-date" (click)="select(day)">
+          <span>{{ weekLabel(day) }}</span><strong>{{ monthDay(day) }}</strong>
+        </button>
+        @for (turn of appointments(day); track turn.id) {
+        <button
+          [class]="
+                  'week-event ' + (s.agenda(turn.agendaId)?.color || 'sage') + ' temporal-' + temporalState(turn)
+                "
+          (click)="s.openAppointment(turn.id)"
+        >
+          <b>{{ turn.time }}</b
+          ><strong>{{ s.patientName(turn.patientId) }}</strong
+          ><small>{{ turn.practice }}</small
+          ><span class="temporal-label">{{ temporalLabel(turn) }}</span><app-status [value]="turn.attendance" />
+        </button>
+        } @if (!appointments(day).length) {
+        <p class="day-empty">Sin turnos</p>
+        }
+      </section>
+      }
+    </div>
+  </div>
+  } @if (view === "month") {
+  <div class="month-scroll" tabindex="0" aria-label="Calendario mensual desplazable horizontalmente">
+  <div class="month-grid">
+    @for (day of weekdays; track day) {
+    <div class="month-weekday">{{ day }}</div>
+    } @for (day of days; track day) {
+    <button
+      class="month-cell"
+      [class.other-month]="outside(day)"
+      [class.elapsed-day]="day < currentDate()"
+      [class.selected-day]="day === s.date()"
+      (click)="select(day)"
+      [attr.aria-label]="
+            dateLabel(day) + ', ' + appointments(day).length + ' turnos'
+          "
+    >
+      <span class="month-number" [class.is-today]="day === s.today"
+        >{{ monthDay(day) }}</span
+      >
+      @for (turn of appointments(day).slice(0, 2); track turn.id) {
+      <span
+        [class]="
+                'month-event ' + (s.agenda(turn.agendaId)?.color || 'sage') + ' temporal-' + temporalState(turn)
+              "
+        >{{ turn.time }} <span>{{ s.patientName(turn.patientId) }}</span></span
+      >
+      } @if (appointments(day).length > 2) {
+      <small class="more-turns"
+        >+{{ appointments(day).length - 2 }} turnos</small
+      >
+      }
+    </button>
+    }
+  </div>
+  </div>
+  } @if (view === "list") {
+  <div class="appointment-list">
+    @for (turn of appointments(s.date()); track turn.id) {
+    <button [class]="'appointment-row temporal-'+temporalState(turn)" (click)="s.openAppointment(turn.id)">
+      <b class="time">{{ turn.time }}<small>{{ turn.duration }} min</small></b
+      ><span class="row-person"
+        ><strong>{{ s.patientName(turn.patientId) }}</strong
+        ><small
+          >{{ turn.practice }} · {{ s.agenda(turn.agendaId)?.professional
+          }}</small
+        ></span
+      ><span class="temporal-label">{{ temporalLabel(turn) }}</span><app-status [value]="turn.attendance" /><app-icon name="chevron" />
+    </button>
+    } @if (!appointments(s.date()).length) {
+    <app-empty
+      title="Un día sin turnos"
+      text="Elegí otra fecha o registrá un nuevo turno en una agenda habilitada."
+    />
+    }
+  </div>
+  }
+  <div class="calendar-legend temporal-legend" aria-label="Estados de la agenda"><span><i class="temporal-dot elapsed"></i>Horario pasado</span><span><i class="temporal-dot upcoming"></i>Próximo</span><span><i class="temporal-dot attending"></i>En atención</span><span><i class="temporal-dot waiting"></i>En espera</span><span><i class="temporal-dot finished"></i>Atendido</span><span class="legend-help">La línea marca la hora actual. La atención se registra desde el detalle del turno.</span></div>
+</section>

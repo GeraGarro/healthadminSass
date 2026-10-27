@@ -1,0 +1,3 @@
+[
+  {"antipattern":"broken-image","severity":"warning","file":"salud-web/src/app/pages/staff-profile.ts","snippet":"<img [src]=\"form.photo\" alt=\"Tu foto de perfil\" />","assessment":"False positive from the static detector: Angular binds an uploaded data URL. The image is rendered only inside @if(form.photo); the empty state renders initials. No external image or placeholder is shipped."}
+]

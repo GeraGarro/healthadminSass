@@ -1,0 +1,14 @@
+{
+  "checks": [
+    "1440px: turno desde celda conserva profesional y hora; paciente existente por DNI y alta con seis datos; registro completo",
+    "1440px: actividad por finalización explícita, arancel versionado, previsualización día/semana/mes, cancelación diaria y aviso urgente para secretaría",
+    "1440px: profesional independiente conserva su rol y administra personal en perfiles",
+    "1343px: turno desde celda conserva profesional y hora; paciente existente por DNI y alta con seis datos; registro completo",
+    "1343px: actividad por finalización explícita, arancel versionado, previsualización día/semana/mes, cancelación diaria y aviso urgente para secretaría",
+    "1343px: profesional independiente conserva su rol y administra personal en perfiles",
+    "390px: turno desde celda conserva profesional y hora; paciente existente por DNI y alta con seis datos; registro completo",
+    "390px: actividad por finalización explícita, arancel versionado, previsualización día/semana/mes, cancelación diaria y aviso urgente para secretaría",
+    "390px: profesional independiente conserva su rol y administra personal en perfiles"
+  ],
+  "errors": []
+}

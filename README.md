@@ -1,5 +1,24 @@
 # Sistema de Gestión Administrativa de Salud
 
+**Turnos, pacientes y espacio profesional (27/10/2026):** [alcance y contratos del incremento](docs/35-turnos-pacientes-y-espacio-profesional.md). Alta con seis datos, reutilización por DNI con fichas institucionales aisladas, calendarios temporales, Agenda/Actividad/Aranceles, personal independiente y cancelación explícita por período con seguimiento y avisos. Continúa el rediseño de roles sin abrir pacientes al administrador institucional.
+
+**Escenarios integrales locales (26/10/2026):** [5 perfiles, 3 entidades y delegaciones restringidas](docs/32-escenarios-integrales-locales.md). Credenciales generadas en `local-data/escenarios-integrales/credenciales-pruebas-locales.txt` (excluidas de Git). Verificar el servidor local activo con `node scripts/verify-local-scenarios.mjs`.
+
+**Errores HTTP y mensajes (23/10/2026):** [relevamiento por situación, código y texto entregado](docs/31-relevamiento-errores-http.md). Incluye 57 mensajes explícitos de la API, respuestas automáticas de Spring, presentación en pantalla y hallazgos para revisar.
+
+**Pruebas locales con Docker (22/10/2026):** desde la raíz ejecutar `scripts/start-local.ps1` y abrir **http://127.0.0.1:4387**. Construye frontend y backend e inicia PostgreSQL en un volumen independiente. La contraseña de las cuentas ficticias está en `BOOTSTRAP_PASSWORD` del `.env` de la raíz. [Guía completa, modo backend en el IDE y pruebas por funcionalidad](docs/29-entorno-local-docker.md). Verificación del entorno: `node scripts/smoke-local.mjs`.
+
+**Frontend Patio desarrollado el 21/10/2026:** [arranque en VS Code y uso local](salud-web/README.md), [arquitectura, alcance y verificaciones](docs/27-frontend-patio.md). Angular/TypeScript con interfaces de secretaría y profesional, clínica e independiente, agenda central y demostración identificada con datos ficticios. La integración usa la API Spring y sus facultades efectivas.
+
+**Integración y pruebas estrictas (21/10/2026):** [contratos, trazabilidad y ejecución repetible](docs/28-integracion-frontend-servidor-y-pruebas.md). Desde PowerShell 7 en la raíz: `scripts/verify-strict.ps1` (Node 24, JDK 21 y Docker). Incluye PostgreSQL descartable y recorrido HTTP con MFA, sin utilizar la base del usuario.
+
+**Servidor funcional desarrollado el 20/10/2026:** [guía de pruebas locales y producción](salud-api/README.md),
+[contratos API](salud-api/docs/API.md) y [estado de implementación](docs/26-implementacion-servidor.md).
+Incluye PostgreSQL con las 88 entidades del modelo, migraciones, autenticación/MFA,
+pacientes, agendas, turnos, comunicaciones, chat, auditoría y reportes. Las descripciones
+inferiores de «base técnica» y «sin implementación» registran el estado documental
+anterior; el documento 26 distingue lo implementado de las decisiones y validaciones externas pendientes.
+
 SaaS de gestión administrativa de pacientes y turnos, inicialmente odontológico y preparado para otras especialidades. Admite clínicas, profesionales independientes y actividad mixta, con datos y permisos aislados por entidad.
 
 **Identificadores aceptados el 17 de octubre de 2026:** [ADR-015](docs/arquitectura/adr/015-identificadores-uuidv7.md) fija UUID versión 7 para las claves primarias internas, generado por PostgreSQL mediante `uuidv7()`, y tipo nativo `uuid` para sus referencias, incluido `tenant_id`. El número visible del paciente continúa siendo entero por profesional y entidad, estable y separado del ID interno. Política documentada para la futura implementación; sin tablas de negocio ni migraciones nuevas.
@@ -74,7 +93,7 @@ Actualizado el 17/10/2026 a versión 1.1 con la política de identificadores ace
 
 ## Base técnica y operación
 
-Servidor implementado como base en `salud-api/`: Java 21 LTS, Spring Boot 4.1.1, Spring Security administrada por su BOM, Maven Wrapper y PostgreSQL 18.6. [Guía de arranque y pruebas](salud-api/README.md). Frontend Angular/TypeScript todavía pendiente. Dirección arquitectónica: monolito modular y tareas persistidas. VPS aceptado, proveedor y capacidad por cotizar y medir. El seguimiento de versiones se realiza cada 15 días a las 09:00 de Argentina, según el cambio solicitado el 15/10/2026; propone revisiones y no actualiza producción automáticamente. Las versiones y tarifas citadas en los análisis son fotografías previas; la matriz instalada del servidor queda registrada en ADR-014.
+Servidor implementado como base en `salud-api/`: Java 21 LTS, Spring Boot 4.1.1, Spring Security administrada por su BOM, Maven Wrapper y PostgreSQL 18.6. [Guía de arranque y pruebas](salud-api/README.md). Frontend Angular/TypeScript implementado en `salud-web/`; ver [guía local](salud-web/README.md) y [estado del frontend](docs/27-frontend-patio.md). Dirección arquitectónica: monolito modular y tareas persistidas. VPS aceptado, proveedor y capacidad por cotizar y medir. El seguimiento de versiones se realiza cada 15 días a las 09:00 de Argentina, según el cambio solicitado el 15/10/2026; propone revisiones y no actualiza producción automáticamente. Las versiones y tarifas citadas en los análisis son fotografías previas; la matriz instalada del servidor queda registrada en ADR-014.
 
 La referencia técnica local más reciente se conserva en el [seguimiento del 15/10/2026 a las 09:11](docs/seguimiento/2026-10-15-0911-versiones.md) y se refleja en presupuesto y operación; no equivale a una matriz instalada. El estado de la automatización no se consulta ni modifica durante esta revisión.
 

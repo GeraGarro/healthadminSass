@@ -1,0 +1,408 @@
+<div class="page-heading">
+  <div>
+    <h1>Prácticas y coberturas</h1>
+    <p>Una oferta clara para cada agenda, con condiciones explícitas.</p>
+  </div>
+  @if ( (tab === "practices" && s.has("catalog:manage")) || (tab === "coverages"
+  && s.has("coverage:manage")) ) {
+  <button
+    class="btn primary"
+    (click)="
+        showForm = tab === 'practices' ? 'practice' : 'coverage'; error = ''
+      "
+  >
+    <app-icon name="plus" />{{ tab === "practices" ? "Nueva práctica" : "Nueva
+    cobertura" }}
+  </button>
+  }
+</div>
+<div class="tabs">
+  <button
+    [class.active]="tab === 'practices'"
+    (click)="tab = 'practices'; showForm = ''"
+  >
+    Prácticas</button
+  ><button
+    [class.active]="tab === 'offers'"
+    (click)="tab = 'offers'; showForm = ''"
+  >
+    Ofertas por agenda</button
+  ><button
+    [class.active]="tab === 'coverages'"
+    (click)="tab = 'coverages'; showForm = ''"
+  >
+    Coberturas y convenios
+  </button>
+</div>
+@if (error) {
+<div class="alert error" role="alert">{{ error }}</div>
+} @if (showForm) {
+<section class="panel form-panel">
+  <div class="section-heading">
+    <h2>
+      {{ showForm === "practice" ? "Crear práctica personalizada" : showForm ===
+      "offer" ? "Configurar oferta de atención" : showForm === "coverage" ?
+      "Añadir cobertura" : showForm === "plan" ? "Crear plan" : "Registrar
+      convenio" }}
+    </h2>
+    <button
+      class="icon-btn"
+      aria-label="Cerrar formulario"
+      (click)="showForm = ''"
+    >
+      <app-icon name="close" />
+    </button>
+  </div>
+  <form class="form-stack" (ngSubmit)="save()">
+    @if (showForm === "practice") {
+    <div class="form-columns">
+      <label
+        >Nombre de la práctica<input
+          name="name"
+          required
+          maxlength="150"
+          [(ngModel)]="practice.name" /></label
+      ><label
+        >Código interno<input
+          name="code"
+          required
+          maxlength="60"
+          [(ngModel)]="practice.code"
+      /></label>
+    </div>
+    <p class="form-hint">
+      Las prácticas personalizadas siempre requieren gestión del personal
+      autorizado.
+    </p>
+    } @if (showForm === "offer") {
+    <div class="form-columns">
+      <label
+        >Agenda<select name="agenda" required [(ngModel)]="offer.agendaId">
+          <option value="">Elegir agenda</option>
+          @for (a of configurable; track a.id) {
+          <option [value]="a.id">{{ a.professional }} · {{ a.name }}</option>
+          }
+        </select></label
+      ><label
+        >Práctica<select
+          name="practice"
+          required
+          [(ngModel)]="offer.practiceId"
+          (ngModelChange)="offer.portalEnabled = false"
+        >
+          <option value="">Elegir práctica</option>
+          @for (p of s.data().practices; track p.id) {
+          <option [value]="p.id">{{ p.name }}</option>
+          }
+        </select></label
+      >
+    </div>
+    <div class="form-columns three">
+      <label
+        >Atención (min)<input
+          type="number"
+          name="duration"
+          min="1"
+          max="480"
+          required
+          [(ngModel)]="offer.durationMinutes" /></label
+      ><label
+        >Preparación (min)<input
+          type="number"
+          name="preparation"
+          min="0"
+          max="120"
+          required
+          [(ngModel)]="offer.preparationMinutes" /></label
+      ><label
+        >Cierre (min)<input
+          type="number"
+          name="closing"
+          min="0"
+          max="120"
+          required
+          [(ngModel)]="offer.closingMinutes"
+      /></label>
+    </div>
+    <label class="checkbox-label"
+      ><input
+        type="checkbox"
+        name="portal"
+        [disabled]="selectedPractice?.base !== 'CONSULTA'"
+        [(ngModel)]="offer.portalEnabled"
+      />Permitir elección de horario en el portal (solo Consulta base)</label
+    ><label class="checkbox-label"
+      ><input
+        type="checkbox"
+        name="private"
+        [(ngModel)]="offer.privatePaymentEnabled"
+      />Habilitar modalidad particular</label
+    >
+    <p class="form-hint">
+      Se crea una nueva versión. Los turnos ya registrados no cambian de
+      duración ni condiciones.
+    </p>
+    } @if (showForm === "coverage") {
+    <label
+      >Nombre de obra social o prepaga<input
+        name="coverageName"
+        required
+        maxlength="150"
+        [(ngModel)]="coverageName"
+    /></label>
+    } @if (showForm === "plan" || showForm === "agreement") {
+    <label
+      >Cobertura<select
+        name="coverage"
+        required
+        [(ngModel)]="coverageId"
+        (ngModelChange)="agreement.planId=''"
+      >
+        <option value="">Elegir cobertura</option>
+        @for (c of s.data().coverages; track c.id) {
+        <option [value]="c.id">{{ c.name }}</option>
+        }
+      </select></label
+    >
+    } @if (showForm === "plan") {
+    <label
+      >Nombre del plan<input
+        name="plan"
+        required
+        maxlength="150"
+        [(ngModel)]="planName"
+    /></label>
+    } @if (showForm === "agreement") {
+    <label
+      >Plan<select name="agreementPlan" [(ngModel)]="agreement.planId">
+        <option value="">Todos los planes</option>
+        @for(plan of plans;track plan.id){@if(plan.coverageId===coverageId){
+        <option [value]="plan.id">{{plan.name}}</option>
+        }}
+      </select></label
+    >
+    <label
+      >Oferta de atención<select
+        name="offer"
+        required
+        [(ngModel)]="agreement.offerId"
+      >
+        <option value="">Elegir oferta</option>
+        @for (o of s.data().offers; track o.id) {
+        <option [value]="o.id">
+          {{ o.name }} · {{ s.agenda(o.agendaId)?.professional }}
+        </option>
+        }
+      </select></label
+    >
+    <div class="form-columns">
+      <label
+        >Desde<input
+          type="date"
+          name="from"
+          required
+          [(ngModel)]="agreement.from" /></label
+      ><label
+        >Hasta <span class="optional">Opcional</span
+        ><input type="date" name="until" [(ngModel)]="agreement.until"
+      /></label>
+    </div>
+    <label class="checkbox-label"
+      ><input
+        type="checkbox"
+        name="requiresAuth"
+        [(ngModel)]="agreement.requiresAuthorization"
+      />Esta práctica requiere autorización</label
+    >
+    <p class="form-hint">
+      Sin plan específico, el convenio aplica a todos los planes de la
+      cobertura.
+    </p>
+    }
+    <div class="button-row">
+      <button class="btn primary" [disabled]="saving">
+        {{ saving ? "Guardando…" : "Guardar" }}</button
+      ><button type="button" class="btn" (click)="showForm = ''">Volver</button>
+    </div>
+  </form>
+</section>
+} @if (tab === "practices") {
+<section class="panel">
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Práctica</th>
+          <th>Origen</th>
+          <th>Duración por agenda</th>
+          <th>Gestión</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (practice of s.data().practices; track practice.id) {
+        <tr>
+          <td>
+            <strong>{{ practice.name }}</strong>
+          </td>
+          <td>{{ practice.base ? "Catálogo inicial" : "Personalizada" }}</td>
+          <td>{{ duration(practice.id) }}</td>
+          <td>
+            <span
+              class="management-tag"
+              [class.self-service]="practice.base === 'CONSULTA'"
+              >{{ practice.base === "CONSULTA" ? "Portal si está habilitada" :
+              "Con el equipo" }}</span
+            >
+          </td>
+          <td><app-status [value]="practice.state" /></td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</section>
+<div class="alert info subsection">
+  <app-icon name="help" />Cambiar el nombre o la clasificación de una práctica
+  no habilita su autogestión.
+</div>
+} @if (tab === "offers") {
+<div class="section-heading subsection">
+  <h2>Condiciones de atención vigentes</h2>
+  @if (configurable.length) {
+  <button class="btn" (click)="showForm = 'offer'">
+    <app-icon name="plus" />Configurar oferta
+  </button>
+  }
+</div>
+<section class="panel">
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Práctica</th>
+          <th>Profesional y agenda</th>
+          <th>Atención</th>
+          <th>Preparación / cierre</th>
+          <th>Portal</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (offer of s.data().offers; track offer.id) {
+        <tr>
+          <td>
+            <strong>{{ offer.name }}</strong>
+          </td>
+          <td>
+            {{ s.agenda(offer.agendaId)?.professional }}<small class="cell-note"
+              >{{ s.agenda(offer.agendaId)?.name }}</small
+            >
+          </td>
+          <td>{{ offer.duration }} min</td>
+          <td>{{ offer.preparation }} / {{ offer.closing }} min</td>
+          <td>{{ offer.portal ? "Habilitado" : "Gestión asistida" }}</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  @if (!s.data().offers.length) {
+  <app-empty
+    title="Todavía no hay ofertas"
+    text="Configurá prácticas y duración en una agenda con facultad de configuración."
+  />
+  }
+</section>
+} @if (tab === "coverages") {
+<div class="section-heading subsection">
+  <h2>Obras sociales y prepagas</h2>
+  @if (s.has("coverage:manage")) {
+  <div class="button-row">
+    <button class="btn small" (click)="showForm = 'plan'">Crear plan</button
+    ><button class="btn small" (click)="showForm = 'agreement'">
+      Registrar convenio
+    </button>
+  </div>
+  }
+</div>
+<section class="panel">
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Cobertura médica</th>
+          <th>Estado</th>
+          <th>Verificación</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (c of s.data().coverages; track c.id) {
+        <tr>
+          <td>
+            <strong>{{ c.name }}</strong>
+          </td>
+          <td><app-status [value]="c.state" /></td>
+          <td>Elegibilidad evaluada para cada turno</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</section>
+<section class="panel subsection">
+  <div class="directory-toolbar"><h2>Planes registrados</h2></div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Cobertura</th>
+          <th>Plan</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (p of plans; track p.id) {
+        <tr>
+          <td>{{ coverageLabel(p.coverageId) }}</td>
+          <td>{{ p.name }}</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  @if (!plans.length) {
+  <p class="quiet-note padded">No hay planes cargados para mostrar.</p>
+  }
+</section>
+<section class="panel subsection">
+  <div class="directory-toolbar"><h2>Convenios registrados</h2></div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Cobertura</th>
+          <th>Oferta</th>
+          <th>Vigencia</th>
+          <th>Autorización</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (a of agreements; track a.id) {
+        <tr>
+          <td>{{ coverageLabel(a.coverageId) }}</td>
+          <td>{{ offerLabel(a.offerId) }}</td>
+          <td>{{ a.from }} a {{ a.until || "sin fecha final" }}</td>
+          <td>{{ a.requiresAuthorization ? "Requerida" : "No requerida" }}</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  @if (!agreements.length) {
+  <p class="quiet-note padded">No hay convenios cargados para mostrar.</p>
+  }
+</section>
+<p class="quiet-note subsection">
+  Las afiliaciones de pacientes se registran en su ficha administrativa. La
+  cobertura médica se distingue de la entidad de trabajo.
+</p>
+}

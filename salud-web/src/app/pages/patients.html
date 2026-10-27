@@ -1,0 +1,564 @@
+<div class="page-heading">
+  <div>
+    <h1>Pacientes</h1>
+    <p>Cada persona, con su información administrativa a mano.</p>
+  </div>
+  @if (s.has("patients:manage")) {
+  <button class="btn primary" (click)="newPatient()">
+    <app-icon name="plus" />Nuevo paciente
+  </button>
+  }
+</div>
+<div class="patient-workspace" [class.has-selection]="selected">
+  <section class="panel patient-directory">
+    <div class="directory-toolbar">
+      <div class="input-icon">
+        <app-icon name="search" /><input
+          type="search"
+          [(ngModel)]="query"
+          (ngModelChange)="page=0"
+          aria-label="Filtrar pacientes"
+          placeholder="Nombre, documento o número…"
+        />
+      </div>
+      <select
+        [(ngModel)]="sort"
+        (ngModelChange)="page=0"
+        aria-label="Ordenar pacientes"
+      >
+        <option value="name">Apellido A–Z</option>
+        <option value="number">N.º de paciente</option>
+      </select>
+    </div>
+    <div class="table-wrap patient-table-wrap">
+      <table class="patient-table">
+        <thead>
+          <tr>
+            <th>Paciente</th>
+            <th>Documento</th>
+            <th>Cobertura</th>
+            <th>Estado</th>
+            <th><span class="sr-only">Abrir ficha</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (patient of pagePatients; track patient.id) {
+          <tr [class.selected-row]="selected?.id === patient.id">
+            <td class="patient-cell">
+              <button class="patient-table-name" (click)="select(patient.id)">
+                <span class="avatar"
+                  >{{ initials(patient.firstName + " " + patient.lastName)
+                  }}</span
+                ><span
+                  ><strong
+                    >{{ patient.lastName }}, {{ patient.firstName }}</strong
+                  ><small
+                    >{{ patient.number ? "N.º " + patient.number : "Sin vínculo
+                    profesional" }}</small
+                  ></span
+                >
+              </button>
+            </td>
+            <td class="document-cell"><span class="mobile-cell-label">Documento</span>{{ patient.document || "Consultar ficha" }}</td>
+            <td class="coverage-cell"><span class="mobile-cell-label">Cobertura</span>{{ patient.coverage }}</td>
+            <td class="status-cell"><app-status [value]="patient.status" /></td>
+            <td class="open-cell">
+              <button
+                class="icon-btn"
+                [attr.aria-label]="
+                    'Abrir ficha de ' +
+                    patient.firstName +
+                    ' ' +
+                    patient.lastName
+                  "
+                (click)="select(patient.id)"
+              >
+                <app-icon name="chevron" />
+              </button>
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+    @if (!patients.length) {
+    <app-empty
+      title="No encontramos pacientes"
+      [text]="
+          query
+            ? 'Probá con otro nombre, documento o número.'
+            : 'Las fichas se muestran según tus facultades de acceso.'
+        "
+      icon="people"
+    />
+    }
+    <div class="table-footer">
+      <span
+        >{{patients.length}} pacientes · Página {{page+1}} de
+        {{pageCount}}</span
+      >
+      <div class="button-row">
+        <button class="btn small" [disabled]="page===0" (click)="page=page-1">
+          Anterior</button
+        ><button
+          class="btn small"
+          [disabled]="page+1>=pageCount"
+          (click)="page=page+1"
+        >
+          Siguiente
+        </button>
+      </div>
+    </div>
+  </section>
+  @if (selected; as patient) {
+  <aside id="patient-detail" tabindex="-1" class="panel patient-detail" aria-label="Ficha administrativa">
+    <div class="detail-top">
+      <span>Ficha administrativa</span
+      ><button
+        class="icon-btn"
+        aria-label="Cerrar ficha"
+        [disabled]="saving"
+        (click)="close()"
+      >
+        <app-icon name="close" />
+      </button>
+    </div>
+    @if (!isNew) {
+    <div class="detail-person">
+      <span class="avatar large-avatar"
+        >{{ initials(patient.firstName + " " + patient.lastName) }}</span
+      >
+      <div>
+        <h2>{{ patient.firstName }} {{ patient.lastName }}</h2>
+        <p>
+          {{ patient.number ? "Paciente N.º " + patient.number : "Pendiente de
+          vinculación" }}
+        </p>
+      </div>
+    </div>
+    <div class="tabs compact-tabs" aria-label="Secciones de la ficha">
+      @for (t of ["datos", "cobertura", "acceso"]; track t) {
+      <button [class.active]="tab === t" (click)="tab = t; action = ''">
+        {{ t === "datos" ? "Datos" : t === "cobertura" ? "Cobertura" : "Acceso"
+        }}
+      </button>
+      }
+    </div>
+    } @if (error) {
+    <div class="alert error" role="alert">{{ error }}</div>
+    } @if (loading) {
+    <p role="status">Cargando ficha…</p>
+    } @if (tab === "datos") { @if (edit) {
+    <form class="form-stack" (ngSubmit)="save()">
+      <h3>{{ isNew ? "Nueva ficha" : "Editar datos" }}</h3>
+      <label
+        >Nombre<input
+          name="firstName"
+          required
+          maxlength="100"
+          [(ngModel)]="form.firstName" /></label
+      ><label
+        >Apellido<input
+          name="lastName"
+          required
+          maxlength="100"
+          [(ngModel)]="form.lastName" /></label
+      ><label
+        >Documento declarado<input
+          name="document"
+          maxlength="80"
+          [(ngModel)]="form.document" /></label
+      ><label
+        >Fecha de nacimiento<input
+          type="date"
+          name="birthDate"
+          [max]="s.today"
+          [(ngModel)]="form.birthDate" /></label
+      ><label
+        >Domicilio<input
+          name="address"
+          maxlength="300"
+          [(ngModel)]="form.address"
+      /></label>
+      <div class="button-row">
+        <button class="btn primary" [disabled]="saving">
+          {{ saving ? "Guardando…" : "Guardar ficha" }}</button
+        ><button type="button" class="btn quiet" (click)="cancelEdit()">
+          Volver
+        </button>
+      </div>
+    </form>
+    } @else {
+    <dl class="detail-list">
+      <div>
+        <dt>Documento declarado</dt>
+        <dd>{{ patient.document || "Sin registrar" }}</dd>
+      </div>
+      <div>
+        <dt>Nacimiento</dt>
+        <dd>{{ patient.birthDate || "Sin registrar" }}</dd>
+      </div>
+      <div>
+        <dt>Domicilio</dt>
+        <dd>{{ patient.address || "Sin registrar" }}</dd>
+      </div>
+    </dl>
+    @if (s.has("patients:manage")) {
+    <button class="btn full" (click)="editPatient()">
+      <app-icon name="edit" />Editar datos administrativos
+    </button>
+    }
+    <div class="section-heading subsection">
+      <h3>Contactos verificados</h3>
+      @if (s.has("patients:manage")) {
+      <button
+        class="icon-btn"
+        aria-label="Añadir contacto"
+        (click)="action = action === 'contact' ? '' : 'contact'"
+      >
+        <app-icon name="plus" />
+      </button>
+      }
+    </div>
+    @for (contact of contacts; track contact.id) {
+    <div class="contact-line">
+      <app-icon [name]="contact.tipo === 'EMAIL' ? 'mail' : 'phone'" /><span
+        >{{ contact.valor }}<small
+          >{{ contact.verificado_en ? "Verificado" : "Sin verificar" }}</small
+        ></span
+      >
+    </div>
+    } @if (action === "contact") {
+    <form class="form-stack inline-form" (ngSubmit)="doAction()">
+      <label
+        >Canal<select name="type" [(ngModel)]="contact.type">
+          <option value="EMAIL">Correo electrónico</option>
+          <option value="WHATSAPP">WhatsApp</option>
+        </select></label
+      ><label
+        >Contacto<input
+          name="value"
+          required
+          [(ngModel)]="contact.value"
+          [type]="contact.type === 'EMAIL' ? 'email' : 'tel'" /></label
+      ><label
+        >Evidencia de verificación<textarea
+          name="evidence"
+          required
+          [(ngModel)]="contact.authorizationReference"
+          rows="2"
+        ></textarea></label
+      ><button class="btn primary" [disabled]="saving">
+        Registrar contacto verificado
+      </button>
+    </form>
+    }
+    <div class="subsection">
+      <h3>Vínculo con profesionales</h3>
+      <p class="quiet-note">
+        La numeración se mantiene por profesional y entidad.
+      </p>
+      @if (s.has("patients:manage")) {
+      <button
+        class="text-link"
+        (click)="action = action === 'link' ? '' : 'link'"
+      >
+        Vincular a un profesional<app-icon name="plus" />
+      </button>
+      } @if (action === "link") {
+      <form class="form-stack inline-form" (ngSubmit)="doAction()">
+        <label
+          >Profesional<select
+            name="professional"
+            required
+            [(ngModel)]="professionalId"
+          >
+            <option value="">Elegir profesional</option>
+              @for (professional of s.professionals(); track professional.id) {
+            <option [value]="professional.id">
+              {{ professional.name }}
+            </option>
+            }
+          </select></label
+        ><button class="btn primary" [disabled]="saving">
+          Vincular paciente
+        </button>
+      </form>
+      }
+    </div>
+    } } @if (tab === "cobertura") { @for (affiliation of affiliations; track
+    affiliation.id) {
+    <div class="coverage-entry">
+      <h3>{{ affiliation.nombre }}</h3>
+      <p>N.º {{ affiliation.numero_afiliado }}</p>
+      <app-status [value]="affiliation.estado_verificacion" />
+    </div>
+    } @if (!affiliations.length) {
+    <app-empty
+      title="Sin cobertura registrada"
+      text="Podés registrar una afiliación luego de verificar la documentación."
+      icon="shield"
+    />
+    } @if (s.has("coverage:manage")) {
+    <button
+      class="btn full"
+      (click)="action = action === 'affiliation' ? '' : 'affiliation'"
+    >
+      <app-icon name="plus" />Registrar afiliación
+    </button>
+    } @if (action === "affiliation") {
+    <form class="form-stack inline-form" (ngSubmit)="doAction()">
+      <label
+        >Cobertura<select
+          name="coverage"
+          required
+          [(ngModel)]="affiliation.coverageId"
+          (ngModelChange)="affiliation.planId=''"
+        >
+          <option value="">Elegir cobertura</option>
+          @for (c of s.data().coverages; track c.id) {
+          <option [value]="c.id">{{ c.name }}</option>
+          }
+        </select></label
+      ><label
+        >Número de afiliado<input
+          name="memberNumber"
+          required
+          [(ngModel)]="affiliation.memberNumber"
+      /></label>
+      <label
+        >Plan<select name="affiliationPlan" [(ngModel)]="affiliation.planId">
+          <option value="">Sin plan específico</option>
+          @for(plan of plans;track
+          plan.id){@if(plan.cobertura_id===affiliation.coverageId&&plan.estado==='ACTIVO'){
+          <option [value]="plan.id">{{plan.nombre}}</option>
+          }}
+        </select></label
+      >
+      <div class="form-columns">
+        <label
+          >Desde<input
+            type="date"
+            name="from"
+            required
+            [(ngModel)]="affiliation.from" /></label
+        ><label
+          >Hasta<input type="date" name="until" [(ngModel)]="affiliation.until"
+        /></label>
+      </div>
+      <label
+        >Referencia de verificación<textarea
+          name="verification"
+          required
+          rows="2"
+          [(ngModel)]="affiliation.verificationReference"
+        ></textarea></label
+      ><button class="btn primary" [disabled]="saving">
+        Guardar afiliación verificada
+      </button>
+    </form>
+    }
+    <div class="subsection">
+      <h3>Autorizaciones de prácticas</h3>
+      @for (a of authorizations; track a.id) {
+      <div class="coverage-entry">
+        <strong>{{ a.referencia }}</strong>
+        <p>Vigente {{ a.desde.slice(0, 10) }} a {{ a.hasta.slice(0, 10) }}</p>
+        <app-status [value]="a.estado" />
+      </div>
+      } @if (s.has("coverage:manage") && affiliations.length) {
+      <button
+        class="text-link"
+        (click)="
+                action = action === 'authorization' ? '' : 'authorization'
+              "
+      >
+        Registrar autorización<app-icon name="plus" />
+      </button>
+      } @if (action === "authorization") {
+      <form class="form-stack inline-form" (ngSubmit)="doAction()">
+        <label
+          >Afiliación<select
+            name="authAffiliation"
+            required
+            [(ngModel)]="authorization.affiliationId"
+          >
+            <option value="">Elegir afiliación</option>
+            @for (a of affiliations; track a.id) {
+            <option [value]="a.id">
+              {{ a.nombre }} · {{ a.numero_afiliado }}
+            </option>
+            }
+          </select></label
+        ><label
+          >Práctica<select
+            name="authPractice"
+            required
+            [(ngModel)]="authorization.practiceId"
+          >
+            <option value="">Elegir práctica</option>
+            @for (p of s.data().practices; track p.id) {
+            <option [value]="p.id">{{ p.name }}</option>
+            }
+          </select></label
+        ><label
+          >Referencia verificada<input
+            name="authReference"
+            required
+            maxlength="200"
+            [(ngModel)]="authorization.reference"
+        /></label>
+        <div class="form-columns">
+          <label
+            >Desde<input
+              name="authFrom"
+              type="date"
+              required
+              [(ngModel)]="authorization.from" /></label
+          ><label
+            >Hasta<input
+              name="authUntil"
+              type="date"
+              required
+              [(ngModel)]="authorization.until"
+          /></label>
+        </div>
+        <button class="btn primary" [disabled]="saving">
+          Guardar autorización
+        </button>
+      </form>
+      }
+    </div>
+    <p class="form-hint subsection">
+      La afiliación no garantiza cobertura de todas las prácticas. Se verifica
+      el convenio y la autorización al reservar.
+    </p>
+    } @if (tab === "acceso") { @if (s.has("admissions:manage")) {
+    <h3>Acceso al portal</h3>
+    <p class="quiet-note">
+      La aprobación y la activación de la cuenta son pasos separados.
+    </p>
+    @for (a of access; track a.id) {
+    <div class="access-entry">
+      <span
+        >{{ a.estado }}<small
+          >{{ a.activado_en ? "Cuenta activada" : "Activación pendiente"
+          }}</small
+        ></span
+      ><button
+        class="text-link danger-text"
+        [disabled]="saving"
+        (click)="revoke('access', a.id)"
+      >
+        Revocar
+      </button>
+    </div>
+    }
+    <div class="button-row">
+      <button
+        class="btn small"
+        (click)="action = action === 'access' ? '' : 'access'"
+      >
+        Habilitar acceso</button
+      ><button
+        class="btn small"
+        (click)="
+                action = action === 'representation' ? '' : 'representation'
+              "
+      >
+        Verificar representante
+      </button>
+    </div>
+    @if (action === "access") {
+    <form class="form-stack inline-form" (ngSubmit)="doAction()">
+      <label
+        >Referencia de cuenta verificada<input
+          name="account"
+          required
+          [(ngModel)]="enableAccess.accountId" /></label
+      ><label
+        >Profesional<select
+          name="professional"
+          required
+          [(ngModel)]="enableAccess.professionalEntityId"
+        >
+          <option value="">Elegir profesional</option>
+            @for (professional of s.professionals(); track professional.id) {
+          <option [value]="professional.id">{{ professional.name }}</option>
+          }
+        </select></label
+      ><label
+        >Representación verificada<select
+          name="representation"
+          [(ngModel)]="enableAccess.representationId"
+        >
+          <option value="">Acceso propio del paciente</option>
+          @for (r of representations; track r.id) {
+          <option [value]="r.id">{{ r.evidencia_ref }}</option>
+          }
+        </select></label
+      ><label
+        >Evidencia de validación<textarea
+          name="verification"
+          required
+          rows="2"
+          [(ngModel)]="enableAccess.verificationReference"
+        ></textarea></label
+      ><button class="btn primary" [disabled]="saving">Aprobar acceso</button>
+    </form>
+    } @if (action === "representation") {
+    <form class="form-stack inline-form" (ngSubmit)="doAction()">
+      <label
+        >Referencia de cuenta del representante<input
+          name="repAccount"
+          required
+          [(ngModel)]="representation.accountId" /></label
+      ><label
+        >Evidencia verificada<textarea
+          name="evidence"
+          required
+          rows="2"
+          [(ngModel)]="representation.evidence"
+        ></textarea></label
+      ><label
+        >Vigencia hasta<input
+          name="until"
+          type="date"
+          required
+          [min]="s.today"
+          [(ngModel)]="representation.until"
+      /></label>
+      <p class="form-hint">
+        Facultades: consultar y solicitar turnos. El parentesco declarado no
+        habilita acceso.
+      </p>
+      <button class="btn primary" [disabled]="saving">
+        Registrar representación
+      </button>
+    </form>
+    }
+    <h3 class="subsection">Representantes</h3>
+    @for (r of representations; track r.id) {
+    <div class="access-entry">
+      <span
+        >{{ r.evidencia_ref }}<small
+          >Vigente hasta {{ r.hasta?.slice(0, 10) }}</small
+        ></span
+      ><button
+        class="text-link danger-text"
+        [disabled]="saving"
+        (click)="revoke('representations', r.id)"
+      >
+        Revocar
+      </button>
+    </div>
+    } } @else {
+    <app-empty
+      title="Acceso restringido"
+      text="La gestión de admisiones y representantes requiere una facultad específica."
+      icon="lock"
+    />
+    } }
+  </aside>
+  }
+</div>

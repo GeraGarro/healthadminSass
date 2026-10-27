@@ -1,0 +1,34 @@
+{
+  "title": "Una identidad para el trabajo en salud",
+  "question": "Propongo Patio: claridad de agenda con la calidez de un espacio de salud contemporáneo. Podés elegirla, pedir otra propuesta o usar el estándar de la categoría.",
+  "options": [
+    {
+      "id": "patio", "kind": "assigned", "label": "Patio · una jornada en calma",
+      "lineage": "Arquitectura de salud con luz natural y jardines interiores",
+      "thesis": "Calendarios precisos, próximos turnos visibles y pendientes con una prioridad clara.",
+      "palette": ["#205c50", "#e2ebe5", "#f5f7f5", "#7566a0", "#e8c77d"],
+      "materials": ["Superficies claras", "Tipografía humanista", "Color de agenda y estados"],
+      "viewport": "Navegación lateral, jornada central con calendario y una columna para próximos pacientes y acciones pendientes.",
+      "risk": "La calidez debe conservar contraste y densidad suficiente en recepción.",
+      "html": ".impeccable/mocks/decision/patio.html",
+      "comp": ".impeccable/mocks/decision/patio.png",
+      "raised": [
+        {"from":"Datamatics", "raise":"Horarios alineados y contraste comprobable."},
+        {"from":"Timetable", "raise":"Un estado ocupa siempre la misma posición."},
+        {"from":"Catálogo de convención", "raise":"La selección de fecha se conserva entre calendario y lista."},
+        {"from":"Señalética aeroportuaria", "raise":"Una acción principal inequívoca por contexto."},
+        {"from":"Página de referencia", "raise":"Detalle contextual junto a la tarea, sin perder la agenda."},
+        {"from":"Metro", "raise":"Cambiar de rol conserva la orientación de la jornada."}
+      ]
+    },
+    {"id":"datamatics","kind":"challenger","catalogId":"ikeda-datamatics","label":"Datamatics","verdict":"declined","thesis":"Agenda de alto contraste como campo de datos.","palette":["#000000","#ffffff"],"materials":["Retícula numérica"],"viewport":"Turnos en columnas monocromáticas.","case":"La lectura numérica es precisa, pero dificulta identificar agendas y estados del sistema de salud.","kept":"Alineación de horas y contraste.","risk":"Densidad y monocromía excesivas para recepción."},
+    {"id":"timetable","kind":"challenger","catalogId":"rw-timetable-slide-rack","label":"Timetable","verdict":"declined","thesis":"Jornada ordenada como un horario de transportes.","palette":["#d7a52c","#323c40","#f6f1df"],"materials":["Columnas compactas"],"viewport":"Cronograma de turnos con marcas de estado fijas.","case":"La tipografía de tamaño único impide jerarquizar avisos, pacientes y acciones.","kept":"Posición consistente de estados.","risk":"Exige interpretar demasiados códigos."},
+    {"id":"catalog","kind":"challenger","catalogId":"pop-culture-shelf-doujin-event-catalog","label":"Catálogo de convención","verdict":"declined","thesis":"Agenda conectada a una matriz de ubicaciones.","palette":["#252525","#efefdf"],"materials":["Celdas densas"],"viewport":"Pacientes y turnos distribuidos en una matriz.","case":"La colección de miniaturas quita espacio a nombres, horarios y acciones legibles.","kept":"Selección compartida entre vistas.","risk":"Una grilla demasiado densa oculta próximos turnos."},
+    {"id":"wayfinding","kind":"challenger","catalogId":"wayfinding-cartography-signage-terminal-yellow-wayfinding","label":"Señalética aeroportuaria","verdict":"declined","thesis":"Cada pendiente indica el siguiente paso.","palette":["#ffd400","#171717","#ffffff"],"materials":["Bandas de información"],"viewport":"Acciones en bandas y horarios de gran escala.","case":"La orientación es fuerte, pero el amarillo constante compite con las advertencias administrativas.","kept":"Acción principal inequívoca.","risk":"Demasiada intensidad para una jornada completa."},
+    {"id":"reference","kind":"challenger","catalogId":"rw-centre-rail-reference-setting","label":"Página de referencia","verdict":"declined","thesis":"Información administrativa enlazada mediante claves.","palette":["#272522","#eee6d8","#b93d30"],"materials":["Texto de consulta"],"viewport":"Dos columnas con detalle en el margen.","case":"La lectura editorial obliga a buscar lo que una agenda debe mostrar de inmediato.","kept":"Detalle al lado de la tarea.","risk":"Los controles parecen anotaciones."},
+    {"id":"metro","kind":"challenger","catalogId":"digital-design-canon-metro-typographic-tiles","label":"Metro","verdict":"declined","thesis":"La jornada se organiza en bloques tipográficos.","palette":["#000000","#00b6d6","#ffffff"],"materials":["Campos planos"],"viewport":"Bloques de pacientes y tareas con grandes títulos.","case":"Los bloques de gran escala reducen los turnos visibles y el seguimiento simultáneo.","kept":"Transiciones que mantienen orientación.","risk":"Los datos quedan subordinados a los bloques."}
+  ],
+  "buildPath": {"value":"code","toggle":true},
+  "reroll": {"registers":["safer","bolder"]}, "steer":true, "canon":true,
+  "canonCard": {"kind":"canon","label":"Estándar de la categoría","thesis":"Un sistema de salud con la organización convencional de un dashboard.","palette":["#ffffff","#142a43","#3174ce"],"materials":["Paneles neutros"],"viewport":"Menú lateral, métricas arriba y tabla de turnos.","risk":"Una identidad menos propia.","html":".impeccable/mocks/decision/canon.html","comp":".impeccable/mocks/decision/canon.png"}
+}

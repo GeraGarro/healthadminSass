@@ -1,3 +1,6 @@
 # Conservar los archivos binarios sin conversiones de fin de línea.
 *.pdf binary
 *.png binary
+salud-api/mvnw text eol=lf
+*.sql text eol=lf
+*.yml text eol=lf

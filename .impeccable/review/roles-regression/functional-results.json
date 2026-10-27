@@ -1,0 +1,23 @@
+{
+  "checks": [
+    "1440px: directorio, orden A–Z/Z–A, filtros, vacío, detalle, baja bloqueada y baja persistida",
+    "1440px: validación, incorporación y exportación",
+    "1440px: actualización de facultades",
+    "1440px: creación de sede y agenda sin exponer turnos",
+    "1440px: política versionada y auditoría de acciones",
+    "1440px: cuenta, navegación por teclado y regresión de otros roles",
+    "1280px: directorio, orden A–Z/Z–A, filtros, vacío, detalle, baja bloqueada y baja persistida",
+    "1280px: validación, incorporación y exportación",
+    "1280px: actualización de facultades",
+    "1280px: creación de sede y agenda sin exponer turnos",
+    "1280px: política versionada y auditoría de acciones",
+    "1280px: cuenta, navegación por teclado y regresión de otros roles",
+    "390px: directorio, orden A–Z/Z–A, filtros, vacío, detalle, baja bloqueada y baja persistida",
+    "390px: validación, incorporación y exportación",
+    "390px: actualización de facultades",
+    "390px: creación de sede y agenda sin exponer turnos",
+    "390px: política versionada y auditoría de acciones",
+    "390px: cuenta, navegación por teclado y regresión de otros roles"
+  ],
+  "errors": []
+}

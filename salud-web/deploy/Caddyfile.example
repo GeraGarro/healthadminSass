@@ -1,0 +1,14 @@
+# Servir dist/salud-web/browser en el mismo origen que la API.
+# Reemplazar dominio y ruta por los del despliegue aprobado.
+salud.example.test {
+    handle /api/* {
+        reverse_proxy api:8080
+    }
+    handle {
+        root * /srv/patio
+        try_files {path} /index.html
+        file_server
+    }
+    header X-Content-Type-Options nosniff
+    header Referrer-Policy same-origin
+}

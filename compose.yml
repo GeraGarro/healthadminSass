@@ -1,0 +1,70 @@
+name: salud-local
+services:
+  postgres:
+    image: postgres:18.6
+    environment:
+      POSTGRES_DB: salud
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Ejecutar scripts/start-local.ps1}
+      APP_DB_PASSWORD: ${DB_PASSWORD:?Ejecutar scripts/start-local.ps1}
+      MIGRATION_DB_PASSWORD: ${DB_MIGRATION_PASSWORD:?Ejecutar scripts/start-local.ps1}
+    volumes:
+      - local-postgres:/var/lib/postgresql
+      - ./salud-api/docker/postgres/001-roles.sql:/docker-entrypoint-initdb.d/001-roles.sql:ro
+    healthcheck:
+      test: [CMD-SHELL, pg_isready -U postgres -d salud]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    restart: unless-stopped
+  api:
+    image: salud-api:dev
+    build: ./salud-api
+    environment:
+      SPRING_PROFILES_ACTIVE: local
+      SERVER_ADDRESS: 0.0.0.0
+      DB_URL: jdbc:postgresql://postgres:5432/salud
+      DB_USERNAME: salud_app
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_MIGRATION_USERNAME: salud_migrator
+      DB_MIGRATION_PASSWORD: ${DB_MIGRATION_PASSWORD}
+      APP_ENCRYPTION_KEY: ${APP_ENCRYPTION_KEY:?Ejecutar scripts/start-local.ps1}
+      BOOTSTRAP_EMAIL: admin@demo.test
+      BOOTSTRAP_PASSWORD: ${BOOTSTRAP_PASSWORD:?Ejecutar scripts/start-local.ps1}
+      DEMO_ENABLED: ${DEMO_ENABLED:-true}
+      PORTAL_URL: http://127.0.0.1:${WEB_PORT:-4387}
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
+    ports:
+      - '127.0.0.1:${API_PORT:-8080}:8080'
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: [CMD, java, -cp, /app, Healthcheck]
+      interval: 10s
+      timeout: 8s
+      start_period: 60s
+      retries: 12
+    read_only: true
+    tmpfs: [/tmp:size=256m]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    restart: unless-stopped
+    stop_grace_period: 40s
+  web:
+    image: salud-web:dev
+    build: ./salud-web
+    environment:
+      API_UPSTREAM: api:8080
+    ports:
+      - '127.0.0.1:${WEB_PORT:-4387}:8080'
+    depends_on:
+      api:
+        condition: service_healthy
+    read_only: true
+    tmpfs: [/tmp:size=32m]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    restart: unless-stopped
+volumes:
+  local-postgres:

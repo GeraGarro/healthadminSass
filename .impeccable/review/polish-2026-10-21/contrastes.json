@@ -1,0 +1,50 @@
+[
+  {
+    "use": "Acción y foco",
+    "foreground": "#205c50",
+    "background": "#ffffff",
+    "ratio": 7.75
+  },
+  {
+    "use": "Texto secundario en lienzo",
+    "foreground": "#63736b",
+    "background": "#f6f8f6",
+    "ratio": 4.69
+  },
+  {
+    "use": "Borde de control",
+    "foreground": "#7d9487",
+    "background": "#ffffff",
+    "ratio": 3.25
+  },
+  {
+    "use": "Práctica salvia",
+    "foreground": "#436044",
+    "background": "#e7efe3",
+    "ratio": 5.96
+  },
+  {
+    "use": "Práctica lavanda",
+    "foreground": "#68557d",
+    "background": "#eeebf5",
+    "ratio": 5.6
+  },
+  {
+    "use": "Práctica durazno",
+    "foreground": "#855d43",
+    "background": "#f7e9df",
+    "ratio": 4.85
+  },
+  {
+    "use": "Práctica azul",
+    "foreground": "#47677b",
+    "background": "#e6eef5",
+    "ratio": 5.13
+  },
+  {
+    "use": "Día seleccionado",
+    "foreground": "#526850",
+    "background": "#e4eee4",
+    "ratio": 5.11
+  }
+]

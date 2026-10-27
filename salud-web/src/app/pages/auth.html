@@ -1,0 +1,228 @@
+<div class="auth-shell">
+  <aside class="auth-brand-panel">
+    <a class="brand inverse-brand" routerLink="/inicio"
+      ><span class="brand-symbol"><span></span></span
+      ><span class="brand-name">patio<span>Gestión en salud</span></span></a
+    >
+    <div class="auth-message">
+      <app-icon name="leaf" />
+      <h2>Más tiempo<br />para cuidar<span>.</span></h2>
+      <p>
+        Agendas claras. Equipos conectados.<br />La atención empieza con una
+        buena organización.
+      </p>
+    </div>
+    <div class="auth-bottom">
+      <span>Un espacio para tu jornada.</span
+      ><span>Salud, con una mirada humana.</span>
+    </div>
+  </aside>
+  <main class="auth-main">
+    <a class="auth-back text-link" routerLink="/inicio"
+      ><app-icon name="back" />Volver a la demostración</a
+    >
+    <section class="auth-form-area">
+      <h1>{{ title }}</h1>
+      <p class="auth-subtitle">{{ subtitle }}</p>
+      @for(notice of accountNotices;track notice.id){<div class="alert warning" role="status"><app-icon name="bell" /><span>{{ notice.tipo==='VINCULO_FINALIZADO'?'Finalizó tu vínculo con':notice.tipo==='SOLICITUD_APROBADA'?'Se aprobó tu solicitud en':'Se resolvió tu solicitud en' }} <strong>{{ notice.institucion }}</strong>. Tu cuenta personal se conserva.</span></div>}
+      @if (error) {
+      <div id="auth-error" tabindex="-1" class="alert error" role="alert">
+        <app-icon name="warning" />{{ error }}
+      </div>
+      } @if (success) {
+      <div class="alert success" role="status">
+        <app-icon name="check" />{{ success }}
+      </div>
+      @if (mode === "activar") {
+      <a class="btn primary full" routerLink="/acceso">Ingresar a mi cuenta</a>
+      } } @if (mode === "acceso" || mode === "recuperar" || mode === "activar")
+      { @if (!(success && mode === "activar")) {
+      <form class="form-stack" (ngSubmit)="submit()">
+        @if (mode !== "activar") {
+        <label
+          >Correo electrónico<input
+            type="email"
+            name="email"
+            required
+            maxlength="254"
+            autocomplete="username"
+            [(ngModel)]="email"
+            placeholder="nombre@correo.com"
+            [disabled]="busy"
+        /></label>
+        } @if (mode === "acceso" || mode === "activar") {
+        <label
+          >{{ mode === "activar" ? "Nueva contraseña" : "Contraseña" }}<span
+            class="password-input"
+            ><input
+              [type]="showPassword ? 'text' : 'password'"
+              name="password"
+              required
+              [minlength]="mode === 'activar' ? 12 : 1"
+              [maxlength]="mode === 'activar' ? 72 : 128"
+              [autocomplete]="
+                      mode === 'activar' ? 'new-password' : 'current-password'
+                    "
+              [(ngModel)]="password"
+              (ngModelChange)="confirmError = ''"
+              [disabled]="busy"
+            /><button
+              type="button"
+              (click)="showPassword = !showPassword"
+              [attr.aria-label]="
+                      showPassword ? 'Ocultar contraseña' : 'Mostrar contraseña'
+                    "
+            >
+              {{ showPassword ? "Ocultar" : "Mostrar" }}
+            </button></span
+          ></label
+        >
+        } @if (mode === "activar") {
+        <label
+          >Repetí la contraseña<input
+            id="confirm-password"
+            type="password"
+            name="confirm"
+            required
+            minlength="12"
+            maxlength="72"
+            autocomplete="new-password"
+            [(ngModel)]="confirmPassword"
+            (ngModelChange)="confirmError = ''"
+            [attr.aria-invalid]="confirmError ? 'true' : null"
+            [attr.aria-describedby]="confirmError ? 'confirm-password-error' : null"
+            [disabled]="busy"
+        />@if (confirmError) { <small id="confirm-password-error" class="field-error">{{ confirmError }}</small> }</label>
+        <p class="form-hint">
+          Usá entre 12 y 72 caracteres. Tu contraseña es personal.
+        </p>
+        } @if (mode === "acceso") {
+        <a class="forgot-link" routerLink="/recuperar">Olvidé mi contraseña</a>
+        }
+        <button class="btn primary full large-btn" [disabled]="busy">
+          {{ busy ? "Procesando…" : mode === "acceso" ? "Ingresar a mi espacio"
+          : mode === "recuperar" ? "Enviar instrucciones" : "Guardar contraseña"
+          }}<app-icon name="arrow" />
+        </button>
+      </form>
+      } @if (mode === "acceso") {
+      <div class="auth-separator"><span>o continuá con</span></div>
+      <button class="btn full" [disabled]="busy" (click)="google()">
+        Google
+      </button>
+      <div id="google-signin"></div>
+      <p class="auth-account-note">
+        El acceso del equipo se habilita mediante invitación.<br />Solicitá el
+        alta a la administración de tu entidad.
+      </p>
+      <div class="demo-entry">
+        <strong>Conocé el espacio de trabajo</strong>
+        <small>Demostración con datos ficticios.</small>
+        <div>
+          <button class="text-link" (click)="demo('secretaria')">
+            Explorar secretaría<app-icon name="arrow" /></button
+          ><button class="text-link" (click)="demo('profesional')">
+            Explorar profesional<app-icon name="arrow" />
+          </button>
+          <button class="text-link" (click)="demo('administrador')">Explorar administración<app-icon name="arrow" /></button>
+          <button class="text-link" (click)="demoFirstVisit()">Secretaría · primer ingreso<app-icon name="arrow" /></button>
+        </div>
+      </div>
+      } @else {
+      <a class="text-link auth-return" routerLink="/acceso"
+        ><app-icon name="back" />Volver al ingreso</a
+      >
+      } } @if (mode === "mfa") { @if (s.demo()) {
+      <div class="alert info">
+        <app-icon name="shield" />La configuración de seguridad requiere una
+        sesión real. La demostración no guarda credenciales.
+      </div>
+      <a class="btn primary full" routerLink="/acceso">Ingresar a mi cuenta</a>
+      } @else { @if (secret) {
+      <div class="mfa-secret">
+        <h3>Configurá tu autenticador</h3>
+        <p>
+          Agregá una cuenta TOTP con esta clave. Después ingresá el código de
+          seis dígitos.
+        </p>
+        <code>{{ secret }}</code
+        ><a [href]="uri" class="text-link"
+          >Abrir aplicación de autenticación<app-icon name="arrow"
+        /></a>
+      </div>
+      }
+      <form class="form-stack" (ngSubmit)="submit()">
+        <label
+          >Código de seis dígitos<input
+            class="otp-input"
+            name="code"
+            inputmode="numeric"
+            autocomplete="one-time-code"
+            pattern="[0-9]{6}"
+            minlength="6"
+            maxlength="6"
+            required
+            [(ngModel)]="code"
+            placeholder="000000"
+            [disabled]="busy" /></label
+        ><button
+          class="btn primary full"
+          [disabled]="busy || code.length !== 6"
+        >
+          Verificar y continuar
+        </button>
+      </form>
+      <button class="text-link subsection" (click)="enrolling = !enrolling">
+        Configurar autenticador por primera vez
+      </button>
+      @if (enrolling) {
+      <form class="form-stack subsection" (ngSubmit)="enroll()">
+        <label
+          >Tu contraseña actual<input
+            type="password"
+            name="password"
+            required
+            autocomplete="current-password"
+            [(ngModel)]="password" /></label
+        ><button class="btn" [disabled]="busy || !password">
+          Crear clave de autenticación
+        </button>
+      </form>
+      }
+      <p class="form-hint subsection">
+        Si perdiste el autenticador, contactá al responsable de acceso para
+        verificar tu identidad.
+      </p>
+      } } @if (mode === "contextos") {
+      <div class="context-choices">
+        @for (entity of s.entities(); track entity.id) {
+        <button [disabled]="busy" (click)="select(entity.id)">
+          <span class="context-icon"
+            ><app-icon
+              [name]="
+                    entity.type === 'INDEPENDIENTE' ? 'people' : 'location'
+                  " /></span
+          ><span
+            ><strong>{{ entity.name }}</strong
+            ><small
+              >{{ entity.type === "INDEPENDIENTE" ? "Ejercicio independiente" :
+              "Entidad de atención" }}</small
+            ></span
+          ><app-icon name="arrow" />
+        </button>
+        } @if (!s.entities().length) {
+        <div class="alert info">
+          Tu cuenta todavía no tiene un contexto habilitado. Solicitá una
+          membresía al responsable de la entidad.
+        </div>
+        <a class="btn full" routerLink="/acceso">Volver al ingreso</a>
+        }
+      </div>
+      }
+    </section>
+    <p class="auth-footnote">
+      <app-icon name="shield" />Tu acceso mantiene separados los datos de cada
+      entidad.
+    </p>
+  </main>
+</div>

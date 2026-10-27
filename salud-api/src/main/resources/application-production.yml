@@ -1,0 +1,8 @@
+spring:
+  flyway:
+    enabled: false
+server:
+  address: 0.0.0.0
+app:
+  delivery:
+    simulated: false

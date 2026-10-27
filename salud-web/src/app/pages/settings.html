@@ -1,0 +1,311 @@
+<div class="page-heading">
+  <div>
+    <h1>Configuración</h1>
+    <p>Tu espacio de trabajo, con responsabilidades claras.</p>
+  </div>
+</div>
+<div class="tabs">
+  @if (s.data().agendas.length) {
+  <button
+    [class.active]="tab === 'availability'"
+    (click)="tab = 'availability'"
+  >
+    Disponibilidad</button
+  ><button [class.active]="tab === 'team'" (click)="tab = 'team'">
+    Delegaciones</button
+  > } <button [class.active]="tab === 'account'" (click)="tab = 'account'">
+    Mi cuenta
+  </button>
+</div>
+@if (error) {
+<div class="alert error" role="alert">{{ error }}</div>
+} @if (tab !== "account") {
+<div class="filter-bar">
+  <label
+    >Agenda de trabajo<select [(ngModel)]="agendaId">
+      @for (a of s.data().agendas; track a.id) {
+      <option [value]="a.id">{{ a.professional }} · {{ a.name }}</option>
+      }
+    </select></label
+  ><span class="filter-caption"
+    ><app-icon name="location" />{{ agenda?.timezone }}</span
+  >
+</div>
+} @if (tab === "availability") {
+<div class="settings-grid">
+  <section class="panel padded">
+    <div class="section-heading">
+      <h2>Horarios de atención</h2>
+      <app-icon name="clock" />
+    </div>
+    <div class="hours-list">
+      @for (hour of schedule; track $index) {
+      <div>
+        <strong>{{ days[hour.day - 1] }}</strong
+        ><span>{{ hour.start }}–{{ hour.end }}</span
+        ><small>Desde {{ hour.from }}</small>
+      </div>
+      } @if (!schedule.length) {
+      <app-empty
+        title="Sin horarios configurados"
+        text="Añadí un intervalo para publicar disponibilidad."
+      />
+      }
+    </div>
+    @if (agenda?.permissions?.includes("agenda:configure")) {
+    <form class="form-stack subsection" (ngSubmit)="saveHours()">
+      <h3>Añadir intervalo de atención</h3>
+      <div class="form-columns">
+        <label
+          >Día<select name="day" [(ngModel)]="hours.day">
+            @for (day of days; track day) {
+            <option [ngValue]="$index + 1">{{ day }}</option>
+            }
+          </select></label
+        ><label
+          >Vigente desde<input
+            name="from"
+            type="date"
+            required
+            [(ngModel)]="hours.from"
+        /></label>
+      </div>
+      <div class="form-columns">
+        <label
+          >Desde<input
+            name="start"
+            type="time"
+            required
+            [(ngModel)]="hours.start" /></label
+        ><label
+          >Hasta<input name="end" type="time" required [(ngModel)]="hours.end"
+        /></label>
+      </div>
+      <p class="form-hint">
+        El intervalo debe incluir la preparación, la atención y el cierre de las
+        prácticas ofrecidas.
+      </p>
+      <button class="btn primary" [disabled]="saving">Añadir horario</button>
+    </form>
+    }
+  </section>
+  <section class="panel padded">
+    <div class="section-heading">
+      <h2>Ausencias y reprogramaciones</h2>
+      <app-icon name="refresh" />
+    </div>
+    <p>
+      Bloqueá un intervalo sin mover ni cancelar automáticamente los turnos
+      existentes.
+    </p>
+    <div class="alert info">
+      <app-icon name="phone" />Se genera un aviso por WhatsApp para todos los
+      pacientes afectados, incluso los confirmados.
+    </div>
+    @if (agenda?.permissions?.includes("booking:reschedule")) {
+    <form class="form-stack subsection" (ngSubmit)="saveAbsence()">
+      <div class="form-columns">
+        <label
+          >Desde el día<input
+            name="absenceFrom"
+            type="date"
+            required
+            [(ngModel)]="absence.from" /></label
+        ><label
+          >Hasta el día<input
+            name="absenceUntil"
+            type="date"
+            required
+            [(ngModel)]="absence.until"
+        /></label>
+      </div>
+      <div class="form-columns">
+        <label
+          >Hora de inicio<input
+            name="absenceStart"
+            type="time"
+            required
+            [(ngModel)]="absence.start" /></label
+        ><label
+          >Hora de fin<input
+            name="absenceEnd"
+            type="time"
+            required
+            [(ngModel)]="absence.end"
+        /></label>
+      </div>
+      <label
+        >Motivo interno<textarea
+          name="reason"
+          rows="2"
+          required
+          maxlength="300"
+          [(ngModel)]="absence.reason"
+        ></textarea>
+      </label>
+      <div class="absence-preview">
+        <h3>{{ affected.length }} turnos cargados en el intervalo</h3>
+        @for (turn of affected; track turn.id) {
+        <div>
+          <b>{{ turn.date }} · {{ turn.time }}</b
+          ><span>{{ s.patientName(turn.patientId) }}</span>
+        </div>
+        }
+        <p class="form-hint">
+          El servidor determina todos los turnos afectados al guardar.
+        </p>
+      </div>
+      <button class="btn primary" [disabled]="saving">
+        {{ saving ? "Registrando…" : "Registrar ausencia y generar avisos" }}
+      </button>
+    </form>
+    } @else {
+    <p class="form-hint subsection">
+      Esta acción requiere configuración delegada o ser titular de la agenda.
+    </p>
+    }
+  </section>
+</div>
+} @if (tab === "team") { @if (agenda?.owner) {
+<div class="settings-grid">
+  <section class="panel padded">
+    <h2>Acciones delegadas</h2>
+    <p>
+      La delegación se limita a esta agenda. El chat tiene sus propios
+      participantes.
+    </p>
+    @for (d of delegations; track d.id) {
+    <div class="delegation-entry">
+      <h3>{{ d.name }}</h3>
+      <div class="permission-chips">
+        @for (p of d.permissions; track p) {
+        <span>{{ label(p) }}</span>
+        }
+      </div>
+      <button
+        class="text-link danger-text"
+        [disabled]="saving"
+        (click)="revoke(d.id)"
+      >
+        Revocar delegación
+      </button>
+    </div>
+    } @if (!delegations.length) {
+    <app-empty
+      title="Sin delegaciones vigentes"
+      text="Podés habilitar acciones específicas para una membresía del equipo."
+      icon="people"
+    />
+    }
+  </section>
+  <section class="panel padded">
+    <h2>Otorgar una delegación</h2>
+    <form class="form-stack subsection" (ngSubmit)="delegate()">
+      <label
+        >Membresía del equipo<select
+          name="member"
+          required
+          [(ngModel)]="memberId"
+        >
+          <option value="">Seleccionar integrante</option>
+          @for (m of s.members(); track m.id) {
+          <option [value]="m.id">{{ m.name }}</option>
+          }
+        </select></label
+      >
+      <fieldset class="permission-options">
+        <legend>Acciones permitidas</legend>
+        @for (p of allPermissions; track p) {
+        <label class="checkbox-label"
+          ><input
+            type="checkbox"
+            [checked]="delegationPermissions.includes(p)"
+            (change)="toggle(p)"
+          />{{ label(p) }}</label
+        >
+        }
+      </fieldset>
+      <div class="form-hint">
+        <app-icon name="lock" />No incluye admisión de pacientes ni acceso a
+        conversaciones.
+      </div>
+      <button
+        class="btn primary"
+        [disabled]="saving || !memberId || !delegationPermissions.length"
+      >
+        Otorgar delegación
+      </button>
+    </form>
+  </section>
+</div>
+} @else {
+<section class="panel">
+  <app-empty
+    title="Tus permisos de agenda"
+    text="Las delegaciones las administra el profesional titular. Consultá abajo las acciones vigentes en esta agenda."
+    icon="shield"
+  />
+  <div class="permission-chips centered">
+    @for (p of agenda?.permissions || []; track p) {
+    <span>{{ label(p) }}</span>
+    }
+  </div>
+</section>
+} } @if (tab === "account") {
+<div class="settings-grid">
+  <section class="panel padded">
+    <h2>Tu cuenta</h2>
+    <dl class="detail-list">
+      <div>
+        <dt>Nombre</dt>
+        <dd>{{ s.user().name }}</dd>
+      </div>
+      <div>
+        <dt>Correo de acceso</dt>
+        <dd>{{ s.user().email }}</dd>
+      </div>
+      <div>
+        <dt>Entidad actual</dt>
+        <dd>{{ s.entity().name }}</dd>
+      </div>
+    </dl>
+    <p class="quiet-note">
+      La cuenta personal persiste al finalizar una membresía institucional. Los
+      permisos dependen de cada contexto.
+    </p>
+  </section>
+  <section class="panel padded">
+    <h2>Seguridad de acceso</h2>
+    <div class="security-line">
+      <app-icon name="shield" /><span
+        ><strong>Verificación de dos pasos</strong
+        ><small>Autenticador TOTP para el equipo.</small></span
+      ><a class="btn small" routerLink="/mfa">Configurar o verificar</a>
+    </div>
+    <div class="security-line">
+      <app-icon name="lock" /><span
+        ><strong>Contraseña</strong
+        ><small>Recuperación mediante correo verificado.</small></span
+      ><a class="btn small" routerLink="/recuperar">Recuperar acceso</a>
+    </div>
+    @if (s.demo()) {
+    <div class="subsection">
+      <h3>Datos de demostración</h3>
+      <p>Restaurá esta vista para volver a explorar los ejemplos iniciales.</p>
+      <button class="btn" (click)="confirmReset = !confirmReset">
+        Restaurar demostración
+      </button>
+      @if (confirmReset) {
+      <div class="alert warning subsection">
+        Se descartan únicamente los cambios de esta demostración en el
+        navegador.
+      </div>
+      <button class="btn danger" (click)="reset()">
+        Restaurar datos ficticios
+      </button>
+      }
+    </div>
+    }
+  </section>
+</div>
+}

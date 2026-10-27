@@ -1,0 +1,10 @@
+{
+  "origin": "http://127.0.0.1:4387",
+  "checks": [
+    "Acceso con cuenta institucional local",
+    "Profesionales, equipo, sedes, agendas, política y disponibilidad responden",
+    "Sin errores HTTP de API en las pantallas comprobadas",
+    "Sin pacientes en la navegación institucional"
+  ],
+  "failures": []
+}

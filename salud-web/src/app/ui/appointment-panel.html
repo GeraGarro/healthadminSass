@@ -1,0 +1,340 @@
+<dialog
+  #dialog
+  class="drawer"
+  aria-labelledby="appointment-title"
+  (cancel)="cancelDialog($event)"
+  (click)="backdrop($event)"
+>
+  @if (s.appointmentPanel()) {
+  <header class="drawer-header">
+    <div>
+      <h2 id="appointment-title">
+        {{ creating ? editing ? "Reprogramar turno" : "Nuevo turno" : "Detalle
+        del turno" }}
+      </h2>
+      <p>
+        {{ creating ? "Coordiná el próximo encuentro." : "Información y
+        seguimiento de la reserva." }}
+      </p>
+    </div>
+    <button
+      class="icon-btn"
+      aria-label="Cerrar detalle del turno"
+      [disabled]="saving"
+      (click)="close()"
+    >
+      <app-icon name="close" />
+    </button>
+  </header>
+  <div class="drawer-content">
+    @if(s.appointmentLoading()){
+    <p role="status">Actualizando la versión del turno…</p>
+    } @if(s.detailError()){
+    <div class="alert error" role="alert">
+      {{s.detailError()}}<button
+        class="btn small"
+        (click)="s.refreshAppointment(turn!.id)"
+      >
+        Actualizar turno
+      </button>
+    </div>
+    } @if (error) {
+    <div id="appointment-form-error" tabindex="-1" class="alert error" role="alert">
+      <app-icon name="warning" />{{ error }}
+    </div>
+    } @if (creating) {
+    @if (restoredDraft) {
+    <div class="alert info draft-notice" role="status"><span>Borrador recuperado. La disponibilidad se vuelve a verificar.</span><button type="button" class="text-link" (click)="discardDraft()">Descartar borrador</button></div>
+    }
+    <form
+      id="booking-form"
+      (ngSubmit)="submit()"
+      #booking="ngForm"
+      class="form-stack"
+    >
+      <div class="booking-context"><app-icon name="calendar" /><div><strong>{{ s.agenda(form.agendaId)?.professional }}</strong><span>{{ s.agenda(form.agendaId)?.name }} · {{ dateLabel(form.date) }}{{ requestedTime ? ' · '+requestedTime : '' }}</span></div></div>
+      @if(!s.appointmentPanel()?.agendaId){<label>Profesional y agenda<select name="agenda" required [(ngModel)]="form.agendaId" (ngModelChange)="agendaChanged()" [disabled]="saving||registering">@for(agenda of permittedAgendas;track agenda.id){<option [value]="agenda.id">{{ agenda.professional }} · {{ agenda.name }}</option>}</select></label>}
+      @if(!editing){<div class="segmented booking-patient-tabs" aria-label="Origen del paciente"><button type="button" [class.active]="patientMode==='registered'" [attr.aria-pressed]="patientMode==='registered'" [disabled]="registering" (click)="changePatientMode('registered')">Paciente registrado</button><button type="button" [class.active]="patientMode==='new'" [attr.aria-pressed]="patientMode==='new'" [disabled]="registering" (click)="changePatientMode('new')">Nuevo paciente</button></div>}
+      @if(patientMode==='registered'){
+        @if(!editing){<label>Buscar paciente para el turno<input name="candidateQuery" type="search" [(ngModel)]="candidateQuery" (ngModelChange)="findCandidates()" placeholder="Nombre, apellido, DNI o número" /></label><p class="form-hint" role="status">{{ candidatesLoading?'Cargando pacientes…':candidateTotal+' pacientes vinculados en esta búsqueda. Se carga la lista completa.' }}</p>}
+        <label>Paciente<select name="patient" required [disabled]="editing||saving||candidatesLoading" [(ngModel)]="form.patientId" (ngModelChange)="patientChanged()"><option value="">Seleccionar paciente</option>@for(patient of eligiblePatients;track patient.id){<option [value]="patient.id">{{ patient.label }}</option>}</select></label>
+        @if(!editing){<p class="form-hint">Se muestran pacientes vinculados a este profesional. Para registrar o vincular otro por DNI, elegí «Nuevo paciente».</p>}
+      }@else{
+        <fieldset id="new-patient-fields" class="new-patient-fields" [disabled]="registering||saving"><legend>Datos del paciente</legend><p class="form-hint">Los seis datos son obligatorios. Primero verificá el DNI para evitar duplicados.</p>
+          <div class="patient-document-lookup"><label>DNI<input name="newDocument" [(ngModel)]="registration.document" (ngModelChange)="matches=[]" required pattern="[0-9 .-]{6,15}" maxlength="15" inputmode="numeric" autocomplete="off" /></label><button type="button" class="btn" [disabled]="matching||!registration.document" (click)="matchPatient()"><app-icon name="search" />{{ matching?'Buscando…':'Verificar DNI' }}</button></div>
+          @if(matches.length){<div class="patient-match" role="status"><h3>{{ matches.length===1?'Este paciente ya está registrado':'Hay varios registros con ese DNI' }}</h3>@for(match of matches;track match.id){<p><strong>{{ match.nombres }} {{ match.apellidos }}</strong> · {{ match.vinculado?'Ya vinculado al profesional':'Disponible para vincular en esta institución' }}</p>@if(matches.length===1){<button type="button" class="btn primary" (click)="linkPatient(match)">{{ match.vinculado?'Seleccionar paciente':'Vincular y seleccionar' }}<app-icon name="check" /></button>}}@if(matches.length>1){<p>Revisá los registros administrativos antes de continuar. No se fusionan automáticamente.</p>}</div>}
+          <div class="new-patient-grid"><label>Nombre<input name="newFirstName" required maxlength="100" [(ngModel)]="registration.firstName" autocomplete="given-name" /></label><label>Apellido<input name="newLastName" required maxlength="100" [(ngModel)]="registration.lastName" autocomplete="family-name" /></label></div>
+          <label>Correo electrónico<input type="email" name="newEmail" required maxlength="254" [(ngModel)]="registration.email" autocomplete="email" /></label>
+          <label>Celular para WhatsApp<input type="tel" name="newPhone" required pattern="[+]?[0-9 ()-]{8,25}" maxlength="30" [(ngModel)]="registration.phone" placeholder="+5491112345678" autocomplete="tel" /><small>Ingresá el código de país, por ejemplo +54.</small></label>
+          <label>Domicilio<input name="newAddress" required maxlength="300" [(ngModel)]="registration.address" autocomplete="street-address" /></label>
+          <label class="checkbox-label"><input type="checkbox" name="contactConsent" [(ngModel)]="registration.contactConsent" />Confirmé con el paciente sus contactos y su autorización para recibir avisos de turnos.</label>
+          <button type="button" class="btn primary full" [disabled]="registering||matching||matches.length>0" (click)="registerPatient()">{{ registering?'Registrando…':'Registrar y seleccionar paciente' }}<app-icon name="arrow" /></button><p class="form-hint">Se vinculará a {{ s.agenda(form.agendaId)?.professional }}. Registrar al paciente no reserva todavía el turno.</p>
+        </fieldset>
+      }
+      <label
+        >Práctica<select
+          name="practice"
+          required
+          [(ngModel)]="form.offerId"
+          (ngModelChange)="patientChanged()"
+          [disabled]="saving"
+        >
+          @for (offer of offers; track offer.id) {
+          <option [value]="offer.id">
+            {{ offer.name }} · {{ offer.duration }} min
+          </option>
+          }
+        </select></label
+      >
+      @if (selectedOffer) {
+      <div class="form-hint">
+        <app-icon name="clock" />{{ selectedOffer.duration }} min de atención{{
+        selectedOffer.preparation ? " · " + selectedOffer.preparation + " min de
+        preparación" : "" }}{{ selectedOffer.closing ? " · " +
+        selectedOffer.closing + " min de cierre" : "" }}. {{
+        selectedOffer.portal ? "Consulta habilitada para autogestión." : "Esta
+        práctica se coordina con el equipo." }}
+      </div>
+      }
+      <label
+        >Fecha<input
+          type="date"
+          name="date"
+          required
+          [min]="s.today"
+          [(ngModel)]="form.date"
+          (ngModelChange)="patientChanged()"
+          [disabled]="saving"
+      /></label>
+      <fieldset id="booking-time" tabindex="-1" class="slot-fieldset" [attr.aria-invalid]="timeError ? 'true' : null" [attr.aria-describedby]="timeError ? 'booking-time-error' : null">
+        <legend>Horarios disponibles</legend>
+        @if (loadingSlots) {
+        <p role="status" class="quiet-note">Consultando disponibilidad…</p>
+        } @else if (slots.length) {
+        <div class="time-slots">
+          @for (slot of slots; track slot) {
+          <button
+            type="button"
+            [class.selected]="form.time === slot"
+            [attr.aria-pressed]="form.time === slot"
+            [disabled]="saving"
+            (click)="form.time = slot; timeError = ''"
+          >
+            {{ slot }}
+          </button>
+          }
+        </div>
+        } @else {
+        <p class="quiet-note">
+          {{ form.patientId ? "No hay horarios disponibles. Probá con otra fecha
+          o práctica." : "Elegí un paciente para consultar los horarios." }}
+        </p>
+        }
+        <button
+          type="button"
+          class="text-link"
+          [disabled]="loadingSlots || !form.patientId"
+          (click)="loadSlots()"
+        >
+          <app-icon name="refresh" />Actualizar disponibilidad
+        </button>
+        @if (timeError) { <p id="booking-time-error" class="field-error" role="alert">{{ timeError }}</p> }
+      </fieldset>
+      <label
+        >Modalidad<select
+          name="coverageMode"
+          [(ngModel)]="coverageMode"
+          [disabled]="saving"
+        >
+          <option
+            value="particular"
+            [disabled]="!selectedOffer?.privatePayment"
+          >
+            Particular
+          </option>
+          <option value="coverage" [disabled]="!affiliations.length">
+            Cobertura médica
+          </option>
+        </select></label
+      >
+      @if (coverageMode === "coverage") {
+      <label
+        >Afiliación verificada<select
+          name="affiliation"
+          required
+          [(ngModel)]="form.affiliationId"
+        >
+          <option value="">Elegir cobertura</option>
+          @for (affiliation of affiliations; track affiliation.id) {
+          <option [value]="affiliation.id">{{ affiliation.name }}</option>
+          }
+        </select></label
+      ><label
+        >Autorización de la práctica<select
+          name="authorization"
+          [(ngModel)]="form.authorizationId"
+        >
+          <option value="">Sin autorización específica</option>
+          @for (a of validAuthorizations; track a.id) {
+          <option [value]="a.id">{{ a.referencia }}</option>
+          }
+        </select></label
+      >
+      @if (!s.demo()) {
+      <p class="form-hint">
+        El servidor verificará el convenio y la autorización de la práctica. Si
+        falta cobertura o autorización, no se registra el turno ni se cambia a
+        particular.
+      </p>
+      } } @if (s.demo()) {
+      <label
+        >Consigna administrativa <span class="optional">Opcional</span
+        ><textarea
+          name="note"
+          rows="2"
+          maxlength="300"
+          [(ngModel)]="form.note"
+          placeholder="Por ejemplo: verificar credencial al recibir."
+        ></textarea>
+      </label>
+      }
+      <div class="form-hint">
+        <app-icon name="shield" />El turno se registra al guardar. La asistencia
+        queda pendiente de confirmación.
+      </div>
+    </form>
+    } @else if (turn; as a) {
+    <div class="detail-person">
+      <span class="avatar large-avatar"
+        >{{ initials(s.patientName(a.patientId)) }}</span
+      >
+      <div>
+        <h3>{{ s.patientName(a.patientId) }}</h3>
+        <p>Paciente N.º {{ a.number }}</p>
+      </div>
+    </div>
+    <div class="detail-status">
+      <app-status
+        [value]="a.status === 'CANCELADO' ? 'CANCELADO' : a.attendance"
+      /><span
+        >Turno {{ a.status === "REGISTRADO" ? "registrado" : "cancelado"
+        }}</span
+      >
+    </div>
+    <dl class="detail-list">
+      <div>
+        <dt>Fecha</dt>
+        <dd>{{ dateLabel(a.date) }}</dd>
+      </div>
+      <div>
+        <dt>Horario</dt>
+        <dd>{{ a.time }} · {{ a.duration }} minutos</dd>
+      </div>
+      <div>
+        <dt>Profesional</dt>
+        <dd>{{ s.agenda(a.agendaId)?.professional }}</dd>
+      </div>
+      <div>
+        <dt>Agenda</dt>
+        <dd>
+          {{ s.agenda(a.agendaId)?.name }} · {{ s.agenda(a.agendaId)?.branch }}
+        </dd>
+      </div>
+      <div>
+        <dt>Práctica</dt>
+        <dd>{{ a.practice }}</dd>
+      </div>
+      <div>
+        <dt>Modalidad</dt>
+        <dd>{{ a.modality }}</dd>
+      </div>
+    </dl>
+    @if (a.note) {
+    <div class="detail-note">
+      <h3>Consigna para este turno</h3>
+      <p>{{ a.note }}</p>
+    </div>
+    }
+    <h3 class="subheading">Seguimiento administrativo</h3>
+    <ol class="history-list">
+      @for (event of a.history; track $index) {
+      <li>{{ event }}</li>
+      }
+    </ol>
+    @if (a.status === "REGISTRADO") {
+    @if(s.agendaCan(a.agendaId,'booking:confirm')){<section class="appointment-care-state"><h3>Recepción y atención</h3><p>{{ staff.reception()[a.id]==='ATENCION'?'Paciente en atención':staff.reception()[a.id]==='ESPERA'?'Paciente en espera':staff.reception()[a.id]==='FINALIZADO'?'Atención finalizada':'Llegada sin registrar' }}</p><div class="button-row"><button class="btn small" [disabled]="staff.saving()" (click)="setReception('ESPERA')">Registrar llegada</button><button class="btn small" [disabled]="staff.saving()" (click)="setReception('ATENCION')">Pasar a atención</button><button class="btn small primary" [disabled]="staff.saving()" (click)="setReception('FINALIZADO')">Finalizar atención</button></div></section>}
+    <div class="detail-actions">
+      @if ( a.attendance === "PENDIENTE" && s.agendaCan(a.agendaId,
+      "booking:confirm") ) {
+      <button
+        class="btn primary"
+        [disabled]="saving||s.appointmentLoading()||!!s.detailError()"
+        (click)="confirm()"
+      >
+        <app-icon name="check" />{{ saving ? "Guardando…" : "Confirmar
+        asistencia" }}
+      </button>
+      } @if (s.agendaCan(a.agendaId, "booking:reschedule")) {
+      <button class="btn" [disabled]="saving" (click)="reschedule()">
+        <app-icon name="refresh" />Reprogramar turno
+      </button>
+      } @if (s.agendaCan(a.agendaId, "booking:cancel")) {
+      <button
+        class="btn danger-text"
+        [disabled]="saving||s.appointmentLoading()||!!s.detailError()"
+        (click)="cancelMode = !cancelMode"
+      >
+        Cancelar turno
+      </button>
+      }
+    </div>
+    @if (cancelMode) {
+    <form class="cancel-form" (ngSubmit)="cancel()">
+      <h3>Cancelar este turno</h3>
+      <p>El horario quedará libre y se conservará el historial.</p>
+      <label
+        >Motivo<textarea
+          name="reason"
+          rows="3"
+          required
+          maxlength="300"
+          [(ngModel)]="reason"
+        ></textarea>
+      </label>
+      <div class="button-row">
+        <button
+          class="btn danger"
+          [disabled]="saving || !reason.trim() || s.appointmentLoading() || !!s.detailError()"
+        >
+          {{ saving ? "Cancelando…" : "Confirmar cancelación" }}</button
+        ><button type="button" class="btn quiet" (click)="cancelMode = false">
+          Volver
+        </button>
+      </div>
+    </form>
+    } } @if (s.patient(a.patientId)) {
+    <a
+      class="text-link"
+      routerLink="/pacientes"
+      [queryParams]="{ ficha: a.patientId }"
+      (click)="close()"
+      >Abrir ficha administrativa<app-icon name="arrow"
+    /></a>
+    } }
+  </div>
+  @if (creating) {
+  <footer class="drawer-footer">
+    @if (creating) { <p class="draft-hint">Al cerrar, tus cambios quedan como borrador en este contexto hasta recargar o salir.</p> }
+    <button class="btn" [disabled]="saving" (click)="close()">Volver</button
+    ><button
+      class="btn primary"
+      type="submit"
+      form="booking-form"
+      [disabled]="saving || !form.time || !form.patientId || !selectedOffer"
+    >
+      {{ saving ? "Guardando…" : editing ? "Guardar nuevo horario" : "Registrar
+      turno" }}
+    </button>
+  </footer>
+  } }
+</dialog>

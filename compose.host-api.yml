@@ -1,0 +1,17 @@
+# Frontend container connected to a Spring service running on the host.
+name: salud-host-api
+services:
+  web:
+    image: salud-web:dev
+    build: ./salud-web
+    environment:
+      API_UPSTREAM: host.docker.internal:${HOST_API_PORT:-8080}
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    ports:
+      - '127.0.0.1:${WEB_PORT:-4387}:8080'
+    read_only: true
+    tmpfs: [/tmp:size=32m]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    restart: unless-stopped

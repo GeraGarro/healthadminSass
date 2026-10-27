@@ -1,0 +1,15 @@
+import { TestBed } from '@angular/core/testing';
+import { signal } from '@angular/core';
+import { afterEach,beforeEach,expect,it,vi } from 'vitest';
+import { StaffStore } from './staff.store';
+import { WorkspaceStore } from './workspace.store';
+import { ApiClient } from './api.client';
+let s:WorkspaceStore,staff:StaffStore,request:ReturnType<typeof vi.fn>;
+beforeEach(()=>{sessionStorage.clear();localStorage.clear();request=vi.fn();TestBed.configureTestingModule({providers:[WorkspaceStore,StaffStore,{provide:ApiClient,useValue:{request,expired:signal(false),mfaRequired:signal(false)}}]});s=TestBed.inject(WorkspaceStore);s.startDemo('secretaria');staff=TestBed.inject(StaffStore);});
+afterEach(()=>TestBed.resetTestingModule());
+it('solicitar una agenda no concede acceso ni duplica la solicitud pendiente',async()=>{await staff.load();const person=staff.people().find(p=>p.agenda_id==='a4')!;await staff.requestAccess(person);await staff.requestAccess(person);expect(staff.requests()).toHaveLength(1);expect(staff.people().find(p=>p.agenda_id==='a4')?.solicitud).toBe('PENDIENTE');expect(s.agenda('a4')).toBeUndefined();});
+it('permite completar el perfil solo con nombre y apellido',async()=>{await staff.load();await staff.saveProfile({firstName:'Ana',lastName:'García',document:'',address:'',phone:'',photo:'',complete:false});expect(staff.profile().complete).toBe(true);expect(staff.profile().phone).toBe('');expect(s.user().name).toBe('Ana García');});
+it('la secretaría no puede aprobar su propia solicitud de agenda',async()=>{await staff.load();await staff.requestAccess(staff.people().find(p=>p.agenda_id==='a4')!);await staff.resolve(staff.requests()[0],true);expect(staff.error()).toContain('Solo el titular');expect(staff.requests()[0].estado).toBe('PENDIENTE');});
+it('registrar llegada exige la facultad de confirmación del turno',async()=>{await staff.load();const turn=s.daily()[0];s.data.update(d=>({...d,agendas:d.agendas.map(a=>({...a,permissions:a.permissions.filter(p=>p!=='booking:confirm')}))}));await staff.setReception(turn.id,'ESPERA');expect(staff.reception()[turn.id]).toBeUndefined();});
+it('la administración no hereda fichas aunque haya permisos antiguos',()=>{s.startDemo('administrador');expect(s.has('patients:manage')).toBe(false);expect(s.data().patients).toEqual([]);expect(s.data().items).toEqual([]);});
+it('la primera autorización abre una agenda sin conceder horarios ni conversaciones',async()=>{sessionStorage.setItem('patio-first-visit','true');s.startDemo('secretaria',false,true);await staff.load();await staff.saveProfile({...staff.profile(),firstName:'Ana',lastName:'García'});await staff.requestAccess(staff.people().find(p=>p.agenda_id==='a1')!);s.startDemo('profesional');await staff.load();await staff.resolve(staff.requests()[0],true);s.startDemo('secretaria');expect(s.data().agendas).toHaveLength(1);expect(s.data().agendas[0].permissions).toContain('booking:reschedule');expect(s.data().agendas[0].permissions).not.toContain('agenda:configure');expect(s.data().conversations).toEqual([]);});

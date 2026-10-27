@@ -1,5 +1,12 @@
 # Estado consolidado del proyecto y decisiones pendientes
 
+**Actualización de implementación del 20/10/2026:** el servidor y el esquema ya se
+desarrollaron para pruebas locales, con ocho migraciones y 40 pruebas superadas.
+Consultar [implementación y límites vigentes](26-implementacion-servidor.md) y
+[arranque/configuración productiva](../salud-api/README.md). Los cortes del 16/17
+que siguen son antecedentes; sus frases «implementación pendiente» no describen
+el código actual. Se conservan las decisiones de producto aún no resueltas.
+
 **Actualización del 17 de octubre de 2026:** [ADR-015](arquitectura/adr/015-identificadores-uuidv7.md) acepta UUID versión 7 para las claves internas y tipo PostgreSQL `uuid` para PK y FK, incluido `tenant_id`. Generación de nuevas PK en la base con `DEFAULT uuidv7()`; las FK conservan el UUID del padre. La numeración visible del paciente sigue siendo entera, estable y por profesional y entidad. Modelo ER versión 1.1 y derivados actualizados; la implementación de esta política queda pendiente. Las fuentes técnicas consultadas para esta ampliación se registran en ADR-015. El corte anterior se conserva a continuación.
 
 Actualización: 16 de octubre de 2026. Fuente: conversación y documentación local, incluido el seguimiento técnico ya registrado. La limpieza anterior no consultó fuentes externas. La ampliación de acceso incorpora las fuentes técnicas de docs/20. La especificación de casos de uso del 16/10 se basa exclusivamente en documentación local vigente. No se modificaron automatizaciones.

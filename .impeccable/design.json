@@ -1,0 +1,975 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-27T05:27:57.733Z",
+  "title": "Design System: Patio · Gestión en salud",
+  "extensions": {
+    "colorMeta": {
+      "green": {
+        "role": "primary",
+        "displayName": "Verde Patio",
+        "canonical": "#205c50",
+        "tonalRamp": [
+          "oklch(15% 0.0649 177.5)",
+          "oklch(26% 0.0649 177.5)",
+          "oklch(38% 0.0649 177.5)",
+          "oklch(49% 0.0649 177.5)",
+          "oklch(61% 0.0649 177.5)",
+          "oklch(72% 0.0649 177.5)",
+          "oklch(84% 0.0649 177.5)",
+          "oklch(95% 0.0649 177.5)"
+        ]
+      },
+      "green-hover": {
+        "role": "primary",
+        "displayName": "Verde Patio al pasar el puntero",
+        "canonical": "#184c42",
+        "tonalRamp": [
+          "oklch(15% 0.0574 178.0)",
+          "oklch(26% 0.0574 178.0)",
+          "oklch(38% 0.0574 178.0)",
+          "oklch(49% 0.0574 178.0)",
+          "oklch(61% 0.0574 178.0)",
+          "oklch(72% 0.0574 178.0)",
+          "oklch(84% 0.0574 178.0)",
+          "oklch(95% 0.0574 178.0)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Tinta vegetal",
+        "canonical": "#253b35",
+        "tonalRamp": [
+          "oklch(15% 0.0299 175.4)",
+          "oklch(26% 0.0299 175.4)",
+          "oklch(38% 0.0299 175.4)",
+          "oklch(49% 0.0299 175.4)",
+          "oklch(61% 0.0299 175.4)",
+          "oklch(72% 0.0299 175.4)",
+          "oklch(84% 0.0299 175.4)",
+          "oklch(95% 0.0299 175.4)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Texto secundario",
+        "canonical": "#63736b",
+        "tonalRamp": [
+          "oklch(15% 0.0228 164.0)",
+          "oklch(26% 0.0228 164.0)",
+          "oklch(38% 0.0228 164.0)",
+          "oklch(49% 0.0228 164.0)",
+          "oklch(61% 0.0228 164.0)",
+          "oklch(72% 0.0228 164.0)",
+          "oklch(84% 0.0228 164.0)",
+          "oklch(95% 0.0228 164.0)"
+        ]
+      },
+      "canvas": {
+        "role": "neutral",
+        "displayName": "Lienzo",
+        "canonical": "#f6f8f6",
+        "tonalRamp": [
+          "oklch(15% 0.0034 145.5)",
+          "oklch(26% 0.0034 145.5)",
+          "oklch(38% 0.0034 145.5)",
+          "oklch(49% 0.0034 145.5)",
+          "oklch(61% 0.0034 145.5)",
+          "oklch(72% 0.0034 145.5)",
+          "oklch(84% 0.0034 145.5)",
+          "oklch(95% 0.0034 145.5)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Superficie blanca",
+        "canonical": "#fff",
+        "tonalRamp": [
+          "oklch(15% 0.0000 0.0)",
+          "oklch(26% 0.0000 0.0)",
+          "oklch(38% 0.0000 0.0)",
+          "oklch(49% 0.0000 0.0)",
+          "oklch(61% 0.0000 0.0)",
+          "oklch(72% 0.0000 0.0)",
+          "oklch(84% 0.0000 0.0)",
+          "oklch(95% 0.0000 0.0)"
+        ]
+      },
+      "rail": {
+        "role": "neutral",
+        "displayName": "Celadón lateral",
+        "canonical": "#e9efea",
+        "tonalRamp": [
+          "oklch(15% 0.0092 150.7)",
+          "oklch(26% 0.0092 150.7)",
+          "oklch(38% 0.0092 150.7)",
+          "oklch(49% 0.0092 150.7)",
+          "oklch(61% 0.0092 150.7)",
+          "oklch(72% 0.0092 150.7)",
+          "oklch(84% 0.0092 150.7)",
+          "oklch(95% 0.0092 150.7)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Línea",
+        "canonical": "#e3e9e4",
+        "tonalRamp": [
+          "oklch(15% 0.0092 150.7)",
+          "oklch(26% 0.0092 150.7)",
+          "oklch(38% 0.0092 150.7)",
+          "oklch(49% 0.0092 150.7)",
+          "oklch(61% 0.0092 150.7)",
+          "oklch(72% 0.0092 150.7)",
+          "oklch(84% 0.0092 150.7)",
+          "oklch(95% 0.0092 150.7)"
+        ]
+      },
+      "mint": {
+        "role": "primary",
+        "displayName": "Menta de selección",
+        "canonical": "#dbece1",
+        "tonalRamp": [
+          "oklch(15% 0.0233 157.6)",
+          "oklch(26% 0.0233 157.6)",
+          "oklch(38% 0.0233 157.6)",
+          "oklch(49% 0.0233 157.6)",
+          "oklch(61% 0.0233 157.6)",
+          "oklch(72% 0.0233 157.6)",
+          "oklch(84% 0.0233 157.6)",
+          "oklch(95% 0.0233 157.6)"
+        ]
+      },
+      "button-line": {
+        "role": "neutral",
+        "displayName": "Borde de botón",
+        "canonical": "#7d9487",
+        "tonalRamp": [
+          "oklch(15% 0.0325 160.6)",
+          "oklch(26% 0.0325 160.6)",
+          "oklch(38% 0.0325 160.6)",
+          "oklch(49% 0.0325 160.6)",
+          "oklch(61% 0.0325 160.6)",
+          "oklch(72% 0.0325 160.6)",
+          "oklch(84% 0.0325 160.6)",
+          "oklch(95% 0.0325 160.6)"
+        ]
+      },
+      "button-hover": {
+        "role": "neutral",
+        "displayName": "Fondo de botón al pasar el puntero",
+        "canonical": "#eef4ef",
+        "tonalRamp": [
+          "oklch(15% 0.0092 150.7)",
+          "oklch(26% 0.0092 150.7)",
+          "oklch(38% 0.0092 150.7)",
+          "oklch(49% 0.0092 150.7)",
+          "oklch(61% 0.0092 150.7)",
+          "oklch(72% 0.0092 150.7)",
+          "oklch(84% 0.0092 150.7)",
+          "oklch(95% 0.0092 150.7)"
+        ]
+      },
+      "button-hover-line": {
+        "role": "neutral",
+        "displayName": "Borde de botón al pasar el puntero",
+        "canonical": "#526f60",
+        "tonalRamp": [
+          "oklch(15% 0.0414 162.0)",
+          "oklch(26% 0.0414 162.0)",
+          "oklch(38% 0.0414 162.0)",
+          "oklch(49% 0.0414 162.0)",
+          "oklch(61% 0.0414 162.0)",
+          "oklch(72% 0.0414 162.0)",
+          "oklch(84% 0.0414 162.0)",
+          "oklch(95% 0.0414 162.0)"
+        ]
+      },
+      "field-line": {
+        "role": "neutral",
+        "displayName": "Borde de campo",
+        "canonical": "#7d9487",
+        "tonalRamp": [
+          "oklch(15% 0.0325 160.6)",
+          "oklch(26% 0.0325 160.6)",
+          "oklch(38% 0.0325 160.6)",
+          "oklch(49% 0.0325 160.6)",
+          "oklch(61% 0.0325 160.6)",
+          "oklch(72% 0.0325 160.6)",
+          "oklch(84% 0.0325 160.6)",
+          "oklch(95% 0.0325 160.6)"
+        ]
+      },
+      "field-hover-line": {
+        "role": "neutral",
+        "displayName": "Borde de campo al pasar el puntero",
+        "canonical": "#526f60",
+        "tonalRamp": [
+          "oklch(15% 0.0414 162.0)",
+          "oklch(26% 0.0414 162.0)",
+          "oklch(38% 0.0414 162.0)",
+          "oklch(49% 0.0414 162.0)",
+          "oklch(61% 0.0414 162.0)",
+          "oklch(72% 0.0414 162.0)",
+          "oklch(84% 0.0414 162.0)",
+          "oklch(95% 0.0414 162.0)"
+        ]
+      },
+      "field-focus-line": {
+        "role": "neutral",
+        "displayName": "Borde de campo en edición",
+        "canonical": "#205c50",
+        "tonalRamp": [
+          "oklch(15% 0.0649 177.5)",
+          "oklch(26% 0.0649 177.5)",
+          "oklch(38% 0.0649 177.5)",
+          "oklch(49% 0.0649 177.5)",
+          "oklch(61% 0.0649 177.5)",
+          "oklch(72% 0.0649 177.5)",
+          "oklch(84% 0.0649 177.5)",
+          "oklch(95% 0.0649 177.5)"
+        ]
+      },
+      "field-focus-ring": {
+        "role": "neutral",
+        "displayName": "Anillo de campo en edición",
+        "canonical": "#205c50",
+        "tonalRamp": [
+          "oklch(15% 0.0649 177.5)",
+          "oklch(26% 0.0649 177.5)",
+          "oklch(38% 0.0649 177.5)",
+          "oklch(49% 0.0649 177.5)",
+          "oklch(61% 0.0649 177.5)",
+          "oklch(72% 0.0649 177.5)",
+          "oklch(84% 0.0649 177.5)",
+          "oklch(95% 0.0649 177.5)"
+        ]
+      },
+      "focus": {
+        "role": "primary",
+        "displayName": "Foco de teclado",
+        "canonical": "#205c50",
+        "tonalRamp": [
+          "oklch(15% 0.0649 177.5)",
+          "oklch(26% 0.0649 177.5)",
+          "oklch(38% 0.0649 177.5)",
+          "oklch(49% 0.0649 177.5)",
+          "oklch(61% 0.0649 177.5)",
+          "oklch(72% 0.0649 177.5)",
+          "oklch(84% 0.0649 177.5)",
+          "oklch(95% 0.0649 177.5)"
+        ]
+      },
+      "agenda-sage": {
+        "role": "secondary",
+        "displayName": "Agenda salvia · identidad de agenda",
+        "canonical": "#e7efe3",
+        "tonalRamp": [
+          "oklch(15% 0.0181 134.9)",
+          "oklch(26% 0.0181 134.9)",
+          "oklch(38% 0.0181 134.9)",
+          "oklch(49% 0.0181 134.9)",
+          "oklch(61% 0.0181 134.9)",
+          "oklch(72% 0.0181 134.9)",
+          "oklch(84% 0.0181 134.9)",
+          "oklch(95% 0.0181 134.9)"
+        ]
+      },
+      "agenda-sage-ink": {
+        "role": "secondary",
+        "displayName": "Texto de agenda salvia",
+        "canonical": "#436044",
+        "tonalRamp": [
+          "oklch(15% 0.0566 145.4)",
+          "oklch(26% 0.0566 145.4)",
+          "oklch(38% 0.0566 145.4)",
+          "oklch(49% 0.0566 145.4)",
+          "oklch(61% 0.0566 145.4)",
+          "oklch(72% 0.0566 145.4)",
+          "oklch(84% 0.0566 145.4)",
+          "oklch(95% 0.0566 145.4)"
+        ]
+      },
+      "agenda-lavender": {
+        "role": "secondary",
+        "displayName": "Agenda lavanda · identidad de agenda",
+        "canonical": "#eeebf5",
+        "tonalRamp": [
+          "oklch(15% 0.0137 299.8)",
+          "oklch(26% 0.0137 299.8)",
+          "oklch(38% 0.0137 299.8)",
+          "oklch(49% 0.0137 299.8)",
+          "oklch(61% 0.0137 299.8)",
+          "oklch(72% 0.0137 299.8)",
+          "oklch(84% 0.0137 299.8)",
+          "oklch(95% 0.0137 299.8)"
+        ]
+      },
+      "agenda-lavender-ink": {
+        "role": "secondary",
+        "displayName": "Texto de agenda lavanda",
+        "canonical": "#68557d",
+        "tonalRamp": [
+          "oklch(15% 0.0666 305.8)",
+          "oklch(26% 0.0666 305.8)",
+          "oklch(38% 0.0666 305.8)",
+          "oklch(49% 0.0666 305.8)",
+          "oklch(61% 0.0666 305.8)",
+          "oklch(72% 0.0666 305.8)",
+          "oklch(84% 0.0666 305.8)",
+          "oklch(95% 0.0666 305.8)"
+        ]
+      },
+      "agenda-peach": {
+        "role": "secondary",
+        "displayName": "Agenda durazno · identidad de agenda",
+        "canonical": "#f7e9df",
+        "tonalRamp": [
+          "oklch(15% 0.0203 58.1)",
+          "oklch(26% 0.0203 58.1)",
+          "oklch(38% 0.0203 58.1)",
+          "oklch(49% 0.0203 58.1)",
+          "oklch(61% 0.0203 58.1)",
+          "oklch(72% 0.0203 58.1)",
+          "oklch(84% 0.0203 58.1)",
+          "oklch(95% 0.0203 58.1)"
+        ]
+      },
+      "agenda-peach-ink": {
+        "role": "secondary",
+        "displayName": "Texto de agenda durazno",
+        "canonical": "#855d43",
+        "tonalRamp": [
+          "oklch(15% 0.0652 53.8)",
+          "oklch(26% 0.0652 53.8)",
+          "oklch(38% 0.0652 53.8)",
+          "oklch(49% 0.0652 53.8)",
+          "oklch(61% 0.0652 53.8)",
+          "oklch(72% 0.0652 53.8)",
+          "oklch(84% 0.0652 53.8)",
+          "oklch(95% 0.0652 53.8)"
+        ]
+      },
+      "agenda-blue": {
+        "role": "secondary",
+        "displayName": "Agenda azul niebla · identidad de agenda",
+        "canonical": "#e6eef5",
+        "tonalRamp": [
+          "oklch(15% 0.0128 244.3)",
+          "oklch(26% 0.0128 244.3)",
+          "oklch(38% 0.0128 244.3)",
+          "oklch(49% 0.0128 244.3)",
+          "oklch(61% 0.0128 244.3)",
+          "oklch(72% 0.0128 244.3)",
+          "oklch(84% 0.0128 244.3)",
+          "oklch(95% 0.0128 244.3)"
+        ]
+      },
+      "agenda-blue-ink": {
+        "role": "secondary",
+        "displayName": "Texto de agenda azul niebla",
+        "canonical": "#47677b",
+        "tonalRamp": [
+          "oklch(15% 0.0491 236.5)",
+          "oklch(26% 0.0491 236.5)",
+          "oklch(38% 0.0491 236.5)",
+          "oklch(49% 0.0491 236.5)",
+          "oklch(61% 0.0491 236.5)",
+          "oklch(72% 0.0491 236.5)",
+          "oklch(84% 0.0491 236.5)",
+          "oklch(95% 0.0491 236.5)"
+        ]
+      },
+      "pending": {
+        "role": "tertiary",
+        "displayName": "Ámbar de pendiente",
+        "canonical": "#f8edda",
+        "tonalRamp": [
+          "oklch(15% 0.0278 81.5)",
+          "oklch(26% 0.0278 81.5)",
+          "oklch(38% 0.0278 81.5)",
+          "oklch(49% 0.0278 81.5)",
+          "oklch(61% 0.0278 81.5)",
+          "oklch(72% 0.0278 81.5)",
+          "oklch(84% 0.0278 81.5)",
+          "oklch(95% 0.0278 81.5)"
+        ]
+      },
+      "pending-ink": {
+        "role": "tertiary",
+        "displayName": "Texto de pendiente",
+        "canonical": "#79591c",
+        "tonalRamp": [
+          "oklch(15% 0.0869 79.8)",
+          "oklch(26% 0.0869 79.8)",
+          "oklch(38% 0.0869 79.8)",
+          "oklch(49% 0.0869 79.8)",
+          "oklch(61% 0.0869 79.8)",
+          "oklch(72% 0.0869 79.8)",
+          "oklch(84% 0.0869 79.8)",
+          "oklch(95% 0.0869 79.8)"
+        ]
+      },
+      "confirmed": {
+        "role": "tertiary",
+        "displayName": "Verde de confirmación",
+        "canonical": "#edf3e9",
+        "tonalRamp": [
+          "oklch(15% 0.0147 132.5)",
+          "oklch(26% 0.0147 132.5)",
+          "oklch(38% 0.0147 132.5)",
+          "oklch(49% 0.0147 132.5)",
+          "oklch(61% 0.0147 132.5)",
+          "oklch(72% 0.0147 132.5)",
+          "oklch(84% 0.0147 132.5)",
+          "oklch(95% 0.0147 132.5)"
+        ]
+      },
+      "confirmed-ink": {
+        "role": "tertiary",
+        "displayName": "Texto de confirmación",
+        "canonical": "#436b4e",
+        "tonalRamp": [
+          "oklch(15% 0.0649 152.1)",
+          "oklch(26% 0.0649 152.1)",
+          "oklch(38% 0.0649 152.1)",
+          "oklch(49% 0.0649 152.1)",
+          "oklch(61% 0.0649 152.1)",
+          "oklch(72% 0.0649 152.1)",
+          "oklch(84% 0.0649 152.1)",
+          "oklch(95% 0.0649 152.1)"
+        ]
+      },
+      "error": {
+        "role": "tertiary",
+        "displayName": "Rojo de incidencia",
+        "canonical": "#a13e3b",
+        "tonalRamp": [
+          "oklch(15% 0.1324 24.8)",
+          "oklch(26% 0.1324 24.8)",
+          "oklch(38% 0.1324 24.8)",
+          "oklch(49% 0.1324 24.8)",
+          "oklch(61% 0.1324 24.8)",
+          "oklch(72% 0.1324 24.8)",
+          "oklch(84% 0.1324 24.8)",
+          "oklch(95% 0.1324 24.8)"
+        ]
+      },
+      "error-bg": {
+        "role": "tertiary",
+        "displayName": "Fondo de incidencia",
+        "canonical": "#fbebea",
+        "tonalRamp": [
+          "oklch(15% 0.0175 21.8)",
+          "oklch(26% 0.0175 21.8)",
+          "oklch(38% 0.0175 21.8)",
+          "oklch(49% 0.0175 21.8)",
+          "oklch(61% 0.0175 21.8)",
+          "oklch(72% 0.0175 21.8)",
+          "oklch(84% 0.0175 21.8)",
+          "oklch(95% 0.0175 21.8)"
+        ]
+      },
+      "next-surface": {
+        "role": "secondary",
+        "displayName": "Verde de próximo encuentro",
+        "canonical": "#e2eee4",
+        "tonalRamp": [
+          "oklch(15% 0.0184 150.5)",
+          "oklch(26% 0.0184 150.5)",
+          "oklch(38% 0.0184 150.5)",
+          "oklch(49% 0.0184 150.5)",
+          "oklch(61% 0.0184 150.5)",
+          "oklch(72% 0.0184 150.5)",
+          "oklch(84% 0.0184 150.5)",
+          "oklch(95% 0.0184 150.5)"
+        ]
+      },
+      "error-hover": {
+        "role": "tertiary",
+        "displayName": "Rojo de incidencia al pasar el puntero",
+        "canonical": "#873432",
+        "tonalRamp": [
+          "oklch(15% 0.1146 24.3)",
+          "oklch(26% 0.1146 24.3)",
+          "oklch(38% 0.1146 24.3)",
+          "oklch(49% 0.1146 24.3)",
+          "oklch(61% 0.1146 24.3)",
+          "oklch(72% 0.1146 24.3)",
+          "oklch(84% 0.1146 24.3)",
+          "oklch(95% 0.1146 24.3)"
+        ]
+      },
+      "calendar-ink": {
+        "role": "neutral",
+        "displayName": "Tinta de calendario",
+        "canonical": "#193859",
+        "tonalRamp": [
+          "oklch(15% 0.0692 251.9)",
+          "oklch(26% 0.0692 251.9)",
+          "oklch(38% 0.0692 251.9)",
+          "oklch(49% 0.0692 251.9)",
+          "oklch(61% 0.0692 251.9)",
+          "oklch(72% 0.0692 251.9)",
+          "oklch(84% 0.0692 251.9)",
+          "oklch(95% 0.0692 251.9)"
+        ]
+      },
+      "calendar-line": {
+        "role": "neutral",
+        "displayName": "Línea de calendario",
+        "canonical": "#b9c8da",
+        "tonalRamp": [
+          "oklch(15% 0.0302 253.0)",
+          "oklch(26% 0.0302 253.0)",
+          "oklch(38% 0.0302 253.0)",
+          "oklch(49% 0.0302 253.0)",
+          "oklch(61% 0.0302 253.0)",
+          "oklch(72% 0.0302 253.0)",
+          "oklch(84% 0.0302 253.0)",
+          "oklch(95% 0.0302 253.0)"
+        ]
+      },
+      "calendar-future": {
+        "role": "secondary",
+        "displayName": "Azul próximo",
+        "canonical": "#dbeafe",
+        "tonalRamp": [
+          "oklch(15% 0.0316 255.6)",
+          "oklch(26% 0.0316 255.6)",
+          "oklch(38% 0.0316 255.6)",
+          "oklch(49% 0.0316 255.6)",
+          "oklch(61% 0.0316 255.6)",
+          "oklch(72% 0.0316 255.6)",
+          "oklch(84% 0.0316 255.6)",
+          "oklch(95% 0.0316 255.6)"
+        ]
+      },
+      "calendar-future-ink": {
+        "role": "secondary",
+        "displayName": "Tinta de próximo",
+        "canonical": "#193e70",
+        "tonalRamp": [
+          "oklch(15% 0.0961 256.9)",
+          "oklch(26% 0.0961 256.9)",
+          "oklch(38% 0.0961 256.9)",
+          "oklch(49% 0.0961 256.9)",
+          "oklch(61% 0.0961 256.9)",
+          "oklch(72% 0.0961 256.9)",
+          "oklch(84% 0.0961 256.9)",
+          "oklch(95% 0.0961 256.9)"
+        ]
+      },
+      "calendar-past": {
+        "role": "secondary",
+        "displayName": "Gris azulado pasado",
+        "canonical": "#e7edf3",
+        "tonalRamp": [
+          "oklch(15% 0.0103 247.9)",
+          "oklch(26% 0.0103 247.9)",
+          "oklch(38% 0.0103 247.9)",
+          "oklch(49% 0.0103 247.9)",
+          "oklch(61% 0.0103 247.9)",
+          "oklch(72% 0.0103 247.9)",
+          "oklch(84% 0.0103 247.9)",
+          "oklch(95% 0.0103 247.9)"
+        ]
+      },
+      "calendar-past-ink": {
+        "role": "secondary",
+        "displayName": "Tinta de horario pasado",
+        "canonical": "#41546c",
+        "tonalRamp": [
+          "oklch(15% 0.0463 254.5)",
+          "oklch(26% 0.0463 254.5)",
+          "oklch(38% 0.0463 254.5)",
+          "oklch(49% 0.0463 254.5)",
+          "oklch(61% 0.0463 254.5)",
+          "oklch(72% 0.0463 254.5)",
+          "oklch(84% 0.0463 254.5)",
+          "oklch(95% 0.0463 254.5)"
+        ]
+      },
+      "calendar-attending": {
+        "role": "secondary",
+        "displayName": "Petróleo de atención",
+        "canonical": "#006157",
+        "tonalRamp": [
+          "oklch(15% 0.0789 182.8)",
+          "oklch(26% 0.0789 182.8)",
+          "oklch(38% 0.0789 182.8)",
+          "oklch(49% 0.0789 182.8)",
+          "oklch(61% 0.0789 182.8)",
+          "oklch(72% 0.0789 182.8)",
+          "oklch(84% 0.0789 182.8)",
+          "oklch(95% 0.0789 182.8)"
+        ]
+      },
+      "calendar-waiting": {
+        "role": "secondary",
+        "displayName": "Ámbar de espera",
+        "canonical": "#ffedb5",
+        "tonalRamp": [
+          "oklch(15% 0.0742 92.4)",
+          "oklch(26% 0.0742 92.4)",
+          "oklch(38% 0.0742 92.4)",
+          "oklch(49% 0.0742 92.4)",
+          "oklch(61% 0.0742 92.4)",
+          "oklch(72% 0.0742 92.4)",
+          "oklch(84% 0.0742 92.4)",
+          "oklch(95% 0.0742 92.4)"
+        ]
+      },
+      "calendar-waiting-ink": {
+        "role": "secondary",
+        "displayName": "Tinta de espera",
+        "canonical": "#624109",
+        "tonalRamp": [
+          "oklch(15% 0.0805 74.2)",
+          "oklch(26% 0.0805 74.2)",
+          "oklch(38% 0.0805 74.2)",
+          "oklch(49% 0.0805 74.2)",
+          "oklch(61% 0.0805 74.2)",
+          "oklch(72% 0.0805 74.2)",
+          "oklch(84% 0.0805 74.2)",
+          "oklch(95% 0.0805 74.2)"
+        ]
+      },
+      "calendar-finished": {
+        "role": "secondary",
+        "displayName": "Verde finalizado",
+        "canonical": "#dcebe5",
+        "tonalRamp": [
+          "oklch(15% 0.0178 170.1)",
+          "oklch(26% 0.0178 170.1)",
+          "oklch(38% 0.0178 170.1)",
+          "oklch(49% 0.0178 170.1)",
+          "oklch(61% 0.0178 170.1)",
+          "oklch(72% 0.0178 170.1)",
+          "oklch(84% 0.0178 170.1)",
+          "oklch(95% 0.0178 170.1)"
+        ]
+      },
+      "calendar-finished-ink": {
+        "role": "secondary",
+        "displayName": "Tinta de finalización",
+        "canonical": "#174e44",
+        "tonalRamp": [
+          "oklch(15% 0.0594 178.6)",
+          "oklch(26% 0.0594 178.6)",
+          "oklch(38% 0.0594 178.6)",
+          "oklch(49% 0.0594 178.6)",
+          "oklch(61% 0.0594 178.6)",
+          "oklch(72% 0.0594 178.6)",
+          "oklch(84% 0.0594 178.6)",
+          "oklch(95% 0.0594 178.6)"
+        ]
+      },
+      "calendar-scheduled-now": {
+        "role": "secondary",
+        "displayName": "Hora prevista actual",
+        "canonical": "#c9e5ed",
+        "tonalRamp": [
+          "oklch(15% 0.0315 216.8)",
+          "oklch(26% 0.0315 216.8)",
+          "oklch(38% 0.0315 216.8)",
+          "oklch(49% 0.0315 216.8)",
+          "oklch(61% 0.0315 216.8)",
+          "oklch(72% 0.0315 216.8)",
+          "oklch(84% 0.0315 216.8)",
+          "oklch(95% 0.0315 216.8)"
+        ]
+      },
+      "calendar-scheduled-now-ink": {
+        "role": "secondary",
+        "displayName": "Tinta de hora prevista",
+        "canonical": "#16495a",
+        "tonalRamp": [
+          "oklch(15% 0.0600 224.1)",
+          "oklch(26% 0.0600 224.1)",
+          "oklch(38% 0.0600 224.1)",
+          "oklch(49% 0.0600 224.1)",
+          "oklch(61% 0.0600 224.1)",
+          "oklch(72% 0.0600 224.1)",
+          "oklch(84% 0.0600 224.1)",
+          "oklch(95% 0.0600 224.1)"
+        ]
+      },
+      "calendar-scheduled-now-line": {
+        "role": "secondary",
+        "displayName": "Contorno de hora prevista",
+        "canonical": "#2f7489",
+        "tonalRamp": [
+          "oklch(15% 0.0758 221.2)",
+          "oklch(26% 0.0758 221.2)",
+          "oklch(38% 0.0758 221.2)",
+          "oklch(49% 0.0758 221.2)",
+          "oklch(61% 0.0758 221.2)",
+          "oklch(72% 0.0758 221.2)",
+          "oklch(84% 0.0758 221.2)",
+          "oklch(95% 0.0758 221.2)"
+        ]
+      },
+      "calendar-now": {
+        "role": "tertiary",
+        "displayName": "Rojo de hora actual",
+        "canonical": "#b33228",
+        "tonalRamp": [
+          "oklch(15% 0.1673 28.8)",
+          "oklch(26% 0.1673 28.8)",
+          "oklch(38% 0.1673 28.8)",
+          "oklch(49% 0.1673 28.8)",
+          "oklch(61% 0.1673 28.8)",
+          "oklch(72% 0.1673 28.8)",
+          "oklch(84% 0.1673 28.8)",
+          "oklch(95% 0.1673 28.8)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Mensaje de acceso",
+        "purpose": "Mensaje amplio de la pantalla de acceso; tamaños menores según viewport."
+      },
+      "headline": {
+        "displayName": "Título principal",
+        "purpose": "Encabezado de página y su reducción en móvil."
+      },
+      "title": {
+        "displayName": "Título de sección",
+        "purpose": "Jerarquía de secciones y contenedores."
+      },
+      "subhead": {
+        "displayName": "Subtítulo",
+        "purpose": "Encabezados menores y nombres destacados."
+      },
+      "body": {
+        "displayName": "Texto base",
+        "purpose": "Base de lectura y párrafos, con ajustes contextuales de densidad."
+      },
+      "label": {
+        "displayName": "Etiqueta",
+        "purpose": "Nombre visible de un campo de formulario."
+      },
+      "button": {
+        "displayName": "Texto de botón",
+        "purpose": "Acciones principales y secundarias."
+      },
+      "brand": {
+        "displayName": "Firma Patio",
+        "purpose": "Nombre de trabajo con tracking explícito de -0.04em."
+      },
+      "clock": {
+        "displayName": "Hora destacada",
+        "purpose": "Hora del siguiente turno; usa cifras tabulares de Nunito Sans."
+      }
+    },
+    "shadows": [
+      {
+        "name": "floating",
+        "value": "0 12px 40px rgb(29 55 43 / 13%)",
+        "purpose": "Resultados de búsqueda."
+      },
+      {
+        "name": "segment-selected",
+        "value": "0 1px 4px rgb(24 55 37 / 10%)",
+        "purpose": "Segmento de vista seleccionado."
+      },
+      {
+        "name": "appointment-hover",
+        "value": "0 3px 8px rgb(35 65 43 / 10%)",
+        "purpose": "Respuesta del turno al pasar el puntero."
+      },
+      {
+        "name": "drawer",
+        "value": "-10px 0 45px rgb(32 53 38 / 15%)",
+        "purpose": "Panel modal de turno."
+      },
+      {
+        "name": "toast",
+        "value": "0 8px 28px rgb(23 54 35 / 18%)",
+        "purpose": "Aviso flotante."
+      }
+    ],
+    "motion": [
+      {
+        "name": "control-transition",
+        "value": "160ms ease-out",
+        "purpose": "Cambios de color de fondo, borde, texto y sombra de controles."
+      },
+      {
+        "name": "drawer-entry",
+        "value": "200ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Entrada del diálogo desde translateX(35px) y opacidad 0.8 hasta su posición y opacidad finales."
+      },
+      {
+        "name": "mobile-navigation",
+        "value": "transform 200ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Entrada y salida de la navegación móvil desde translateX(-100%)."
+      },
+      {
+        "name": "loading-pulse",
+        "value": "1.4s ease-in-out infinite",
+        "purpose": "Carga de contenido; la opacidad llega a 0.5 en el punto medio."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "none",
+        "purpose": "prefers-reduced-motion: reduce elimina animaciones y transiciones; scroll-behavior pasa a auto."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide-min",
+        "value": "1600px"
+      },
+      {
+        "name": "compact-max",
+        "value": "1240px"
+      },
+      {
+        "name": "stacked-max",
+        "value": "1080px"
+      },
+      {
+        "name": "mobile-max",
+        "value": "760px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botón principal",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Acción principal con verde Patio y respuesta de hover más profunda.",
+      "html": "<button type=\"button\" class=\"ds-button-primary\"><svg class=\"ds-button-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 5v14M5 12h14\"/></svg>Nuevo turno</button>",
+      "css": ".ds-button-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 40px; padding: 9px 15px; border: 1px solid #7d9487; border-radius: 8px; font-family: \"Nunito Sans\", \"Segoe UI\", sans-serif; font-size: 14px; font-weight: 700; line-height: 1.35; white-space: nowrap; text-align: center; cursor: pointer; transition: background-color 160ms ease-out, border-color 160ms ease-out, color 160ms ease-out, box-shadow 160ms ease-out; background: var(--green, #205c50); color: #fff; border-color: var(--green, #205c50); } .ds-button-primary:hover:not(:disabled) { background: var(--green-hover, #184c42); } .ds-button-primary:focus-visible { outline: 3px solid #205c50; outline-offset: 3px; position: relative; z-index: 3; } .ds-button-primary:disabled { opacity: 0.55; cursor: not-allowed; } .ds-button-icon { display: block; width: 20px; height: 20px; flex-shrink: 0; } @media (prefers-reduced-motion: reduce) { .ds-button-primary, .ds-button-icon { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }"
+    },
+    {
+      "name": "Botón secundario",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Acción secundaria de superficie blanca y borde vegetal.",
+      "html": "<button type=\"button\" class=\"ds-button-secondary\">Volver</button>",
+      "css": ".ds-button-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 40px; padding: 9px 15px; border: 1px solid #7d9487; border-radius: 8px; font-family: \"Nunito Sans\", \"Segoe UI\", sans-serif; font-size: 14px; font-weight: 700; line-height: 1.35; white-space: nowrap; text-align: center; cursor: pointer; transition: background-color 160ms ease-out, border-color 160ms ease-out, color 160ms ease-out, box-shadow 160ms ease-out; background: #fff; color: var(--ink, #253b35); } .ds-button-secondary:hover:not(:disabled) { background: #eef4ef; border-color: #526f60; } .ds-button-secondary:focus-visible { outline: 3px solid #205c50; outline-offset: 3px; position: relative; z-index: 3; } .ds-button-secondary:disabled { opacity: 0.55; cursor: not-allowed; } .ds-button-icon { display: block; width: 20px; height: 20px; flex-shrink: 0; } @media (prefers-reduced-motion: reduce) { .ds-button-secondary { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }"
+    },
+    {
+      "name": "Botón quieto",
+      "kind": "button",
+      "refersTo": "button-quiet",
+      "description": "Acción de menor énfasis, con fondo y borde transparentes en reposo.",
+      "html": "<button type=\"button\" class=\"ds-button-quiet\">Cancelar</button>",
+      "css": ".ds-button-quiet { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 40px; padding: 9px 15px; border: 1px solid #7d9487; border-radius: 8px; font-family: \"Nunito Sans\", \"Segoe UI\", sans-serif; font-size: 14px; font-weight: 700; line-height: 1.35; white-space: nowrap; text-align: center; cursor: pointer; transition: background-color 160ms ease-out, border-color 160ms ease-out, color 160ms ease-out, box-shadow 160ms ease-out; background: transparent; color: var(--ink, #253b35); border-color: transparent; } .ds-button-quiet:hover:not(:disabled) { background: #eef4ef; border-color: #526f60; } .ds-button-quiet:focus-visible { outline: 3px solid #205c50; outline-offset: 3px; position: relative; z-index: 3; } .ds-button-quiet:disabled { opacity: 0.55; cursor: not-allowed; } .ds-button-icon { display: block; width: 20px; height: 20px; flex-shrink: 0; } @media (prefers-reduced-motion: reduce) { .ds-button-quiet { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }"
+    },
+    {
+      "name": "Botón destructivo",
+      "kind": "button",
+      "refersTo": "button-danger",
+      "description": "Acción destructiva roja; hover en rojo más profundo que conserva el texto blanco.",
+      "html": "<button type=\"button\" class=\"ds-button-danger\">Cancelar turno</button>",
+      "css": ".ds-button-danger { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 40px; padding: 9px 15px; border: 1px solid #7d9487; border-radius: 8px; font-family: \"Nunito Sans\", \"Segoe UI\", sans-serif; font-size: 14px; font-weight: 700; line-height: 1.35; white-space: nowrap; text-align: center; cursor: pointer; transition: background-color 160ms ease-out, border-color 160ms ease-out, color 160ms ease-out, box-shadow 160ms ease-out; background: var(--error, #a13e3b); color: #fff; border-color: var(--error, #a13e3b); } .ds-button-danger:hover:not(:disabled) { color: #fff; background: var(--error-hover, #873432); border-color: var(--error-hover, #873432); } .ds-button-danger:focus-visible { outline: 3px solid #205c50; outline-offset: 3px; position: relative; z-index: 3; } .ds-button-danger:disabled { opacity: 0.55; cursor: not-allowed; } .ds-button-icon { display: block; width: 20px; height: 20px; flex-shrink: 0; } @media (prefers-reduced-motion: reduce) { .ds-button-danger { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }"
+    },
+    {
+      "name": "Campo con etiqueta",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Campo nativo con etiqueta visible, borde de hover y anillo de edición.",
+      "html": "<label class=\"ds-field\">Nombre<input class=\"ds-field-input\" type=\"text\" autocomplete=\"off\" placeholder=\"Nombre del paciente\"></label>",
+      "css": ".ds-field { display: flex; flex-direction: column; align-items: stretch; gap: 7px; font-family: \"Nunito Sans\", \"Segoe UI\", sans-serif; font-size: 15px; font-weight: 700; color: #41564a; } .ds-field-input { display: block; width: 100%; max-width: 100%; min-height: 40px; border: 1px solid #7d9487; border-radius: 7px; background: #fff; padding: 10px 12px; color: var(--ink, #253b35); font-family: \"Nunito Sans\", \"Segoe UI\", sans-serif; font-size: 14px; font-weight: 500; caret-color: var(--green, #205c50); transition: background-color 160ms ease-out, border-color 160ms ease-out, color 160ms ease-out, box-shadow 160ms ease-out; } .ds-field-input::placeholder { color: #6f7c75; opacity: 1; } .ds-field-input:hover { border-color: #526f60; } .ds-field-input:focus, .ds-field-input:focus-visible { border-color: #205c50; outline: 2px solid #205c50; outline-offset: 1px; } .ds-field-input:disabled { opacity: 0.55; cursor: not-allowed; } @media (prefers-reduced-motion: reduce) { .ds-field, .ds-field-input { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }"
+    },
+    {
+      "name": "Navegación lateral",
+      "kind": "nav",
+      "refersTo": "nav-item",
+      "description": "Enlaces del lateral con selección verde y respuesta tonal. Muestra de enlaces; el marco modal móvil pertenece a la aplicación.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Navegación de ejemplo\"><a class=\"ds-nav-link ds-nav-active\" href=\"#mi-jornada\" aria-current=\"page\"><svg class=\"ds-nav-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z\"/></svg><span>Mi jornada</span></a><a class=\"ds-nav-link\" href=\"#agenda\"><svg class=\"ds-nav-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2\"/><path d=\"M7 14h2M12 14h2M7 18h2\"/></svg><span>Agenda</span></a></nav>",
+      "css": ".ds-nav { display: flex; flex-direction: column; gap: 5px; padding: 15px; background: var(--rail, #e9efea); } .ds-nav-link { display: flex; align-items: center; gap: 12px; min-height: 43px; padding: 11px 15px; border: 0; border-radius: 8px; color: #53665b; background: transparent; font-family: \"Nunito Sans\", \"Segoe UI\", sans-serif; font-size: 14px; font-weight: 600; text-align: left; text-decoration: none; transition: background-color 160ms ease-out, border-color 160ms ease-out, color 160ms ease-out, box-shadow 160ms ease-out; } .ds-nav-link:hover { background: #dde8df; color: var(--green, #205c50); } .ds-nav-link.ds-nav-active { background: var(--green, #205c50); color: #fff; } .ds-nav-link:focus-visible { outline: 3px solid #205c50; outline-offset: 3px; position: relative; z-index: 3; } .ds-nav-icon { display: block; width: 18px; height: 18px; flex-shrink: 0; } @media (prefers-reduced-motion: reduce) { .ds-nav, .ds-nav-link, .ds-nav-active, .ds-nav-icon { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }"
+    },
+    {
+      "name": "Estados textuales",
+      "kind": "chip",
+      "refersTo": "status-pending",
+      "description": "Indicadores no interactivos de pendiente, confirmado y cancelado, con etiqueta y punto de color.",
+      "html": "<div class=\"ds-state-list\"><span class=\"ds-state\"><span class=\"ds-state-dot\"></span>Por confirmar</span><span class=\"ds-state ds-state-confirmed\"><span class=\"ds-state-dot\"></span>Confirmado</span><span class=\"ds-state ds-state-cancelled\"><span class=\"ds-state-dot\"></span>Cancelado</span></div>",
+      "css": ".ds-state-list { display: flex; flex-wrap: wrap; gap: 8px; } .ds-state { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; font-family: \"Nunito Sans\", \"Segoe UI\", sans-serif; font-size: 12px; font-weight: 700; line-height: 1.2; color: var(--amber-ink, #79591c); background: #f8edda; padding: 4px 7px; border-radius: 5px; } .ds-state-confirmed { color: #436b4e; background: #edf3e9; } .ds-state-cancelled { color: var(--error, #a13e3b); background: var(--error-bg, #fbebea); } .ds-state-dot { width: 4px; height: 4px; border-radius: 50%; background: currentColor; } @media (prefers-reduced-motion: reduce) { .ds-state-list, .ds-state, .ds-state-dot, .ds-state-confirmed, .ds-state-cancelled { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }"
+    },
+    {
+      "name": "Panel",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "Contenedor estático blanco, con borde fino y curva amplia. No tiene un estado interactivo de hover.",
+      "html": "<section class=\"ds-panel\"><h2 class=\"ds-panel-title\">Datos administrativos</h2><p class=\"ds-panel-copy\">Información de la ficha del paciente.</p></section>",
+      "css": ".ds-panel { background: var(--surface, #fff); color: var(--ink, #253b35); border: 1px solid var(--line, #e3e9e4); border-radius: var(--radius, 14px); overflow: hidden; padding: 24px; font-family: \"Nunito Sans\", \"Segoe UI\", sans-serif; } .ds-panel-title { margin: 0 0 17px; font-size: 17px; line-height: 1.35; font-weight: 700; letter-spacing: -0.012em; text-wrap: balance; } .ds-panel-copy { margin: 0; font-size: 14px; line-height: 1.65; color: var(--muted, #63736b); } @media (prefers-reduced-motion: reduce) { .ds-panel, .ds-panel-title, .ds-panel-copy { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }"
+    },
+    {
+      "name": "Turno temporal de calendario",
+      "kind": "custom",
+      "refersTo": "calendar-event-upcoming",
+      "description": "Seis estados compartidos por Día, Semana, Mes y Lista. Recepción explícita prevalece sobre el horario; los colores de identidad profesional quedan en el contexto.",
+      "html": "<div class=\"ds-event-grid\"><button type=\"button\" class=\"ds-event ds-event-elapsed\"><span class=\"ds-event-line\"><b>10:00</b><span>Horario pasado</span></span><strong>Paciente de demostración</strong><span>Consulta · 30 min</span></button><button type=\"button\" class=\"ds-event ds-event-upcoming\"><span class=\"ds-event-line\"><b>10:00</b><span>Próximo</span></span><strong>Paciente de demostración</strong><span>Consulta · 30 min</span></button><button type=\"button\" class=\"ds-event ds-event-scheduled-now\"><span class=\"ds-event-line\"><b>10:00</b><span>Hora prevista actual</span></span><strong>Paciente de demostración</strong><span>Consulta · 30 min</span></button><button type=\"button\" class=\"ds-event ds-event-waiting\"><span class=\"ds-event-line\"><b>10:00</b><span>En espera</span></span><strong>Paciente de demostración</strong><span>Consulta · 30 min</span></button><button type=\"button\" class=\"ds-event ds-event-attending\"><span class=\"ds-event-line\"><b>10:00</b><span>En atención</span></span><strong>Paciente de demostración</strong><span>Consulta · 30 min</span></button><button type=\"button\" class=\"ds-event ds-event-finished\"><span class=\"ds-event-line\"><b>10:00</b><span>Atendido</span></span><strong>Paciente de demostración</strong><span>Consulta · 30 min</span></button></div><p class=\"ds-event-help\">El reloj no registra la llegada ni finaliza la atención.</p>",
+      "css": ".ds-event-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; } .ds-event { display: flex; flex-direction: column; gap: 2px; min-height: 72px; padding: 5px 7px; border: 1px solid #547fb7; border-radius: 7px; text-align: left; background: var(--calendar-future, #dbeafe); color: var(--calendar-future-ink, #193e70); font-family: \"Nunito Sans\", \"Segoe UI\", sans-serif; cursor: pointer; transition: background-color 160ms ease-out, border-color 160ms ease-out, color 160ms ease-out, box-shadow 160ms ease-out; } .ds-event-line { display: flex; justify-content: space-between; gap: 8px; font-size: .75rem; line-height: 1.2; font-variant-numeric: tabular-nums; } .ds-event-line b { font-weight: 700; } .ds-event-line > span { font-weight: 800; } .ds-event strong { font-size: .875rem; font-weight: 800; line-height: 1.25; } .ds-event > span:last-child { font-size: .75rem; line-height: 1.25; opacity: 1; } .ds-event-elapsed { background: var(--calendar-past, #e7edf3); color: var(--calendar-past-ink, #41546c); border-color: #8498b0; } .ds-event-scheduled-now { background: #c9e5ed; color: #16495a; border-color: #2f7489; outline: 2px solid #2f7489; outline-offset: -2px; } .ds-event-waiting { background: var(--calendar-waiting, #ffedb5); color: var(--calendar-waiting-ink, #624109); border-color: #a47b20; } .ds-event-attending { background: var(--calendar-attending, #006157); color: #fff; border-color: var(--calendar-attending, #006157); outline: 2px solid var(--calendar-attending, #006157); outline-offset: -2px; } .ds-event-finished { background: var(--calendar-finished, #dcebe5); color: var(--calendar-finished-ink, #174e44); border-color: #638e7c; } .ds-event:hover { filter: brightness(.975); box-shadow: 0 3px 8px rgb(35 65 43 / 10%); } .ds-event:focus-visible { outline: 3px solid var(--focus, #205c50); outline-offset: 3px; position: relative; z-index: 4; } .ds-event-help { color: var(--muted, #63736b); font-family: \"Nunito Sans\", \"Segoe UI\", sans-serif; font-size: .75rem; line-height: 1.6; } @media (prefers-reduced-motion: reduce) { .ds-event { transition: none !important; } }"
+    },
+    {
+      "name": "Vistas del calendario",
+      "kind": "custom",
+      "refersTo": "calendar-segment",
+      "description": "Control segmentado con selección blanca, texto verde y sombra breve.",
+      "html": "<div class=\"ds-segments\" aria-label=\"Vista del calendario\"><button type=\"button\" class=\"ds-segment ds-segment-active\" aria-pressed=\"true\">Día</button><button type=\"button\" class=\"ds-segment\" aria-pressed=\"false\">Semana</button><button type=\"button\" class=\"ds-segment\" aria-pressed=\"false\">Mes</button></div>",
+      "css": ".ds-segments { display: inline-flex; border: 1px solid var(--line, #e3e9e4); border-radius: 6px; padding: 3px; background: #f7f9f7; flex-shrink: 0; } .ds-segment { border: 0; background: transparent; color: #66746a; border-radius: 4px; min-height: 26px; padding: 4px 11px; font-family: \"Nunito Sans\", \"Segoe UI\", sans-serif; font-size: 13px; font-weight: 700; cursor: pointer; transition: background-color 160ms ease-out, border-color 160ms ease-out, color 160ms ease-out, box-shadow 160ms ease-out; } .ds-segment.ds-segment-active { background: #fff; color: var(--green, #205c50); box-shadow: 0 1px 4px rgb(24 55 37 / 10%); } .ds-segment:hover:not(.ds-segment-active) { background: #e8efe9; } .ds-segment:focus-visible { outline: 3px solid #205c50; outline-offset: 3px; position: relative; z-index: 3; } @media (prefers-reduced-motion: reduce) { .ds-segments, .ds-segment, .ds-segment-active { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Patio",
+    "overview": "Patio toma la luz, el verde vegetal y las superficies claras de los patios contemporáneos y los convierte en una interfaz serena y precisa. El verde profundo da identidad a las acciones y selecciones; los fondos apenas teñidos permiten distinguir áreas sin recurrir a ornamentación. Los controles conservan formas web familiares y una densidad adecuada para trabajo administrativo frecuente.\n\nUna sola familia humanista relaciona nombres, horarios y formularios. Los bordes finos y las curvas contenidas aportan calidez sin competir con la información. Los calendarios usan una paleta temporal azul, gris azulado, petróleo, ámbar y verde; los tonos de identidad profesional se conservan en avatares y selectores. Patio es el nombre de trabajo de esta propuesta visual; no constituye una identidad comercial aprobada. La finalidad y composición de cada pantalla se conservan en su propio brief.",
+    "keyCharacteristics": [
+      "Superficies blancas sobre un lienzo claro, con navegación celadón.",
+      "Verde profundo para acciones y selección; identidad de agenda separada del color temporal del calendario.",
+      "Calendario azul y gris azulado con atención, espera y finalización escritas; hora actual roja.",
+      "Nunito Sans local, jerarquía compacta y cifras tabulares en horarios.",
+      "Contenedores planos; elevación localizada en elementos flotantes."
+    ],
+    "rules": [
+      {
+        "name": "The Functional Green Rule",
+        "body": "El verde profundo señala una acción o selección; los fondos suaves separan áreas y la identidad de agenda permanece en su contexto.",
+        "section": "colors"
+      },
+      {
+        "name": "The Explicit State Rule",
+        "body": "Todo estado conserva una etiqueta legible; el tono y el punto de color acompañan el significado escrito.",
+        "section": "colors"
+      },
+      {
+        "name": "The Temporal Calendar Rule",
+        "body": "El color del turno describe tiempo o recepción explícita, nunca identidad profesional. «Horario pasado» y «Hora prevista actual» no significan «Atendido»; solo la finalización registrada habilita ese estado.",
+        "section": "colors"
+      },
+      {
+        "name": "The Stable Clock Rule",
+        "body": "Alinear horarios y cantidades con cifras tabulares de Nunito Sans; conservar la misma familia que el resto de la interfaz.",
+        "section": "typography"
+      },
+      {
+        "name": "The Local Depth Rule",
+        "body": "Mantener los paneles planos en reposo y reservar las sombras para los elementos y estados flotantes ya definidos.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do usar el verde profundo para acciones y selección; conservar identidad de agenda en contexto y paleta temporal dentro del calendario.",
+      "Do conservar la etiqueta textual junto a los colores de estado.",
+      "Do usar Nunito Sans local y cifras tabulares para horarios y cantidades alineadas.",
+      "Do mantener bordes finos, paneles planos y sombras localizadas según su función.",
+      "Do conservar foco visible, retorno de foco y la preferencia de movimiento reducido al extender componentes interactivos.",
+      "Do distinguir por texto horario pasado, hora prevista actual y recepción registrada, con la misma clasificación en todas las vistas de calendario."
+    ],
+    "donts": [
+      "Don't comunicar confirmación, cancelación o entrega únicamente mediante color.",
+      "Don't trasladar el color de una agenda al significado de su estado.",
+      "Don't mostrar «Atendido» porque terminó el horario previsto ni usar la línea de hora actual como registro de presencia.",
+      "Don't tratar un panel estático como botón ni añadirle una elevación de reposo ajena al sistema.",
+      "Don't reemplazar los SVG existentes por glifos de texto o una tipografía de iconos.",
+      "Don't convertir la composición de jornada o su modo de uso en una regla de marca para todas las superficies."
+    ]
+  }
+}

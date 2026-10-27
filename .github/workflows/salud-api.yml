@@ -1,0 +1,51 @@
+name: Salud API
+on:
+  push:
+    paths: ['salud-api/**', 'scripts/strict-http.mjs', '.github/workflows/salud-api.yml']
+  pull_request:
+    paths: ['salud-api/**', '.github/workflows/salud-api.yml']
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: salud-api
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+          cache-dependency-path: salud-api/pom.xml
+      - run: chmod +x mvnw
+      - run: ./mvnw -B -ntp --strict-checksums clean verify
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: ./mvnw -B -ntp test-compile dependency:build-classpath -DincludeScope=test -Dmdep.outputFile=target/strict-classpath.txt
+      - name: HTTP con MFA y PostgreSQL descartable
+        run: |
+          java -cp "target/test-classes:target/classes:$(cat target/strict-classpath.txt)" ar.com.salud.StrictTestApplication > target/strict-server.log 2>&1 &
+          fixture_pid=$!
+          trap 'kill "$fixture_pid" 2>/dev/null || true' EXIT
+          ready=false
+          for attempt in $(seq 1 90); do
+            if ! kill -0 "$fixture_pid" 2>/dev/null; then cat target/strict-server.log; exit 1; fi
+            if curl --fail --silent http://127.0.0.1:18080/actuator/health > /dev/null; then ready=true; break; fi
+            sleep 1
+          done
+          if [ "$ready" != true ]; then cat target/strict-server.log; exit 1; fi
+          node ../scripts/strict-http.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: api-verification
+          path: |
+            salud-api/target/surefire-reports/
+            salud-api/target/failsafe-reports/
+            salud-api/target/strict-server.log
+            tmp/strict-http-result.json

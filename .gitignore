@@ -14,12 +14,15 @@ target/
 dist/
 build/
 .angular/
+__pycache__/
+*.py[cod]
 
 # Resultados generados
 coverage/
 playwright-report/
 test-results/
 *.log
+output/salud-api-local-*.jar
 
 # Datos locales: usar exclusivamente datos ficticios en desarrollo
 backups/

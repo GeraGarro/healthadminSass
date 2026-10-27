@@ -1,0 +1,8 @@
+{
+  "reverseTab": "Ingresar a mi cuenta",
+  "forwardTab": "Cerrar navegación",
+  "backgroundInert": false,
+  "returnFocus": "Abrir navegación",
+  "sidebarHidden": "true",
+  "sidebarInert": true
+}

@@ -1,0 +1,14 @@
+{
+  "checks": [
+    "1440px: institución sin tablas ni pacientes, alta provisoria, baja y rutas protegidas",
+    "1440px: recepción, agenda multicolumna, filtros y autorización pendiente",
+    "1440px: primer ingreso con solo nombre y apellido, directorio como inicio sin agenda",
+    "1280px: institución sin tablas ni pacientes, alta provisoria, baja y rutas protegidas",
+    "1280px: recepción, agenda multicolumna, filtros y autorización pendiente",
+    "1280px: primer ingreso con solo nombre y apellido, directorio como inicio sin agenda",
+    "390px: institución sin tablas ni pacientes, alta provisoria, baja y rutas protegidas",
+    "390px: recepción, agenda multicolumna, filtros y autorización pendiente",
+    "390px: primer ingreso con solo nombre y apellido, directorio como inicio sin agenda"
+  ],
+  "errors": []
+}

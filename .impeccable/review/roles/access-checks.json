@@ -1,0 +1,8 @@
+{
+  "checks": [
+    "1440px: solicitud sin acceso → rechazo del titular → nueva solicitud → aprobación → inicio con una agenda, sin chat",
+    "1280px: solicitud sin acceso → rechazo del titular → nueva solicitud → aprobación → inicio con una agenda, sin chat",
+    "390px: solicitud sin acceso → rechazo del titular → nueva solicitud → aprobación → inicio con una agenda, sin chat"
+  ],
+  "errors": []
+}

@@ -1,0 +1,29 @@
+{
+    admin off
+    auto_https off
+}
+
+:8080 {
+    header {
+        X-Content-Type-Options nosniff
+        Referrer-Policy same-origin
+    }
+    encode gzip
+    handle /healthz {
+        respond "ok" 200
+    }
+    @api path /api /api/*
+    handle @api {
+        reverse_proxy {$API_UPSTREAM:api:8080}
+    }
+    handle {
+        root * /srv
+        try_files {path} /index.html
+        header Cache-Control "no-cache"
+        file_server
+    }
+    handle_errors {
+        header Content-Type application/problem+json
+        respond `{"detail":"El servidor no está disponible. Volvé a intentar."}` {err.status_code}
+    }
+}

@@ -20,8 +20,12 @@ por capacidad y configuración transversal pequeña. La carpeta sustituye el nom
 Usar Spring Boot 4.1.1 estable, confirmado en Initializr oficial; JDK 21 LTS instalado
 (21.0.12), compatible con Boot, con compilación y Enforcer fijados a 21. Java 25 figuraba
 como propuesta en seguimiento, no decisión aprobada; no se instala otro JDK sin necesidad.
-Maven Wrapper 3.3.4 fija Maven 3.10.0; las dependencias Spring se resuelven mediante
+Maven Wrapper 3.3.4 fija Maven 3.9.16; las dependencias Spring se resuelven mediante
 el BOM. Descargas con checksums estrictos y checksum de distribución fijado.
+
+Ajuste del 20/10/2026: se sustituye Maven 3.10.0 por 3.9.16 para evitar el error
+`ArtifactHandlerManager` al importar el proyecto con integraciones de IntelliJ
+incompatibles con los cambios de inyección de componentes de Maven 3.10.
 
 Spring MVC, Security, Validation, JPA, Flyway, JDBC PostgreSQL, Actuator y pruebas
 JUnit/Spring Security/Testcontainers. Reportes: JasperReports 7.1.0/PDF/fuentes,
